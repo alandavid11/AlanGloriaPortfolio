@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemainingWeeks — See your life in weeks</title>
+  <meta name="description" content="RemainingWeeks is a minimalist memento mori life calendar for iPhone, Apple Watch, and widgets. See the time you have left and make it count." />
+  <meta property="og:title" content="RemainingWeeks — See your life in weeks" />
+  <meta property="og:description" content="A minimalist memento mori life calendar for iPhone, Apple Watch and widgets. Coming soon to the App Store." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b;
+      --panel: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --dim: #71717a;
+      --accent: #c8745a; /* clay — the app's default accent */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(60% 50% at 50% 0%, rgba(200,116,90,0.12), transparent 70%);
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: inherit; }
+
+    header { padding: 28px 0; }
+    .top { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .glyph {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(160deg, var(--accent), #8f4d3a);
+      display: grid; place-items: center; color: #fff; font-weight: 700;
+    }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 18px; }
+    .nav a:hover { color: var(--text); }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 5px 12px; border-radius: 999px;
+      border: 1px solid rgba(200,116,90,0.3); background: rgba(200,116,90,0.1);
+      color: var(--accent); font-size: 12px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+    .hero { padding: 56px 0 40px; }
+    h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; margin: 22px 0 16px; }
+    h1 .soft { color: var(--dim); font-weight: 300; }
+    .lede { font-size: 1.15rem; color: var(--muted); max-width: 56ch; }
+
+    section { padding: 28px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 18px; }
+    .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--dim); margin-bottom: 8px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px;
+    }
+    .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .pill { font-size: 12px; color: var(--muted); border: 1px solid var(--border); background: var(--panel); border-radius: 999px; padding: 5px 11px; }
+
+    .life-grid { display: grid; grid-template-columns: repeat(13, 1fr); gap: 5px; max-width: 360px; margin-top: 8px; }
+    .cell { aspect-ratio: 1; border-radius: 3px; background: rgba(255,255,255,0.08); }
+    .cell.lived { background: var(--text); }
+    .cell.now { background: var(--accent); }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); color: var(--dim); font-size: 13px; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    .foot-links { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div class="brand"><span class="glyph">▦</span> RemainingWeeks</div>
+        <nav class="nav">
+          <a href="/remainingweeks/privacy">Privacy</a>
+          <a href="/remainingweeks/support">Support</a>
+          <a href="/">Portfolio</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="border-top:none;">
+        <span class="badge"><span class="dot"></span> Coming soon to the App Store</span>
+        <h1>See your life in weeks.<br /><span class="soft">Make them count.</span></h1>
+        <p class="lede">
+          RemainingWeeks is a quiet, minimalist memento mori calendar. It turns your life
+          expectancy into a grid of weeks — so the time you have left stops being abstract.
+        </p>
+        <div class="life-grid" aria-hidden="true">
+          <!-- 39 lived, 1 now, 65 ahead -->
+          <script>
+            document.write(
+              Array.from({length: 104}, (_, i) =>
+                `<span class="cell ${i < 39 ? 'lived' : i === 39 ? 'now' : ''}"></span>`
+              ).join('')
+            );
+          </script>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">What it does</p>
+        <h2>A calmer way to look at time</h2>
+        <div class="grid">
+          <div class="card"><h3>Life in weeks</h3><p>Your whole life as a grid based on your country's life expectancy. Filter by life, this year, or this month — in days, weeks, months or years.</p></div>
+          <div class="card"><h3>Custom countdowns</h3><p>A trip, a goal, retirement. Track any future date with its own grid, widgets and wallpaper.</p></div>
+          <div class="card"><h3>Widgets &amp; lock screen</h3><p>Home Screen and Lock Screen widgets that always match your active filter, refreshed daily.</p></div>
+          <div class="card"><h3>Apple Watch</h3><p>Complications showing your life grid or any countdown, in every watch-face family.</p></div>
+          <div class="card"><h3>Wallpaper via Shortcuts</h3><p>Export a wallpaper of your grid and let a Shortcut refresh it automatically each day.</p></div>
+          <div class="card"><h3>Reflect &amp; stay aware</h3><p>Daily inspiration, milestone alerts, and a one-line weekly reflection journal.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">Built with</p>
+        <h2>Native, private, polished</h2>
+        <div class="pills">
+          <span class="pill">SwiftUI</span>
+          <span class="pill">SwiftData</span>
+          <span class="pill">WidgetKit</span>
+          <span class="pill">watchOS</span>
+          <span class="pill">App Intents</span>
+          <span class="pill">StoreKit 2</span>
+          <span class="pill">iCloud sync</span>
+        </div>
+        <p style="color:var(--muted); margin-top:16px; font-size:0.95rem;">
+          Free to use in weeks. <strong style="color:var(--text)">RemainingWeeks Pro</strong> unlocks every
+          time unit, custom themes, milestone alerts, the weekly reflection journal and wallpaper export —
+          available as an annual plan (with a free trial) or a weekly plan.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="foot-links">
+        <a href="/remainingweeks/privacy">Privacy Policy</a>
+        <a href="/remainingweeks/support">Support</a>
+        <a href="/">Portfolio</a>
+      </div>
+      <div class="mono">© <span id="y"></span> Producciones4D · Alan Gloria</div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

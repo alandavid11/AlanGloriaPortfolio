@@ -18,6 +18,7 @@ import {
   Smartphone,
   Trophy,
   Globe,
+  Hourglass,
 } from 'lucide-react';
 import { SkillItem, ToolItem, EducationItem } from '../types';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -498,25 +499,33 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp })
           <GlassCard className="bento-card project-card flex flex-col" accent="rose" revealIndex={1}>
             <div className="flex items-start gap-3 mb-2">
               <div className="project-emblem w-12 h-12 rounded-xl bg-rose-950/50 border border-rose-500/20 flex items-center justify-center shrink-0">
-                <Smartphone className="w-6 h-6 text-rose-300" strokeWidth={1.5} />
+                <Hourglass className="w-6 h-6 text-rose-300" strokeWidth={1.5} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-50">Next App Store release</h3>
-                  <span className="tag-pill text-rose-300/90 border-rose-500/20 bg-rose-500/10">Planned</span>
+                  <h3 className="text-lg font-semibold text-zinc-50">RemainingWeeks</h3>
+                  <span className="tag-pill text-rose-300/90 border-rose-500/20 bg-rose-500/10">Coming soon</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">Second App Store product · discovery phase</p>
+                <p className="text-xs font-mono text-zinc-600">Memento mori life calendar · SwiftUI</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              A planned second App Store product after WoRD, focused on the same standard: focused utility,
-              polished native UX, measurable monetization, and a clean path from prototype to release.
+              A minimalist memento mori app that turns your life expectancy into a grid of weeks. Custom
+              countdowns, Home &amp; Lock Screen widgets, Apple Watch complications, Shortcuts wallpaper export,
+              milestone alerts and a weekly reflection journal — with iCloud sync and a StoreKit subscription.
             </p>
             <div className="flex flex-wrap gap-1.5 mt-3">
-              {['SwiftUI', 'Product strategy', 'App Store', 'Monetization'].map((t) => (
+              {['SwiftUI', 'WidgetKit', 'watchOS', 'StoreKit 2', 'SwiftData'].map((t) => (
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>
+            <button
+              type="button"
+              className="btn-ghost mt-3 text-xs py-2"
+              onClick={() => window.open('/remainingweeks', '_blank')}
+            >
+              Learn more <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
           </GlassCard>
         </div>
       </section>

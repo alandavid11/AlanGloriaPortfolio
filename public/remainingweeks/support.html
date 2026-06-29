@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemainingWeeks — Support</title>
+  <meta name="description" content="Support and FAQ for the RemainingWeeks iOS app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#09090b; --panel:rgba(255,255,255,0.03); --border:rgba(255,255,255,0.08); --text:#fafafa; --muted:#a1a1aa; --dim:#71717a; --accent:#c8745a; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--bg); color:var(--text); font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.7; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+    header { padding:28px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:600; }
+    .glyph { width:32px; height:32px; border-radius:9px; background:linear-gradient(160deg,var(--accent),#8f4d3a); display:grid; place-items:center; color:#fff; font-weight:700; }
+    .nav a { color:var(--muted); font-size:14px; margin-left:18px; } .nav a:hover { color:var(--text); }
+    main { padding:44px 0 20px; }
+    h1 { font-size:2.2rem; font-weight:600; letter-spacing:-0.02em; }
+    .intro { color:var(--text); font-size:1.05rem; margin-top:16px; }
+    .contact { display:inline-flex; align-items:center; gap:8px; margin-top:18px; padding:11px 18px; border-radius:12px; background:rgba(200,116,90,0.12); border:1px solid rgba(200,116,90,0.3); color:var(--accent); font-weight:500; }
+    h2 { font-size:1.05rem; font-weight:600; margin:26px 0 6px; }
+    p, li { color:var(--muted); font-size:0.97rem; }
+    strong { color:var(--text); font-weight:500; }
+    .faq { border-top:1px solid var(--border); margin-top:30px; padding-top:10px; }
+    .q { border-bottom:1px solid var(--border); padding:16px 0; }
+    .q h3 { font-size:1rem; font-weight:600; color:var(--text); margin-bottom:6px; }
+    footer { padding:36px 0; border-top:1px solid var(--border); color:var(--dim); font-size:13px; margin-top:30px; }
+    footer a { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="glyph">▦</span> RemainingWeeks</div>
+      <nav class="nav"><a href="/remainingweeks">Overview</a><a href="/remainingweeks/privacy">Privacy</a></nav>
+    </header>
+
+    <main>
+      <h1>Support</h1>
+      <p class="intro">Need help with RemainingWeeks? I read every message and usually reply within a couple of days.</p>
+      <a class="contact" href="mailto:alangloriasilva@hotmail.com?subject=RemainingWeeks%20Support">✉ alangloriasilva@hotmail.com</a>
+
+      <div class="faq">
+        <div class="q">
+          <h3>How do I set my life grid as wallpaper?</h3>
+          <p>Open the app → Settings → Wallpaper to export an image, or use the included Shortcut. iOS doesn't let apps change your wallpaper automatically, so the app provides a <strong>Shortcuts</strong> action ("Generate RemainingWeeks wallpaper") that you can run — or automate to run daily — together with the system "Set Wallpaper" action.</p>
+        </div>
+        <div class="q">
+          <h3>Can a widget or watch complication show a specific countdown?</h3>
+          <p>Yes. Long-press a widget (or edit a watch complication) and choose the countdown in its configuration. Leave it empty to show your life view.</p>
+        </div>
+        <div class="q">
+          <h3>My widget or complication looks empty on Apple Watch.</h3>
+          <p>Open the iPhone app once so it can sync your data to the watch, then the complication will update. Watch complications refresh roughly once a day.</p>
+        </div>
+        <div class="q">
+          <h3>How do I restore my purchase?</h3>
+          <p>Go to Settings inside the app and tap <strong>Restore purchases</strong>. Make sure you're signed in with the Apple ID used for the original purchase.</p>
+        </div>
+        <div class="q">
+          <h3>How do I manage or cancel my subscription?</h3>
+          <p>Subscriptions are managed by Apple: on your device open <strong>Settings → [your name] → Subscriptions</strong>, or App Store → your profile → Subscriptions. The annual plan's free trial converts to a paid subscription unless cancelled at least 24 hours before it ends.</p>
+        </div>
+        <div class="q">
+          <h3>Does my data sync across devices?</h3>
+          <p>If you're signed in to iCloud, your profile, countdowns and reflections sync privately through your iCloud account. See the <a href="/remainingweeks/privacy">Privacy Policy</a> for details.</p>
+        </div>
+        <div class="q">
+          <h3>Is the life expectancy exact?</h3>
+          <p>No — it's an estimate based on your country's average life expectancy, meant for reflection and perspective, not prediction. It is not medical advice.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mono">© <span id="y"></span> Producciones4D · <a href="/remainingweeks">RemainingWeeks</a></footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
