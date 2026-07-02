@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Triplook — Coming soon</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --panel: rgba(255,255,255,0.03);
+      --hair: rgba(255,255,255,0.08);
+      --ink: #fafaf9;
+      --ink-2: #a1a1aa;
+      --tan: #c9a87c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.6;
+      min-height: 100dvh; display: grid; place-items: center; padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 560px; background: var(--panel);
+      border: 1px solid var(--hair); border-radius: 20px; padding: 40px 32px;
+    }
+    .eyebrow {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tan); margin: 0 0 12px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif; font-weight: 400;
+      font-size: clamp(32px, 7vw, 44px); margin: 0 0 8px; letter-spacing: -0.01em;
+    }
+    p { color: var(--ink-2); margin: 0 0 24px; }
+    .badge {
+      display: inline-block; font-size: 12px; color: var(--tan);
+      border: 1px solid var(--tan); border-radius: 999px; padding: 4px 12px; margin-bottom: 24px;
+    }
+    .links { display: flex; flex-direction: column; gap: 10px; }
+    a.row {
+      display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none; color: var(--ink); background: rgba(255,255,255,0.02);
+      border: 1px solid var(--hair); border-radius: 12px; padding: 14px 16px;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    a.row:hover { border-color: var(--tan); background: rgba(201,168,124,0.06); }
+    a.row span.arrow { color: var(--tan); }
+    footer { margin-top: 28px; font-size: 12px; color: var(--ink-2); }
+    footer a { color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">Triplook</p>
+    <h1>Pack like a stylist.</h1>
+    <span class="badge">Work in progress · Beta</span>
+    <p>Triplook is an iOS app that plans your travel outfits by destination and weather, captures your wardrobe, and keeps a photographic lookbook of every trip. We're putting the finishing touches on it.</p>
+    <div class="links">
+      <a class="row" href="/triplook/privacy.html">Privacy Policy <span class="arrow">→</span></a>
+      <a class="row" href="/triplook/terms.html">Terms of Use <span class="arrow">→</span></a>
+      <a class="row" href="/triplook/support.html">Support <span class="arrow">→</span></a>
+    </div>
+    <footer>© <span id="y"></span> Triplook · Built by <a href="/">Alan Gloria</a></footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
