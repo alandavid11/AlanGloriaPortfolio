@@ -74,6 +74,17 @@ const CODTR_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/codtr-08-notifications.webp', alt: 'CODTR notifications', label: 'Notifications' },
 ];
 
+const ROLYA_SCREENSHOTS: ScreenshotItem[] = [
+  { src: '/rolya-01-landing.webp', alt: 'Rolya marketing landing — shift scheduling for Mexican SMBs', label: 'Landing' },
+  { src: '/rolya-03-turnos.webp', alt: 'Rolya weekly schedule with estimated labor cost', label: 'Weekly rol' },
+  { src: '/rolya-04-rotaciones.webp', alt: 'Rolya rotating shifts cycle editor', label: 'Rotating shifts' },
+  { src: '/rolya-02-funciones.webp', alt: 'Rolya landing feature demos', label: 'Live demos' },
+  { src: '/rolya-05-plan.webp', alt: 'Rolya plans and billing with Stripe subscriptions', label: 'Stripe billing' },
+  { src: '/rolya-06-calculadora.webp', alt: 'Rolya free labor-law calculators (overtime)', label: 'LFT calculators' },
+  { src: '/rolya-07-blog.webp', alt: 'Rolya SEO blog for business owners', label: 'SEO blog' },
+  { src: '/rolya-08-soluciones.webp', alt: 'Rolya industry landing page for restaurants', label: 'Industry pages' },
+];
+
 const TEAM_SIGNALS = [
   {
     eyebrow: 'Ship',
@@ -172,6 +183,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
         { name: 'TypeScript', color: '', textColor: 'text-sky-300' },
         { name: 'Supabase', color: '', textColor: 'text-emerald-300' },
         { name: 'PostgreSQL', color: '', textColor: 'text-emerald-300' },
+        { name: 'Stripe', color: '', textColor: 'text-violet-300' },
         { name: 'WebSockets', color: '', textColor: 'text-teal-300' },
       ],
     },
@@ -310,7 +322,11 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               <button type="button" className="text-zinc-100 link-underline" onClick={onNavigateToRemainingWeeks}>
                 RemainingWeeks
               </button>{' '}
-              on the App Store (widgets, watchOS, RevenueCat subscriptions).
+              on the App Store (widgets, watchOS, RevenueCat subscriptions), and run{' '}
+              <a href="#project-rolya" className="text-zinc-100 link-underline">
+                Rolya
+              </a>
+              , a live shift-scheduling SaaS for Mexican SMBs with Stripe billing.
             </p>
           </GlassCard>
           <GlassCard compact className="story-panel flex flex-col justify-center gap-2" revealIndex={1}>
@@ -448,8 +464,53 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
             </div>
           </GlassCard>
 
+          {/* Rolya — full-width desktop screenshots */}
+          <GlassCard id="project-rolya" className="lg:col-span-12 bento-card project-card flex flex-col scroll-mt-24" accent="emerald" revealIndex={2}>
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
+              <div>
+                <div className="flex items-start gap-3 mb-2">
+                  <div className="project-emblem w-12 h-12 rounded-xl bg-teal-950/60 border border-teal-500/20 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-6 h-6 text-teal-400" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-semibold text-zinc-50">Rolya</h3>
+                      <span className="tag-pill text-teal-300/90 border-teal-500/20 bg-teal-500/10">Live · SaaS</span>
+                    </div>
+                    <p className="text-xs font-mono text-zinc-600">Shift-scheduling SaaS for Mexican SMBs · rolya.com.mx</p>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Multi-tenant SaaS where owners build their team&apos;s weekly rol in minutes: recurring shift
+                  templates, auto-rotating shift cycles, business-type presets, time-off tracking, estimated weekly
+                  labor cost, and one-tap WhatsApp sharing of the schedule as an image. Supabase Postgres with RLS
+                  multi-tenancy, Google sign-in, and live Stripe subscriptions (freemium → paid plans) with webhooks
+                  and the customer Billing Portal.
+                </p>
+                <p className="text-xs text-zinc-400 leading-relaxed mt-2">
+                  Also owns the growth side: an SEO content engine (blog, free labor-law calculators, per-industry
+                  landing pages, competitor comparisons) with JSON-LD structured data, sitemap/OG assets, motion-graphics
+                  promo videos, a super-admin metrics panel, and Vercel Analytics + Speed Insights.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {['Next.js 16', 'React 19', 'Supabase RLS', 'Stripe', 'Tailwind v4', 'SEO'].map((t) => (
+                    <span key={t} className="tag-pill">{t}</span>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  className="btn-ghost mt-3 text-xs py-2"
+                  onClick={() => window.open('https://rolya.com.mx', '_blank')}
+                >
+                  rolya.com.mx <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+              <ScreenshotGallery items={ROLYA_SCREENSHOTS} variant="desktop" />
+            </div>
+          </GlassCard>
+
           {/* Cachoquiniela — full-width desktop screenshots */}
-          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={2}>
+          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={3}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -486,7 +547,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* CODTR — full-width desktop screenshots */}
-          <GlassCard id="project-codtr" className="lg:col-span-12 bento-card project-card project-card-codtr flex flex-col scroll-mt-24" accent="sky" revealIndex={3}>
+          <GlassCard id="project-codtr" className="lg:col-span-12 bento-card project-card project-card-codtr flex flex-col scroll-mt-24" accent="sky" revealIndex={4}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -548,18 +609,18 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-50">Rolya</h3>
-                  <span className="tag-pill text-emerald-300/90 border-emerald-500/20 bg-emerald-500/10">WIP</span>
+                  <h3 className="text-lg font-semibold text-zinc-50">Rolya — Attendance (Phase 2)</h3>
+                  <span className="tag-pill text-emerald-300/90 border-emerald-500/20 bg-emerald-500/10">Next up</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">Shift scheduling SaaS · Next.js</p>
+                <p className="text-xs font-mono text-zinc-600">Attendance &amp; payroll reports for Rolya</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Mobile-friendly scheduling and attendance tooling for Mexican SMBs: employee setup, recurring shift
-              templates, weekly schedules, time-off requests, and planned attendance/reporting workflows.
+              Attendance module for the live Rolya SaaS: clock-in (PIN kiosk / QR), lateness and absence tracking
+              tied to the published schedule, payroll-ready hour reports, and Excel/CSV exports for SMB owners.
             </p>
             <div className="flex flex-wrap gap-1.5 mt-3">
-              {['Next.js', 'React 19', 'Supabase', 'Stripe'].map((t) => (
+              {['Next.js', 'Supabase', 'Reports'].map((t) => (
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>
