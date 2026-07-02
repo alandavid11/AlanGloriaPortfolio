@@ -469,9 +469,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
-                  <div className="project-emblem w-12 h-12 rounded-xl bg-teal-950/60 border border-teal-500/20 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-6 h-6 text-teal-400" strokeWidth={1.5} />
-                  </div>
+                  <img src="/rolya-icon.webp" alt="Rolya" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-semibold text-zinc-50">Rolya</h3>
@@ -604,9 +602,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <GlassCard className="bento-card project-card flex flex-col" accent="emerald" revealIndex={0}>
             <div className="flex items-start gap-3 mb-2">
-              <div className="project-emblem w-12 h-12 rounded-xl bg-emerald-950/60 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                <Sparkles className="w-6 h-6 text-emerald-400" strokeWidth={1.5} />
-              </div>
+              <img src="/rolya-icon.webp" alt="Rolya" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-lg font-semibold text-zinc-50">Rolya — Attendance (Phase 2)</h3>
