@@ -1019,3 +1019,31 @@ body {
     transition: border-color 0.2s;
   }
 }
+
+/* ---- WoRD detail page: app-brand theming ------------------------------- */
+
+@keyframes word-ember-rise {
+  0%   { transform: translateY(0); opacity: 0; }
+  8%   { opacity: var(--ember-a, 0.5); }
+  55%  { opacity: calc(var(--ember-a, 0.5) * 0.55); }
+  100% { transform: translateY(-115vh); opacity: 0; }
+}
+
+.word-ember {
+  position: absolute;
+  bottom: -3vh;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation: word-ember-rise var(--ember-t, 16s) linear infinite;
+  animation-delay: var(--ember-d, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes word-guide-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-ember { display: none; }
+}
