@@ -8,13 +8,15 @@ import { motion } from 'framer-motion';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956';
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
-  { src: '/word-hero.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
-  { src: '/word-reader.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
-  { src: '/word-plan.webp', alt: 'WoRD personalized reading plan with schedule', label: 'Reading Plan' },
-  { src: '/word-track.webp', alt: 'WoRD reading analytics, records and consistency heatmap', label: 'Stats' },
-  { src: '/word-widgets.webp', alt: 'WoRD home and lock screen widgets', label: 'Widgets' },
-  { src: '/word-share.webp', alt: 'WoRD shareable reading stats card', label: 'Share cards' },
-  { src: '/word-limit.webp', alt: 'WoRD find your limit speed test', label: 'Speed test' },
+  { src: '/word-01.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
+  { src: '/word-02.webp', alt: 'WoRD home dashboard with streaks and best WPM', label: 'Home' },
+  { src: '/word-03.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
+  { src: '/word-04.webp', alt: 'WoRD reading analytics, records and consistency heatmap', label: 'Stats' },
+  { src: '/word-05.webp', alt: 'WoRD personalized reading plan with schedule', label: 'Reading Plan' },
+  { src: '/word-06.webp', alt: 'WoRD achievements and badges', label: 'Achievements' },
+  { src: '/word-07.webp', alt: 'WoRD home and lock screen widgets', label: 'Widgets' },
+  { src: '/word-08.webp', alt: 'WoRD shareable reading stats card', label: 'Share cards' },
+  { src: '/word-09.webp', alt: 'WoRD find your limit speed test', label: 'Speed test' },
 ];
 
 const spring = { type: 'spring' as const, stiffness: 100, damping: 20 };
