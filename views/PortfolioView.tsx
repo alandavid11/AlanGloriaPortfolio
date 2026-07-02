@@ -18,13 +18,25 @@ import {
   Smartphone,
   Trophy,
   Globe,
-  Hourglass,
 } from 'lucide-react';
 import { SkillItem, ToolItem, EducationItem } from '../types';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const WORD_APP_STORE_URL =
   'https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956';
+const RWEEKS_APP_STORE_URL =
+  'https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888';
+
+const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
+  { src: '/remainingweeks-01-devices.webp', alt: 'RemainingWeeks on iPhone and Apple Watch', label: 'iPhone + Watch' },
+  { src: '/remainingweeks-02-dashboard.webp', alt: 'RemainingWeeks dashboard with weeks remaining', label: 'Dashboard' },
+  { src: '/remainingweeks-03-grid.webp', alt: 'RemainingWeeks full life-in-weeks grid', label: 'Life grid' },
+  { src: '/remainingweeks-04-countdowns.webp', alt: 'RemainingWeeks custom countdowns', label: 'Countdowns' },
+  { src: '/remainingweeks-05-widgets.webp', alt: 'RemainingWeeks Home Screen widgets', label: 'Widgets' },
+  { src: '/remainingweeks-06-reflection.webp', alt: 'RemainingWeeks weekly reflection journal', label: 'Reflections' },
+  { src: '/remainingweeks-07-lockscreen.webp', alt: 'RemainingWeeks Lock Screen widgets', label: 'Lock Screen' },
+  { src: '/remainingweeks-08-watch.webp', alt: 'RemainingWeeks Apple Watch complications', label: 'Apple Watch' },
+];
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/word-01-home.webp', alt: 'WoRD home dashboard', label: 'Home' },
@@ -62,7 +74,7 @@ const TEAM_SIGNALS = [
   {
     eyebrow: 'Ship',
     title: 'Ships real products',
-    body: 'Published WoRD on the App Store and owns the full path from product idea to release.',
+    body: 'Published WoRD and RemainingWeeks on the App Store and owns the full path from product idea to release.',
   },
   {
     eyebrow: 'Scale',
@@ -106,9 +118,10 @@ const toolReveal = {
 
 interface PortfolioViewProps {
   onNavigateToApp: () => void;
+  onNavigateToRemainingWeeks: () => void;
 }
 
-export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp }) => {
+export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, onNavigateToRemainingWeeks }) => {
   const reduceMotion = useReducedMotion();
   const educationData: EducationItem[] = [
     {
@@ -289,7 +302,11 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp })
               <button type="button" className="text-zinc-100 link-underline" onClick={onNavigateToApp}>
                 WoRD
               </button>{' '}
-              on the App Store (720 stories, WidgetKit, RevenueCat + AdMob).
+              and{' '}
+              <button type="button" className="text-zinc-100 link-underline" onClick={onNavigateToRemainingWeeks}>
+                RemainingWeeks
+              </button>{' '}
+              on the App Store (widgets, watchOS, RevenueCat subscriptions).
             </p>
           </GlassCard>
           <GlassCard compact className="story-panel flex flex-col justify-center gap-2" revealIndex={1}>
@@ -379,8 +396,56 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp })
             </div>
           </GlassCard>
 
+          {/* RemainingWeeks — featured full width */}
+          <GlassCard id="project-remainingweeks" className="lg:col-span-12 bento-card project-card project-card-rweeks group flex flex-col scroll-mt-24" accent="amber" revealIndex={1}>
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
+              <div>
+                <div className="flex items-start gap-3 mb-2">
+                  <img src="/remainingweeks-icon.webp" alt="RemainingWeeks" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-semibold text-zinc-50">RemainingWeeks</h3>
+                      <span className="tag-pill text-orange-300/90 border-orange-500/20 bg-orange-500/10">App Store · New</span>
+                    </div>
+                    <p className="text-xs font-mono text-zinc-600 mt-0.5">Memento mori life calendar · SwiftUI</p>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Your life expectancy as a grid of weeks — iPhone, iPad, Home &amp; Lock Screen widgets, and Apple
+                  Watch complications, all fed by one shared design system. Custom countdowns, a weekly reflection
+                  journal, Shortcuts wallpaper automation, iCloud sync, and RevenueCat subscriptions with a 7-day trial.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {['SwiftUI', 'SwiftData', 'WidgetKit', 'watchOS', 'RevenueCat'].map((t) => (
+                    <span key={t} className="tag-pill">{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-white/[0.06]">
+                  <button
+                    type="button"
+                    className="btn-primary text-xs py-2 px-3"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(RWEEKS_APP_STORE_URL, '_blank');
+                    }}
+                  >
+                    <Smartphone className="w-3.5 h-3.5" /> App Store
+                  </button>
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 text-xs text-orange-300 font-medium"
+                    onClick={onNavigateToRemainingWeeks}
+                  >
+                    Case study <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+              <ScreenshotGallery items={RWEEKS_SCREENSHOTS} variant="phone" />
+            </div>
+          </GlassCard>
+
           {/* Cachoquiniela — full-width desktop screenshots */}
-          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={1}>
+          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={2}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -417,7 +482,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp })
           </GlassCard>
 
           {/* CODTR — full-width desktop screenshots */}
-          <GlassCard id="project-codtr" className="lg:col-span-12 bento-card project-card project-card-codtr flex flex-col scroll-mt-24" accent="sky" revealIndex={2}>
+          <GlassCard id="project-codtr" className="lg:col-span-12 bento-card project-card project-card-codtr flex flex-col scroll-mt-24" accent="sky" revealIndex={3}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -494,38 +559,6 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp })
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>
-          </GlassCard>
-
-          <GlassCard className="bento-card project-card flex flex-col" accent="rose" revealIndex={1}>
-            <div className="flex items-start gap-3 mb-2">
-              <div className="project-emblem w-12 h-12 rounded-xl bg-rose-950/50 border border-rose-500/20 flex items-center justify-center shrink-0">
-                <Hourglass className="w-6 h-6 text-rose-300" strokeWidth={1.5} />
-              </div>
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-50">RemainingWeeks</h3>
-                  <span className="tag-pill text-rose-300/90 border-rose-500/20 bg-rose-500/10">Coming soon</span>
-                </div>
-                <p className="text-xs font-mono text-zinc-600">Memento mori life calendar · SwiftUI</p>
-              </div>
-            </div>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              A minimalist memento mori app that turns your life expectancy into a grid of weeks. Custom
-              countdowns, Home &amp; Lock Screen widgets, Apple Watch complications, Shortcuts wallpaper export,
-              milestone alerts and a weekly reflection journal — with iCloud sync and a StoreKit subscription.
-            </p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {['SwiftUI', 'WidgetKit', 'watchOS', 'StoreKit 2', 'SwiftData'].map((t) => (
-                <span key={t} className="tag-pill">{t}</span>
-              ))}
-            </div>
-            <button
-              type="button"
-              className="btn-ghost mt-3 text-xs py-2"
-              onClick={() => window.open('/remainingweeks', '_blank')}
-            >
-              Learn more <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
           </GlassCard>
         </div>
       </section>

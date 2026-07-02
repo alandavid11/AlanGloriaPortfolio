@@ -8,6 +8,9 @@ const PortfolioView = React.lazy(() =>
 const AppDetailView = React.lazy(() =>
   import('./views/AppDetailView').then((m) => ({ default: m.AppDetailView }))
 );
+const RemainingWeeksDetailView = React.lazy(() =>
+  import('./views/RemainingWeeksDetailView').then((m) => ({ default: m.RemainingWeeksDetailView }))
+);
 const ParticleBackground3D = React.lazy(
   () => import('./components/three/ParticleBackground3D').then((m) => ({ default: m.ParticleBackground3D }))
 );
@@ -35,9 +38,14 @@ function App() {
       <main>
         <Suspense fallback={<ViewFallback />}>
           {currentView === 'portfolio' ? (
-            <PortfolioView onNavigateToApp={() => setCurrentView('app-detail')} />
-          ) : (
+            <PortfolioView
+              onNavigateToApp={() => setCurrentView('app-detail')}
+              onNavigateToRemainingWeeks={() => setCurrentView('remainingweeks-detail')}
+            />
+          ) : currentView === 'app-detail' ? (
             <AppDetailView onBack={() => setCurrentView('portfolio')} />
+          ) : (
+            <RemainingWeeksDetailView onBack={() => setCurrentView('portfolio')} />
           )}
         </Suspense>
       </main>

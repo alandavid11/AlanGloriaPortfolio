@@ -235,6 +235,34 @@ body {
   --project-rgb-secondary: 129, 140, 248;
 }
 
+.project-card-rweeks {
+  /* RemainingWeeks clay accent (#C76147) over warm neutrals */
+  --project-rgb: 199, 97, 71;
+  --project-rgb-secondary: 214, 158, 108;
+}
+
+/* RemainingWeeks case study: restyle the shared gallery for its light canvas */
+.rw-gallery .screenshot-gallery p,
+.rw-gallery .screenshot-gallery figcaption {
+  color: #99938c;
+}
+
+.rw-gallery .screenshot-gallery button {
+  background: rgba(28, 27, 26, 0.05);
+  border-color: rgba(28, 27, 26, 0.12);
+  color: #75706b;
+}
+
+.rw-gallery .screenshot-gallery button:hover {
+  color: #1c1b1a;
+}
+
+.rw-gallery .screenshot-frame {
+  border-color: rgba(28, 27, 26, 0.1);
+  background: #eee9e2;
+  box-shadow: 0 12px 26px -18px rgba(28, 27, 26, 0.45);
+}
+
 .project-emblem {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),

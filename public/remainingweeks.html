@@ -6,7 +6,7 @@
   <title>RemainingWeeks — See your life in weeks</title>
   <meta name="description" content="RemainingWeeks is a minimalist memento mori life calendar for iPhone, Apple Watch, and widgets. See the time you have left and make it count." />
   <meta property="og:title" content="RemainingWeeks — See your life in weeks" />
-  <meta property="og:description" content="A minimalist memento mori life calendar for iPhone, Apple Watch and widgets. Coming soon to the App Store." />
+  <meta property="og:description" content="A minimalist memento mori life calendar for iPhone, Apple Watch and widgets. Now on the App Store." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,6 +54,14 @@
       text-transform: uppercase; letter-spacing: 0.06em;
     }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+    .cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 22px; padding: 12px 22px; border-radius: 999px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 15px; font-weight: 600; letter-spacing: 0.01em;
+      transition: opacity 0.2s ease;
+    }
+    .cta:hover { opacity: 0.88; }
 
     .hero { padding: 56px 0 40px; }
     h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; margin: 22px 0 16px; }
@@ -100,12 +108,15 @@
 
     <main>
       <section class="hero" style="border-top:none;">
-        <span class="badge"><span class="dot"></span> Coming soon to the App Store</span>
+        <span class="badge"><span class="dot"></span> Now on the App Store</span>
         <h1>See your life in weeks.<br /><span class="soft">Make them count.</span></h1>
         <p class="lede">
           RemainingWeeks is a quiet, minimalist memento mori calendar. It turns your life
           expectancy into a grid of weeks — so the time you have left stops being abstract.
         </p>
+        <a class="cta" href="https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888" target="_blank" rel="noopener">
+          &#63743; Download on the App Store
+        </a>
         <div class="life-grid" aria-hidden="true">
           <!-- 39 lived, 1 now, 65 ahead -->
           <script>

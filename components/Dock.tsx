@@ -19,6 +19,26 @@ type SectionId = (typeof NAV_ITEMS)[number]['id'];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 const WORD_ID = 'word';
+const RWEEKS_ID = 'remainingweeks';
+
+const APP_ITEMS = [
+  {
+    id: WORD_ID,
+    label: 'WoRD',
+    icon: '/word-icon.webp',
+    alt: 'WoRD app icon',
+    view: 'app-detail' as const,
+    activeRing: 'ring-rose-300/50',
+  },
+  {
+    id: RWEEKS_ID,
+    label: 'Weeks',
+    icon: '/remainingweeks-icon.webp',
+    alt: 'RemainingWeeks app icon',
+    view: 'remainingweeks-detail' as const,
+    activeRing: 'ring-orange-300/50',
+  },
+] as const;
 const VIEWPORT_MARKER = 0.5;
 const SCROLL_TARGET_ATTEMPTS = 120;
 
@@ -117,7 +137,8 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
       active ? 'text-sky-400' : 'text-zinc-500 group-hover:text-zinc-200'
     }`;
 
-  const activeItemId = currentView === 'app-detail' ? WORD_ID : activeSection;
+  const activeItemId =
+    currentView === 'app-detail' ? WORD_ID : currentView === 'remainingweeks-detail' ? RWEEKS_ID : activeSection;
   const showIndicator = (active: boolean) =>
     active && !reduceMotion ? (
       <motion.span
@@ -156,29 +177,35 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
 
         <div className="w-px h-5 bg-white/10 mx-0.5" aria-hidden />
 
-        <button
-          type="button"
-          className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
-            activeItemId === WORD_ID ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
-          }`}
-          onClick={() => {
-            setView('app-detail');
-            window.requestAnimationFrame(() => {
-              window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-            });
-          }}
-          aria-current={activeItemId === WORD_ID ? 'page' : undefined}
-        >
-          {showIndicator(activeItemId === WORD_ID)}
-          <img
-            src="/word-icon.webp"
-            alt="WoRD app icon"
-            className={`relative w-[18px] h-[18px] shrink-0 rounded-[5px] object-cover ring-1 transition-shadow duration-200 ${
-              activeItemId === WORD_ID ? 'ring-rose-300/50' : 'ring-white/10 group-hover:ring-white/25'
-            }`}
-          />
-          <span className="relative hidden sm:inline">WoRD</span>
-        </button>
+        {APP_ITEMS.map((app) => {
+          const isActive = activeItemId === app.id;
+          return (
+            <button
+              key={app.id}
+              type="button"
+              className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
+                isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
+              }`}
+              onClick={() => {
+                setView(app.view);
+                window.requestAnimationFrame(() => {
+                  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+                });
+              }}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {showIndicator(isActive)}
+              <img
+                src={app.icon}
+                alt={app.alt}
+                className={`relative w-[18px] h-[18px] shrink-0 rounded-[5px] object-cover ring-1 transition-shadow duration-200 ${
+                  isActive ? app.activeRing : 'ring-white/10 group-hover:ring-white/25'
+                }`}
+              />
+              <span className="relative hidden sm:inline">{app.label}</span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );
