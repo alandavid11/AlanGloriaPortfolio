@@ -171,33 +171,46 @@ const MiniReader: React.FC = () => {
       type="button"
       onClick={() => setPaused((p) => !p)}
       aria-label={paused ? 'Resume the reading demo' : 'Pause the reading demo'}
-      className="relative w-full rounded-2xl border border-white/[0.07] px-6 py-9 text-center cursor-pointer"
+      className="relative w-full max-w-[300px] rounded-xl border border-white/[0.07] px-4 pt-2.5 pb-3 cursor-pointer text-left"
       style={{ background: 'linear-gradient(160deg, #0D0D0E 0%, #040405 100%)' }}
+      title={paused ? 'Tap to resume' : 'Tap to pause'}
     >
-      <p className="font-mono text-[10px] uppercase tracking-[0.2em] mb-5" style={{ color: ACCENT }}>
+      <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-center" style={{ color: ACCENT }}>
         230 WPM · {paused ? 'paused' : 'live demo'}
       </p>
-      <div className="flex flex-col items-center gap-2">
+      {/* ReaderView anchor: the focal letter stays pinned between the guides;
+          prefix grows left, suffix grows right (Courier is monospace → ch units). */}
+      <div
+        className="relative h-[72px] whitespace-nowrap"
+        style={{ fontFamily: '"Courier New", monospace', fontSize: '1.35rem' }}
+      >
         <span
-          className="w-px h-4"
+          className="absolute left-1/2 -translate-x-1/2 w-px h-3 top-[5px]"
           style={{ backgroundColor: 'rgba(120,120,120,0.55)', animation: 'word-guide-pulse 2.4s ease-in-out infinite' }}
         />
-        <p
-          className="text-2xl md:text-3xl"
-          style={{ fontFamily: '"Courier New", monospace', color: PAPER, fontWeight: 700 }}
+        <span
+          className="absolute left-1/2 -translate-x-1/2 w-px h-3 bottom-[5px]"
+          style={{ backgroundColor: 'rgba(120,120,120,0.55)', animation: 'word-guide-pulse 2.4s ease-in-out infinite' }}
+        />
+        <span
+          className="absolute top-1/2 -translate-y-1/2"
+          style={{ right: 'calc(50% + 0.5ch)', color: PAPER }}
         >
           {word.slice(0, fi)}
-          <span style={{ color: FOCAL }}>{word[fi]}</span>
-          {word.slice(fi + 1)}
-        </p>
+        </span>
         <span
-          className="w-px h-4"
-          style={{ backgroundColor: 'rgba(120,120,120,0.55)', animation: 'word-guide-pulse 2.4s ease-in-out infinite' }}
-        />
+          className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+          style={{ color: FOCAL }}
+        >
+          {word[fi]}
+        </span>
+        <span
+          className="absolute top-1/2 -translate-y-1/2"
+          style={{ left: 'calc(50% + 0.5ch)', color: PAPER }}
+        >
+          {word.slice(fi + 1)}
+        </span>
       </div>
-      <p className="font-mono text-[10px] mt-5" style={{ color: 'rgba(152,152,159,0.6)' }}>
-        tap to {paused ? 'resume' : 'pause'}
-      </p>
     </button>
   );
 };
@@ -285,12 +298,10 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
                   </span>
                 ))}
               </div>
+              <div className="mt-5">
+                <MiniReader />
+              </div>
             </div>
-          </div>
-
-          {/* Signature: live RSVP demo */}
-          <div className="mb-10 md:mb-12 max-w-2xl">
-            <MiniReader />
           </div>
 
           {/* Screenshots */}
