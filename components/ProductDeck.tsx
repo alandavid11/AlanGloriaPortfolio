@@ -1,39 +1,28 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-const SURFACES = [
+const PHONES = [
   {
     name: 'WoRD',
-    descriptor: 'App Store product',
+    meta: 'App Store · 4.4★',
     anchorId: 'project-word',
+    icon: '/word-icon.webp',
     src: '/word-01-home.webp',
     alt: 'WoRD speed reading app home screen',
-    shape: 'phone',
-    className: 'deck-surface deck-surface-phone',
+    accentClass: 'deck-phone-word',
   },
   {
-    name: 'CODTR',
-    descriptor: 'CoD Warzone tournament platform',
-    anchorId: 'project-codtr',
-    src: '/codtr-01-home.webp',
-    alt: 'CODTR tournament platform dashboard',
-    shape: 'desktop',
-    className: 'deck-surface deck-surface-codtr',
-  },
-  {
-    name: 'Cachoquiniela',
-    descriptor: 'World Cup pool with friends',
-    anchorId: 'project-cachoquiniela',
-    src: '/cacho-posiciones.webp',
-    alt: 'Cachoquiniela World Cup prediction pool leaderboard',
-    shape: 'desktop',
-    className: 'deck-surface deck-surface-cacho',
-    previews: [
-      { src: '/cacho-partidos.webp', alt: 'Cachoquiniela matches tab preview', label: 'Matches' },
-      { src: '/cacho-stats-overview.webp', alt: 'Cachoquiniela stats analytics preview', label: 'Stats' },
-    ],
+    name: 'RemainingWeeks',
+    meta: 'App Store',
+    anchorId: 'project-remainingweeks',
+    icon: '/remainingweeks-icon.webp',
+    src: '/remainingweeks-app-home.webp',
+    alt: 'RemainingWeeks dashboard showing weeks left this year',
+    accentClass: 'deck-phone-rweeks',
   },
 ] as const;
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export const ProductDeck: React.FC = () => {
   const reduceMotion = useReducedMotion();
@@ -51,53 +40,80 @@ export const ProductDeck: React.FC = () => {
   return (
     <motion.aside
       className="product-deck"
-      initial={reduceMotion ? false : { opacity: 0, y: 18, rotateX: 4 }}
-      animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      aria-label="Selected shipped product surfaces"
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: EASE }}
+      aria-label="Selected shipped products"
     >
       <div className="product-deck-glow" aria-hidden />
-      <div className="product-deck-stage">
-        {SURFACES.map((surface, index) => (
-          <motion.a
-            key={surface.name}
-            href={`#${surface.anchorId}`}
-            aria-label={`View ${surface.name} project details`}
-            className={surface.className}
-            onClick={(event) => handleProjectScroll(event, surface.anchorId)}
-            initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.96 }}
-            animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.12 + index * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className={`deck-frame deck-frame-${surface.shape}`}>
-              <img src={surface.src} alt={surface.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-              {'previews' in surface && (
-                <div className="deck-preview-strip" aria-label={`${surface.name} supporting screenshots`}>
-                  {surface.previews.map((preview) => (
-                    <span className="deck-preview-card" key={preview.src}>
-                      <img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" />
-                      <small>{preview.label}</small>
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="deck-caption-rail">
-              <span className="deck-caption-index">0{index + 1}</span>
-              <span className="deck-caption-copy">
-                <strong>{surface.name}</strong>
-                <small>{surface.descriptor}</small>
+
+      <div className="deck-showcase">
+        <motion.a
+          href="#project-rolya"
+          className="deck-browser"
+          aria-label="View Rolya project details"
+          onClick={(event) => handleProjectScroll(event, 'project-rolya')}
+          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: EASE }}
+        >
+          <span className="deck-browser-chrome">
+            <span className="deck-browser-dots" aria-hidden>
+              <i />
+              <i />
+              <i />
+            </span>
+            <span className="deck-browser-url">
+              <img src="/rolya-icon.webp" alt="" aria-hidden />
+              rolya.com.mx
+            </span>
+            <span className="deck-browser-live">
+              <span className="deck-live-dot" aria-hidden />
+              Live
+            </span>
+          </span>
+          <img
+            className="deck-browser-shot"
+            src="/rolya-01-landing.webp"
+            alt="Rolya shift-scheduling SaaS landing page"
+            loading="eager"
+            decoding="async"
+          />
+        </motion.a>
+
+        <div className="deck-phones">
+          {PHONES.map((phone, index) => (
+            <motion.a
+              key={phone.name}
+              href={`#${phone.anchorId}`}
+              className={`deck-phone ${phone.accentClass}`}
+              aria-label={`View ${phone.name} project details`}
+              onClick={(event) => handleProjectScroll(event, phone.anchorId)}
+              initial={reduceMotion ? false : { opacity: 0, y: 34, scale: 0.94 }}
+              animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.24 + index * 0.12, duration: 0.6, ease: EASE }}
+            >
+              <span className="deck-phone-tilt">
+                <span className="deck-phone-frame">
+                  <img src={phone.src} alt={phone.alt} loading="eager" decoding="async" />
+                </span>
+                <span className="deck-phone-badge">
+                  <img src={phone.icon} alt="" aria-hidden />
+                  <span className="deck-phone-badge-copy">
+                    <strong>{phone.name}</strong>
+                    <small>{phone.meta}</small>
+                  </span>
+                </span>
               </span>
-              <span className="deck-caption-action">Explore</span>
-            </div>
-          </motion.a>
-        ))}
+            </motion.a>
+          ))}
+        </div>
       </div>
 
       <div className="product-deck-caption">
         <div>
           <p className="section-kicker">Product deck</p>
-          <h2>Three shipped products, presented with room to breathe.</h2>
+          <h2>Two App Store apps and a live SaaS — all in production.</h2>
         </div>
         <span className="deck-link">Selected work</span>
       </div>

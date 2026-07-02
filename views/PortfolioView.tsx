@@ -18,6 +18,7 @@ import {
   Smartphone,
   Trophy,
   Globe,
+  Luggage,
 } from 'lucide-react';
 import { SkillItem, ToolItem, EducationItem } from '../types';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -89,7 +90,7 @@ const TEAM_SIGNALS = [
   {
     eyebrow: 'Ship',
     title: 'Ships real products',
-    body: 'Published WoRD and RemainingWeeks on the App Store and owns the full path from product idea to release.',
+    body: 'Published WoRD and RemainingWeeks on the App Store, runs the Rolya SaaS in production, and owns the full path from idea to release.',
   },
   {
     eyebrow: 'Scale',
@@ -555,9 +556,9 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-semibold text-zinc-50">CODTR</h3>
-                      <span className="tag-pill text-sky-300/90 border-sky-500/20 bg-sky-500/10">Completed, now discontinued</span>
+                      <span className="tag-pill text-sky-300/90 border-sky-500/20 bg-sky-500/10">Discontinued</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600">CoD Warzone tournament platform · discontinued</p>
+                    <p className="text-xs font-mono text-zinc-600">CoD Warzone tournament platform</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -617,6 +618,30 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
             </p>
             <div className="flex flex-wrap gap-1.5 mt-3">
               {['Next.js', 'Supabase', 'Reports'].map((t) => (
+                <span key={t} className="tag-pill">{t}</span>
+              ))}
+            </div>
+          </GlassCard>
+
+          <GlassCard className="bento-card project-card flex flex-col" accent="amber" revealIndex={1}>
+            <div className="flex items-start gap-3 mb-2">
+              <div className="project-emblem w-12 h-12 rounded-xl bg-amber-950/50 border border-amber-500/20 flex items-center justify-center shrink-0">
+                <Luggage className="w-6 h-6 text-amber-300" strokeWidth={1.5} />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold text-zinc-50">TripLook</h3>
+                  <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">In beta</span>
+                </div>
+                <p className="text-xs font-mono text-zinc-600">Travel outfit planner · iOS</p>
+              </div>
+            </div>
+            <p className="text-xs text-zinc-400 leading-relaxed">
+              iOS app that plans your travel outfits by destination and weather, captures your wardrobe, and keeps a
+              photographic lookbook of every trip. Currently in beta, final polish before the App Store release.
+            </p>
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {['SwiftUI', 'iOS', 'Beta'].map((t) => (
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>

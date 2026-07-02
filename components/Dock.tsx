@@ -38,6 +38,14 @@ const APP_ITEMS = [
     view: 'remainingweeks-detail' as const,
     activeRing: 'ring-orange-300/50',
   },
+  {
+    id: 'rolya',
+    label: 'Rolya',
+    icon: '/rolya-icon.webp',
+    alt: 'Rolya app icon',
+    anchor: 'project-rolya' as const,
+    activeRing: 'ring-emerald-300/50',
+  },
 ] as const;
 const VIEWPORT_MARKER = 0.5;
 const SCROLL_TARGET_ATTEMPTS = 120;
@@ -112,7 +120,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
     };
   }, [currentView]);
 
-  const scrollToSection = (sectionId: SectionId, attempts = 0) => {
+  const scrollToSection = (sectionId: string, attempts = 0) => {
     const target = document.getElementById(sectionId);
 
     if (!target && attempts < SCROLL_TARGET_ATTEMPTS) {
@@ -187,10 +195,15 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}
               onClick={() => {
-                setView(app.view);
-                window.requestAnimationFrame(() => {
-                  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-                });
+                if ('view' in app) {
+                  setView(app.view);
+                  window.requestAnimationFrame(() => {
+                    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+                  });
+                } else {
+                  setView('portfolio');
+                  window.requestAnimationFrame(() => scrollToSection(app.anchor));
+                }
               }}
               aria-current={isActive ? 'page' : undefined}
             >
