@@ -8,11 +8,13 @@ import { motion } from 'framer-motion';
 const APP_STORE_URL = 'https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956';
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
-  { src: '/word-01-home.webp', alt: 'WoRD home dashboard with streaks and daily workout', label: 'Home' },
-  { src: '/word-02-library.webp', alt: 'WoRD reading library with filters', label: 'Library' },
-  { src: '/word-03-challenge.webp', alt: 'WoRD challenge arena by difficulty', label: 'Arena' },
-  { src: '/word-04-stats.webp', alt: 'WoRD Swift Charts reading analytics', label: 'Stats' },
-  { src: '/word-05-speedtest.webp', alt: 'WoRD find your limit speed test', label: 'Speed test' },
+  { src: '/word-hero.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
+  { src: '/word-reader.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
+  { src: '/word-plan.webp', alt: 'WoRD personalized reading plan with schedule', label: 'Reading Plan' },
+  { src: '/word-track.webp', alt: 'WoRD reading analytics, records and consistency heatmap', label: 'Stats' },
+  { src: '/word-widgets.webp', alt: 'WoRD home and lock screen widgets', label: 'Widgets' },
+  { src: '/word-share.webp', alt: 'WoRD shareable reading stats card', label: 'Share cards' },
+  { src: '/word-limit.webp', alt: 'WoRD find your limit speed test', label: 'Speed test' },
 ];
 
 const spring = { type: 'spring' as const, stiffness: 100, damping: 20 };
@@ -23,23 +25,25 @@ interface AppDetailViewProps {
 
 const KEY_FEATURES = [
   'Practice Mode — CADisplayLink RSVP engine with focal-point & bionic rendering up to 900 WPM',
+  'Reading Plans — personalized schedule that ramps your target WPM toward a goal, never repeating a reading',
   'Challenge Mode — read + quiz scoring (accuracy × WPM), daily challenge & 60s Focus Sprint',
-  '720 stories across EN / ES / FR / PT — 10 categories, easy / medium / hard',
-  'Training Hub — XP, levels 1–25, achievements, and guided Pro drills',
+  '"Find Your Limit" speed test that measures real reading speed and assigns a level',
+  '720 stories + 160 quick-practice readings across EN / ES / FR / PT — shuffled-bag rotation so sessions never repeat',
+  'Training Hub — XP, levels 1–25, achievements, streaks with automatic Streak Freeze',
   'WidgetKit home + lock-screen widgets synced via App Group',
-  'Swift Charts analytics, streaks, and heat maps for Pro subscribers',
+  'Shareable result cards sized for Instagram & Facebook Stories',
 ];
 
 const MONETIZATION = [
   {
     title: 'RevenueCat — WoRD Pro',
     detail:
-      'Weekly, monthly, and yearly subscriptions behind the "WoRD Pro" entitlement. Custom animated paywall (WoRDPaywallView) with trial badges and savings math; RevenueCatUI Customer Center in Settings for manage / restore.',
+      'Weekly, monthly, and yearly subscriptions behind the "WoRD Pro" entitlement. Conversion-focused custom paywall: personalized WPM hook, Free-vs-Pro comparison table, Blinkist-style trial timeline backed by a real reminder notification, and a 7-day free trial anchored on the annual plan.',
   },
   {
     title: 'Google AdMob',
     detail:
-      'Centralized AdService with banner ads on Home, Library, Challenge, Training & Stats (never on the RSVP reader). Interstitials every 4 completed challenges and every 2 practice sessions. Rewarded ads unlock one premium story per day in Library.',
+      'Centralized AdService with a single shared banner claimed by the visible screen (one ad WebView alive at a time — a large energy win), never on the RSVP reader. Interstitials every 4 completed challenges; rewarded ads unlock one premium story per day. Full SKAdNetwork attribution (53 network IDs).',
   },
   {
     title: 'Pro gating',
@@ -53,6 +57,7 @@ const ARCHITECTURE = [
   'TimingEngine (CADisplayLink) drives word-by-word RSVP with punctuation pause multipliers',
   'ContentCatalogService aggregates 180 stories × 4 languages from bundled JSON',
   'ScoreService persists sessions to UserDefaults and writes shared stats for the widget extension',
+  'CAEmitterLayer ember particle system renders the brand atmosphere on the GPU render server — near-zero main-thread cost, honors Reduce Motion',
 ];
 
 const TECH_STACK = [
@@ -96,7 +101,7 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
           </div>
         </div>
         <div>
-          <p className="section-kicker text-rose-400 mb-2 hidden lg:block">Published app · v1.4</p>
+          <p className="section-kicker text-rose-400 mb-2 hidden lg:block">Published app · v1.6</p>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-zinc-50 hidden lg:block">
             WoRD — Speed Reading Trainer
           </h1>
@@ -131,9 +136,9 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
                 comprehension in check with post-story quizzes.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                The app ships 720 stories (180 per language × 4 locales), a Challenge Arena with daily challenges and
-                Focus Sprint mode, XP/level progression, and WidgetKit extensions that read live stats from an App Group
-                shared with the main target.
+                The app ships 720 stories (180 per language × 4 locales), personalized Reading Plans that schedule
+                sessions and ramp the target speed toward a goal, a Challenge Arena with daily challenges and Focus
+                Sprint mode, XP/level progression, and WidgetKit extensions that read live stats from an App Group.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 I owned architecture, UI/UX, content pipeline, App Store submission, ASO, compliance (ATT + app-ads.txt),
@@ -185,7 +190,7 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
               <dl className="space-y-5 text-sm">
                 {[
                   ['Rating', '4.4 / 5'],
-                  ['Version', '1.4'],
+                  ['Version', '1.6'],
                   ['Bundle', 'com.Producciones4D.WoRD'],
                   ['Category', 'Education'],
                   ['Monetization', 'RevenueCat + AdMob'],

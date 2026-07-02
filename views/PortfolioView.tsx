@@ -39,11 +39,13 @@ const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
 ];
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
-  { src: '/word-01-home.webp', alt: 'WoRD home dashboard', label: 'Home' },
-  { src: '/word-02-library.webp', alt: 'WoRD reading library', label: 'Library' },
-  { src: '/word-03-challenge.webp', alt: 'WoRD challenge arena', label: 'Arena' },
-  { src: '/word-04-stats.webp', alt: 'WoRD stats and charts', label: 'Stats' },
-  { src: '/word-05-speedtest.webp', alt: 'WoRD speed test', label: 'Speed test' },
+  { src: '/word-hero.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
+  { src: '/word-reader.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
+  { src: '/word-plan.webp', alt: 'WoRD personalized reading plan', label: 'Reading Plan' },
+  { src: '/word-track.webp', alt: 'WoRD reading analytics and records', label: 'Stats' },
+  { src: '/word-widgets.webp', alt: 'WoRD home and lock screen widgets', label: 'Widgets' },
+  { src: '/word-share.webp', alt: 'WoRD shareable stats card', label: 'Share cards' },
+  { src: '/word-limit.webp', alt: 'WoRD find your limit speed test', label: 'Speed test' },
 ];
 
 const CACHO_SCREENSHOTS: ScreenshotItem[] = [
@@ -363,9 +365,9 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
-                  CADisplayLink RSVP engine, 720 stories in 4 languages, WidgetKit widgets, Swift Charts analytics.
-                  RevenueCat subscriptions (WoRD Pro) + AdMob banners, interstitials, and rewarded unlocks behind a single
-                  entitlement, with ongoing App Store and social media growth work.
+                  CADisplayLink RSVP engine, personalized Reading Plans, 720 stories in 4 languages, WidgetKit widgets,
+                  Swift Charts analytics, and shareable stat cards. RevenueCat subscriptions (WoRD Pro) with a
+                  conversion-focused paywall + AdMob behind a single entitlement, plus ongoing ASO and social growth.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-2">
                   {['SwiftUI', 'MVVM', 'RevenueCat', 'AdMob', 'WidgetKit'].map((t) => (
