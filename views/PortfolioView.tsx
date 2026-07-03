@@ -23,6 +23,8 @@ import {
 import { SkillItem, ToolItem, EducationItem } from '../types';
 import { motion, useReducedMotion } from 'framer-motion';
 
+const TRIPLOOK_APP_STORE_URL =
+  'https://apps.apple.com/us/app/triplook-travel-outfits/id6784750326';
 const WORD_APP_STORE_URL =
   'https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956';
 const RWEEKS_APP_STORE_URL =
@@ -37,6 +39,14 @@ const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/remainingweeks-06-reflection.webp', alt: 'RemainingWeeks weekly reflection journal', label: 'Reflections' },
   { src: '/remainingweeks-07-lockscreen.webp', alt: 'RemainingWeeks Lock Screen widgets', label: 'Lock Screen' },
   { src: '/remainingweeks-08-watch.webp', alt: 'RemainingWeeks Apple Watch complications', label: 'Apple Watch' },
+];
+
+const TRIPLOOK_SCREENSHOTS: ScreenshotItem[] = [
+  { src: '/triplook-tripDetail.webp', alt: 'Triplook trip itinerary with weather and planned outfits per day', label: 'Trip' },
+  { src: '/triplook-lookbuilder.webp', alt: 'Triplook look studio composing an outfit by category', label: 'Look studio' },
+  { src: '/triplook-calendar.webp', alt: 'Triplook month calendar with a trip band and outfit plans', label: 'Calendar' },
+  { src: '/triplook-closet.webp', alt: 'Triplook digital closet with AI background-removed garments', label: 'Closet' },
+  { src: '/triplook-lookbook.webp', alt: 'Triplook lookbook of worn outfit photos grouped by trip', label: 'Lookbook' },
 ];
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
@@ -369,8 +379,50 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           compact
         />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          {/* Triplook — flagship, Black & Tan editorial */}
+          <GlassCard id="project-triplook" className="lg:col-span-12 bento-card project-card project-card-triplook group flex flex-col scroll-mt-24" accent="tan" revealIndex={0}>
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
+              <div>
+                <div className="flex items-start gap-3 mb-2">
+                  <img src="/triplook-icon.webp" alt="Triplook" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="triplook-serif text-xl text-zinc-50">Triplook</h3>
+                      <span className="tag-pill text-[#E0C7A5] border-[#C19C6E]/25 bg-[#C19C6E]/10">App Store · New</span>
+                    </div>
+                    <p className="text-xs font-mono text-zinc-600 mt-0.5">AI travel outfits &amp; smart closet · SwiftUI</p>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Photograph your clothes and Triplook builds the rest: AI background removal and tagging, weather-smart
+                  outfit suggestions for every trip day, a real outfit calendar, auto packing lists, and a private
+                  lookbook. Zero-cost backend on CloudKit with a Cloudflare Worker proxying Claude and fal.ai, plus
+                  RevenueCat subscriptions and a credit economy for AI scans.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {['SwiftUI', 'SwiftData', 'CloudKit', 'Cloudflare Workers', 'Claude API', 'RevenueCat'].map((t) => (
+                    <span key={t} className="tag-pill">{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-white/[0.06]">
+                  <button
+                    type="button"
+                    className="btn-primary text-xs py-2 px-3"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(TRIPLOOK_APP_STORE_URL, '_blank');
+                    }}
+                  >
+                    <Smartphone className="w-3.5 h-3.5" /> App Store
+                  </button>
+                </div>
+              </div>
+              <ScreenshotGallery items={TRIPLOOK_SCREENSHOTS} variant="phone" />
+            </div>
+          </GlassCard>
+
           {/* WoRD — featured full width */}
-          <GlassCard id="project-word" className="lg:col-span-12 bento-card project-card project-card-word group flex flex-col scroll-mt-24" accent="rose" revealIndex={0}>
+          <GlassCard id="project-word" className="lg:col-span-12 bento-card project-card project-card-word group flex flex-col scroll-mt-24" accent="rose" revealIndex={1}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -418,7 +470,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* RemainingWeeks — featured full width */}
-          <GlassCard id="project-remainingweeks" className="lg:col-span-12 bento-card project-card project-card-rweeks group flex flex-col scroll-mt-24" accent="amber" revealIndex={1}>
+          <GlassCard id="project-remainingweeks" className="lg:col-span-12 bento-card project-card project-card-rweeks group flex flex-col scroll-mt-24" accent="amber" revealIndex={2}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -466,7 +518,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* Rolya — full-width desktop screenshots */}
-          <GlassCard id="project-rolya" className="lg:col-span-12 bento-card project-card flex flex-col scroll-mt-24" accent="emerald" revealIndex={2}>
+          <GlassCard id="project-rolya" className="lg:col-span-12 bento-card project-card flex flex-col scroll-mt-24" accent="emerald" revealIndex={3}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -509,7 +561,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* Cachoquiniela — full-width desktop screenshots */}
-          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={3}>
+          <GlassCard id="project-cachoquiniela" className="lg:col-span-12 bento-card project-card project-card-cacho flex flex-col scroll-mt-24" accent="emerald" revealIndex={4}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -623,7 +675,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
             </div>
           </GlassCard>
 
-          <GlassCard className="bento-card project-card flex flex-col" accent="amber" revealIndex={1}>
+          <GlassCard className="bento-card project-card flex flex-col" accent="amber" revealIndex={2}>
             <div className="flex items-start gap-3 mb-2">
               <div className="project-emblem w-12 h-12 rounded-xl bg-amber-950/50 border border-amber-500/20 flex items-center justify-center shrink-0">
                 <Luggage className="w-6 h-6 text-amber-300" strokeWidth={1.5} />

@@ -8,7 +8,7 @@ interface GlassCardProps {
   onClick?: () => void;
   hoverEffect?: boolean;
   compact?: boolean;
-  accent?: 'rose' | 'emerald' | 'sky' | 'amber' | 'none';
+  accent?: 'rose' | 'emerald' | 'sky' | 'amber' | 'tan' | 'none';
   revealIndex?: number;
 }
 
@@ -17,6 +17,7 @@ const ACCENT_STRIPE: Record<string, string> = {
   emerald: 'before:bg-gradient-to-b before:from-emerald-500/80 before:via-emerald-400/40 before:to-transparent',
   sky: 'before:bg-gradient-to-b before:from-sky-500/80 before:via-sky-400/40 before:to-transparent',
   amber: 'before:bg-gradient-to-b before:from-orange-500/80 before:via-orange-400/40 before:to-transparent',
+  tan: 'before:bg-gradient-to-b before:from-[#C19C6E]/80 before:via-[#C19C6E]/40 before:to-transparent',
 };
 
 const reveal = {

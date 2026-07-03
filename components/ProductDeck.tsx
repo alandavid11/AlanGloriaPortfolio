@@ -3,6 +3,15 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 const PHONES = [
   {
+    name: 'Triplook',
+    meta: 'App Store · New',
+    anchorId: 'project-triplook',
+    icon: '/triplook-icon.webp',
+    src: '/triplook-tripDetail.webp',
+    alt: 'Triplook trip itinerary with weather-based outfits',
+    accentClass: 'deck-phone-triplook',
+  },
+  {
     name: 'WoRD',
     meta: 'App Store · 4.4★',
     anchorId: 'project-word',
@@ -113,7 +122,7 @@ export const ProductDeck: React.FC = () => {
       <div className="product-deck-caption">
         <div>
           <p className="section-kicker">Product deck</p>
-          <h2>Two App Store apps and a live SaaS — all in production.</h2>
+          <h2>Three App Store apps and a live SaaS, all in production.</h2>
         </div>
         <span className="deck-link">Selected work</span>
       </div>

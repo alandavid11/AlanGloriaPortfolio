@@ -245,6 +245,17 @@ p {
   --project-rgb-secondary: 129, 140, 248;
 }
 
+.project-card-triplook {
+  /* Triplook Black & Tan editorial (#C19C6E over off-black) */
+  --project-rgb: 193, 156, 110;
+  --project-rgb-secondary: 224, 199, 165;
+}
+
+.triplook-serif {
+  font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
 .project-card-rweeks {
   /* RemainingWeeks clay accent (#C76147) over warm neutrals */
   --project-rgb: 199, 97, 71;
@@ -707,6 +718,10 @@ p {
   transform: rotate(3.2deg);
 }
 
+.deck-phone:nth-child(3) .deck-phone-tilt {
+  transform: rotate(-2.4deg);
+}
+
 .deck-phone:hover .deck-phone-tilt,
 .deck-phone:focus-visible .deck-phone-tilt {
   transform: rotate(0deg) translateY(-8px);
@@ -735,6 +750,10 @@ p {
   object-position: top;
   border-radius: 1.38rem;
   background: #000;
+}
+
+.deck-phone-triplook {
+  --phone-glow: rgba(193, 156, 110, 0.5);
 }
 
 .deck-phone-word {
