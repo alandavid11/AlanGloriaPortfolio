@@ -145,9 +145,10 @@ const toolReveal = {
 interface PortfolioViewProps {
   onNavigateToApp: () => void;
   onNavigateToRemainingWeeks: () => void;
+  onNavigateToTriplook: () => void;
 }
 
-export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, onNavigateToRemainingWeeks }) => {
+export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, onNavigateToRemainingWeeks, onNavigateToTriplook }) => {
   const reduceMotion = useReducedMotion();
   const educationData: EducationItem[] = [
     {
@@ -414,6 +415,13 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                     }}
                   >
                     <Smartphone className="w-3.5 h-3.5" /> App Store
+                  </button>
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 text-xs text-[#C19C6E] font-medium"
+                    onClick={onNavigateToTriplook}
+                  >
+                    Case study <ArrowUpRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>

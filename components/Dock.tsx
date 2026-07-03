@@ -23,6 +23,14 @@ const RWEEKS_ID = 'remainingweeks';
 
 const APP_ITEMS = [
   {
+    id: 'triplook',
+    label: 'Triplook',
+    icon: '/triplook-icon.webp',
+    alt: 'Triplook app icon',
+    view: 'triplook-detail' as const,
+    activeRing: 'ring-[#C19C6E]/50',
+  },
+  {
     id: WORD_ID,
     label: 'WoRD',
     icon: '/word-icon.webp',

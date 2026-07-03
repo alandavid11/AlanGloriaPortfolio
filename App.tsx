@@ -11,6 +11,9 @@ const AppDetailView = React.lazy(() =>
 const RemainingWeeksDetailView = React.lazy(() =>
   import('./views/RemainingWeeksDetailView').then((m) => ({ default: m.RemainingWeeksDetailView }))
 );
+const TriplookDetailView = React.lazy(() =>
+  import('./views/TriplookDetailView').then((m) => ({ default: m.TriplookDetailView }))
+);
 const ParticleBackground3D = React.lazy(
   () => import('./components/three/ParticleBackground3D').then((m) => ({ default: m.ParticleBackground3D }))
 );
@@ -41,9 +44,12 @@ function App() {
             <PortfolioView
               onNavigateToApp={() => setCurrentView('app-detail')}
               onNavigateToRemainingWeeks={() => setCurrentView('remainingweeks-detail')}
+              onNavigateToTriplook={() => setCurrentView('triplook-detail')}
             />
           ) : currentView === 'app-detail' ? (
             <AppDetailView onBack={() => setCurrentView('portfolio')} />
+          ) : currentView === 'triplook-detail' ? (
+            <TriplookDetailView onBack={() => setCurrentView('portfolio')} />
           ) : (
             <RemainingWeeksDetailView onBack={() => setCurrentView('portfolio')} />
           )}
