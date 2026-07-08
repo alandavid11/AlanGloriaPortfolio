@@ -3,67 +3,256 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <title>Triplook — Coming soon</title>
+  <title>Triplook — AI Travel Outfit Planner &amp; Packing List for iPhone</title>
+  <meta name="description" content="Photograph your clothes once and Triplook builds the rest: an AI-tagged digital closet, weather-smart outfits for every trip day, auto packing lists and a private lookbook. Free on the App Store." />
+  <link rel="canonical" href="https://alangloria.com/triplook/" />
+  <meta name="theme-color" content="#F7F4EF" />
+  <meta name="apple-itunes-app" content="app-id=6784750326" />
+  <link rel="icon" type="image/webp" href="/triplook-icon.webp" />
+  <link rel="apple-touch-icon" href="/triplook-icon.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Triplook" />
+  <meta property="og:url" content="https://alangloria.com/triplook/" />
+  <meta property="og:title" content="Triplook — AI Travel Outfit Planner for iPhone" />
+  <meta property="og:description" content="Your closet, scanned by AI. Weather-smart outfits for every trip day, packing lists that build themselves, and a private lookbook. Free on the App Store." />
+  <meta property="og:image" content="https://alangloria.com/triplook/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Triplook — AI Travel Outfit Planner for iPhone" />
+  <meta name="twitter:description" content="Your closet, scanned by AI. Weather-smart outfits for every trip day, packing lists that build themselves. Free on the App Store." />
+  <meta name="twitter:image" content="https://alangloria.com/triplook/og.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Triplook: Travel Outfits",
+    "operatingSystem": "iOS",
+    "applicationCategory": "TravelApplication",
+    "url": "https://alangloria.com/triplook/",
+    "installUrl": "https://apps.apple.com/us/app/triplook-travel-outfits/id6784750326",
+    "description": "AI travel outfit planner: photograph your clothes once, get weather-smart outfits for every trip day, auto packing lists and a private lookbook.",
+    "image": "https://alangloria.com/triplook/og.png",
+    "screenshot": [
+      "https://alangloria.com/triplook-closet.webp",
+      "https://alangloria.com/triplook-tripDetail.webp",
+      "https://alangloria.com/triplook-lookbuilder.webp",
+      "https://alangloria.com/triplook-calendar.webp",
+      "https://alangloria.com/triplook-packing.webp"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Alan Gloria", "url": "https://alangloria.com/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #09090b;
-      --panel: rgba(255,255,255,0.03);
-      --hair: rgba(255,255,255,0.08);
-      --ink: #fafaf9;
-      --ink-2: #a1a1aa;
-      --tan: #c9a87c;
+      --paper: #F7F4EF;
+      --card: #FFFFFF;
+      --ink: #141210;
+      --muted: #7A736A;
+      --tan: #C19C6E;
+      --tan-deep: #8A6D45;
+      --hair: rgba(20, 18, 16, 0.08);
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0; background: var(--bg); color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased; line-height: 1.6;
-      min-height: 100dvh; display: grid; place-items: center; padding: 24px;
     }
-    .card {
-      width: 100%; max-width: 560px; background: var(--panel);
-      border: 1px solid var(--hair); border-radius: 20px; padding: 40px 32px;
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .kicker {
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--tan-deep); margin: 0 0 14px; font-weight: 500;
     }
-    .eyebrow {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--tan); margin: 0 0 12px;
-    }
+    /* Hero */
+    header { padding: 72px 0 40px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; align-items: center; }
+    @media (min-width: 860px) { .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); } }
+    .app-mark { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+    .app-mark img { width: 72px; height: 72px; border-radius: 18px; border: 1px solid var(--hair); box-shadow: 0 10px 30px rgba(20,18,16,0.10); }
+    .app-mark strong { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+    .app-mark small { display: block; color: var(--muted); font-size: 13px; }
     h1 {
-      font-family: Georgia, "Times New Roman", serif; font-weight: 400;
-      font-size: clamp(32px, 7vw, 44px); margin: 0 0 8px; letter-spacing: -0.01em;
+      font-weight: 600; letter-spacing: -0.02em; line-height: 1.08;
+      font-size: clamp(38px, 6.4vw, 62px); margin: 0 0 18px;
     }
-    p { color: var(--ink-2); margin: 0 0 24px; }
-    .badge {
-      display: inline-block; font-size: 12px; color: var(--tan);
-      border: 1px solid var(--tan); border-radius: 999px; padding: 4px 12px; margin-bottom: 24px;
+    h1 em { font-style: normal; color: var(--tan-deep); }
+    .lede { color: var(--muted); font-size: clamp(16px, 2vw, 18px); max-width: 46ch; margin: 0 0 30px; }
+    .store-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .store-cta img { height: 54px; display: block; }
+    .store-cta a.badge:hover img { opacity: 0.85; }
+    .store-note { font-size: 13px; color: var(--muted); }
+    .hero-shot { display: flex; justify-content: center; }
+    .hero-shot img {
+      width: min(320px, 78vw); border-radius: 34px;
+      border: 1px solid var(--hair);
+      box-shadow: 0 34px 70px rgba(20,18,16,0.18);
     }
-    .links { display: flex; flex-direction: column; gap: 10px; }
-    a.row {
-      display: flex; align-items: center; justify-content: space-between;
-      text-decoration: none; color: var(--ink); background: rgba(255,255,255,0.02);
-      border: 1px solid var(--hair); border-radius: 12px; padding: 14px 16px;
-      transition: border-color .2s ease, background .2s ease;
+    /* Screens strip */
+    .screens { padding: 56px 0 8px; }
+    .screens-row {
+      display: grid; grid-template-columns: repeat(5, minmax(180px, 1fr));
+      gap: 18px; overflow-x: auto; padding: 8px 2px 24px;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
-    a.row:hover { border-color: var(--tan); background: rgba(201,168,124,0.06); }
-    a.row span.arrow { color: var(--tan); }
-    footer { margin-top: 28px; font-size: 12px; color: var(--ink-2); }
-    footer a { color: var(--ink-2); }
+    .screens-row::-webkit-scrollbar { display: none; }
+    .screens-row figure { margin: 0; }
+    .screens-row img {
+      width: 100%; border-radius: 24px; border: 1px solid var(--hair);
+      box-shadow: 0 16px 36px rgba(20,18,16,0.10); display: block;
+    }
+    .screens-row figcaption { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+    /* Features */
+    .features { padding: 56px 0; }
+    h2 { font-weight: 600; letter-spacing: -0.015em; font-size: clamp(26px, 3.6vw, 34px); margin: 0 0 28px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 700px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 980px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .cardf {
+      background: var(--card); border: 1px solid var(--hair); border-radius: 20px;
+      padding: 22px;
+    }
+    .cardf h3 { margin: 0 0 8px; font-size: 16px; font-weight: 600; }
+    .cardf p { margin: 0; font-size: 14px; color: var(--muted); }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--tan); margin-right: 10px; }
+    /* Privacy strip */
+    .privacy {
+      margin: 24px 0 0; border-radius: 24px; border: 1px solid rgba(193,156,110,0.35);
+      background: rgba(193,156,110,0.10); padding: 26px 24px;
+    }
+    .privacy p { margin: 0; color: #5d5245; font-size: 14px; max-width: 72ch; }
+    /* Final CTA */
+    .final { text-align: center; padding: 72px 0 30px; }
+    .final .store-cta { justify-content: center; }
+    /* Footer */
+    footer { border-top: 1px solid var(--hair); margin-top: 48px; padding: 28px 0 44px; }
+    .foot { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; font-size: 13px; color: var(--muted); }
+    .foot nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    .foot a { color: var(--muted); text-decoration: none; }
+    .foot a:hover { color: var(--ink); }
   </style>
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">Triplook</p>
-    <h1>Pack like a stylist.</h1>
-    <span class="badge">Work in progress · Beta</span>
-    <p>Triplook is an iOS app that plans your travel outfits by destination and weather, captures your wardrobe, and keeps a photographic lookbook of every trip. We're putting the finishing touches on it.</p>
-    <div class="links">
-      <a class="row" href="/triplook/privacy.html">Privacy Policy <span class="arrow">→</span></a>
-      <a class="row" href="/triplook/terms.html">Terms of Use <span class="arrow">→</span></a>
-      <a class="row" href="/triplook/support.html">Support <span class="arrow">→</span></a>
+  <header class="wrap">
+    <div class="hero">
+      <div>
+        <div class="app-mark">
+          <img src="/triplook-icon.webp" alt="Triplook app icon" width="72" height="72" />
+          <div>
+            <strong>Triplook</strong>
+            <small>Travel Outfits · Free on the App Store</small>
+          </div>
+        </div>
+        <p class="kicker">AI travel outfit planner for iPhone &amp; iPad</p>
+        <h1>Pack like <em>a stylist.</em></h1>
+        <p class="lede">
+          Photograph your clothes once and Triplook builds the rest: an AI-tagged digital closet,
+          weather-smart outfits for every day of your trip, packing lists that build themselves,
+          and a private lookbook of what you actually wore.
+        </p>
+        <div class="store-cta">
+          <a class="badge" href="https://apps.apple.com/us/app/triplook-travel-outfits/id6784750326" aria-label="Download Triplook on the App Store">
+            <img src="/triplook/badge-appstore.png" alt="Download on the App Store" />
+          </a>
+          <span class="store-note">Free · iPhone &amp; iPad</span>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="/triplook-tripDetail.webp" alt="Triplook trip screen: Lisbon itinerary with weather and an outfit planned for each day" loading="eager" />
+      </div>
     </div>
-    <footer>© <span id="y"></span> Triplook · Built by <a href="/">Alan Gloria</a></footer>
-  </main>
+  </header>
+
+  <section class="screens wrap" aria-label="App screenshots">
+    <div class="screens-row">
+      <figure>
+        <img src="/triplook-closet.webp" alt="Digital closet with AI background-removed garments" loading="lazy" />
+        <figcaption>Your closet, scanned by AI</figcaption>
+      </figure>
+      <figure>
+        <img src="/triplook-lookbuilder.webp" alt="Look studio composing an outfit by category" loading="lazy" />
+        <figcaption>Mix, match &amp; save looks</figcaption>
+      </figure>
+      <figure>
+        <img src="/triplook-looks.webp" alt="Saved looks with garment thumbnails" loading="lazy" />
+        <figcaption>Looks you’ll actually wear</figcaption>
+      </figure>
+      <figure>
+        <img src="/triplook-calendar.webp" alt="Month calendar with a trip band and outfit plans" loading="lazy" />
+        <figcaption>Plan any day, not just trips</figcaption>
+      </figure>
+      <figure>
+        <img src="/triplook-packing.webp" alt="Packing list that builds itself from planned outfits" loading="lazy" />
+        <figcaption>A packing list that builds itself</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="features wrap">
+    <p class="kicker">What it does</p>
+    <h2>Everything between “where are we going?” and a packed suitcase.</h2>
+    <div class="grid">
+      <div class="cardf">
+        <h3><span class="dot"></span>AI garment scan</h3>
+        <p>Snap a photo — the background disappears and every piece is tagged by category, color, warmth and formality.</p>
+      </div>
+      <div class="cardf">
+        <h3><span class="dot"></span>Weather-smart outfits</h3>
+        <p>One look per trip day, matched to the real forecast at your destination — sunny café mornings to cool evenings.</p>
+      </div>
+      <div class="cardf">
+        <h3><span class="dot"></span>Look studio</h3>
+        <p>A carousel per category, stacked like a mannequin. Tap to pick, shuffle for inspiration, save the look.</p>
+      </div>
+      <div class="cardf">
+        <h3><span class="dot"></span>Packing lists that build themselves</h3>
+        <p>Your list is derived from the outfits you planned — with photos, wear counts and check-off as you pack.</p>
+      </div>
+      <div class="cardf">
+        <h3><span class="dot"></span>A real outfit calendar</h3>
+        <p>Trips render as bands across their dates; office, gym and dinner plans get outfits too — not just travel.</p>
+      </div>
+      <div class="cardf">
+        <h3><span class="dot"></span>Private lookbook</h3>
+        <p>Keep photos of what you actually wore, grouped by trip. Selfies stay on your device and private iCloud.</p>
+      </div>
+    </div>
+    <div class="privacy">
+      <p>
+        <strong>Privacy as architecture:</strong> Triplook has no accounts and no server database. Your closet,
+        plans and photos live in your private iCloud; only background-removed garment images are used for AI styling.
+      </p>
+    </div>
+  </section>
+
+  <section class="final wrap">
+    <p class="kicker">Before your next trip</p>
+    <h2>Never overpack — or under-dress — again.</h2>
+    <div class="store-cta" style="margin-top: 22px;">
+      <a class="badge" href="https://apps.apple.com/us/app/triplook-travel-outfits/id6784750326" aria-label="Download Triplook on the App Store">
+        <img src="/triplook/badge-appstore.png" alt="Download on the App Store" />
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="y"></span> Triplook · Built by <a href="/">Alan Gloria</a></span>
+      <nav>
+        <a href="/triplook/privacy.html">Privacy Policy</a>
+        <a href="/triplook/terms.html">Terms of Use</a>
+        <a href="/triplook/support.html">Support</a>
+      </nav>
+    </div>
+  </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -7,8 +7,8 @@ const PHONES = [
     meta: 'App Store · New',
     anchorId: 'project-triplook',
     icon: '/triplook-icon.webp',
-    src: '/triplook-tripDetail.webp',
-    alt: 'Triplook trip itinerary with weather-based outfits',
+    src: '/triplook-closet.webp',
+    alt: 'Triplook AI-tagged digital closet with background-removed garments',
     accentClass: 'deck-phone-triplook',
   },
   {

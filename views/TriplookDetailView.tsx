@@ -12,10 +12,11 @@ const TAN = '#C19C6E';
 
 const SCREENSHOTS: ScreenshotItem[] = [
   { src: '/triplook-tripDetail.webp', alt: 'Trip itinerary with weather and planned outfits per day', label: 'Trip' },
-  { src: '/triplook-lookbuilder.webp', alt: 'Look studio composing an outfit by category', label: 'Look studio' },
-  { src: '/triplook-calendar.webp', alt: 'Month calendar with a trip band and outfit plans', label: 'Calendar' },
   { src: '/triplook-closet.webp', alt: 'Digital closet with AI background-removed garments', label: 'Closet' },
-  { src: '/triplook-lookbook.webp', alt: 'Lookbook of worn outfit photos grouped by trip', label: 'Lookbook' },
+  { src: '/triplook-lookbuilder.webp', alt: 'Look studio composing an outfit by category', label: 'Look studio' },
+  { src: '/triplook-looks.webp', alt: 'Saved looks with garment thumbnails in the lookbook', label: 'Looks' },
+  { src: '/triplook-calendar.webp', alt: 'Month calendar with a trip band and outfit plans', label: 'Calendar' },
+  { src: '/triplook-packing.webp', alt: 'Packing list that builds itself from planned outfits', label: 'Packing' },
 ];
 
 const KEY_FEATURES = [
@@ -67,8 +68,16 @@ const FACTS: [string, string][] = [
   ['Category', 'Travel · Lifestyle'],
   ['Price', 'Free + subscription & credit packs'],
   ['Platforms', 'iPhone · iPad'],
+  ['Languages', 'English · Spanish (v1.1)'],
   ['Backend cost', '$0 fixed (CloudKit + Workers free tier)'],
   ['Released', 'July 2026'],
+];
+
+const RELEASE_11 = [
+  'Full Spanish localization: every screen, the onboarding, and a dedicated es-MX App Store listing with its own screenshot set.',
+  'Kinetic onboarding tour: real app screens cycle inside a 3D phone mockup, with animated demos of rapid capture, the look studio, the calendar and packing.',
+  'In-context rating prompts at genuine delight moments (finished packing, saved look), capped at once per version, plus a direct write-a-review path in Settings.',
+  'A refreshed App Store asset set: 6.9-inch iPhone and 13-inch iPad screenshots with 3D garment pop-outs, in both languages.',
 ];
 
 const spring = { type: 'spring' as const, stiffness: 100, damping: 20 };
@@ -153,7 +162,7 @@ export const TriplookDetailView: React.FC<TriplookDetailViewProps> = ({ onBack }
             className="w-24 h-24 md:w-28 md:h-28 rounded-[1.6rem] border border-black/[0.08] shadow-lg shadow-black/10"
           />
           <div>
-            <Kicker>Published app · v1.0 · App Store</Kicker>
+            <Kicker>Published app · Live on the App Store</Kicker>
             <h1 className="triplook-serif text-3xl md:text-4xl" style={{ color: INK }}>
               Triplook: Travel Outfits
             </h1>
@@ -258,6 +267,21 @@ export const TriplookDetailView: React.FC<TriplookDetailViewProps> = ({ onBack }
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section>
+              <Kicker>Shipping next</Kicker>
+              <h2 className="text-xl font-semibold mb-4">Version 1.1 — the bilingual update</h2>
+              <CreamCard>
+                <ul className="space-y-2.5">
+                  {RELEASE_11.map((line) => (
+                    <li key={line} className="flex gap-3 text-sm leading-relaxed" style={{ color: MUTED }}>
+                      <span className="w-1.5 h-1.5 rounded-[2px] mt-2 shrink-0" style={{ backgroundColor: TAN }} />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </CreamCard>
             </section>
           </div>
 

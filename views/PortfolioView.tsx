@@ -18,7 +18,6 @@ import {
   Smartphone,
   Trophy,
   Globe,
-  Luggage,
 } from 'lucide-react';
 import { SkillItem, ToolItem, EducationItem } from '../types';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -43,10 +42,11 @@ const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
 
 const TRIPLOOK_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/triplook-tripDetail.webp', alt: 'Triplook trip itinerary with weather and planned outfits per day', label: 'Trip' },
-  { src: '/triplook-lookbuilder.webp', alt: 'Triplook look studio composing an outfit by category', label: 'Look studio' },
-  { src: '/triplook-calendar.webp', alt: 'Triplook month calendar with a trip band and outfit plans', label: 'Calendar' },
   { src: '/triplook-closet.webp', alt: 'Triplook digital closet with AI background-removed garments', label: 'Closet' },
-  { src: '/triplook-lookbook.webp', alt: 'Triplook lookbook of worn outfit photos grouped by trip', label: 'Lookbook' },
+  { src: '/triplook-lookbuilder.webp', alt: 'Triplook look studio composing an outfit by category', label: 'Look studio' },
+  { src: '/triplook-looks.webp', alt: 'Triplook saved looks with garment thumbnails in the lookbook', label: 'Looks' },
+  { src: '/triplook-calendar.webp', alt: 'Triplook month calendar with a trip band and outfit plans', label: 'Calendar' },
+  { src: '/triplook-packing.webp', alt: 'Triplook packing list that builds itself from planned outfits', label: 'Packing' },
 ];
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
@@ -685,23 +685,22 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
 
           <GlassCard className="bento-card project-card flex flex-col" accent="amber" revealIndex={2}>
             <div className="flex items-start gap-3 mb-2">
-              <div className="project-emblem w-12 h-12 rounded-xl bg-amber-950/50 border border-amber-500/20 flex items-center justify-center shrink-0">
-                <Luggage className="w-6 h-6 text-amber-300" strokeWidth={1.5} />
-              </div>
+              <img src="/triplook-icon.webp" alt="Triplook" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-50">TripLook</h3>
-                  <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">In beta</span>
+                  <h3 className="text-lg font-semibold text-zinc-50">Triplook 1.1</h3>
+                  <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">Next release</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">Travel outfit planner · iOS</p>
+                <p className="text-xs font-mono text-zinc-600">First major update · iOS</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              iOS app that plans your travel outfits by destination and weather, captures your wardrobe, and keeps a
-              photographic lookbook of every trip. Currently in beta, final polish before the App Store release.
+              The first big update to the published app: full Spanish localization (app + store listing), a redesigned
+              kinetic onboarding that demos every feature with animated mockups, in-context App Store rating prompts,
+              and a refreshed 6.9&quot; iPhone + 13&quot; iPad screenshot set.
             </p>
             <div className="flex flex-wrap gap-1.5 mt-3">
-              {['SwiftUI', 'iOS', 'Beta'].map((t) => (
+              {['Localization', 'Onboarding', 'StoreKit'].map((t) => (
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>
