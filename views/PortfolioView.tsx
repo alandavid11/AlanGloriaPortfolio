@@ -389,7 +389,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="triplook-serif text-xl text-zinc-50">Triplook</h3>
-                      <span className="tag-pill text-[#E0C7A5] border-[#C19C6E]/25 bg-[#C19C6E]/10">App Store · New</span>
+                      <span className="tag-pill text-[#E0C7A5] border-[#C19C6E]/25 bg-[#C19C6E]/10">App Store · v1.1 · EN/ES</span>
                     </div>
                     <p className="text-xs font-mono text-zinc-600 mt-0.5">AI travel outfits &amp; smart closet · SwiftUI</p>
                   </div>
@@ -688,19 +688,19 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               <img src="/triplook-icon.webp" alt="Triplook" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-50">Triplook 1.1</h3>
-                  <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">Next release</span>
+                  <h3 className="text-lg font-semibold text-zinc-50">Triplook — What&apos;s next</h3>
+                  <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">Roadmap</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">First major update · iOS</p>
+                <p className="text-xs font-mono text-zinc-600">v1.1 shipped · iOS</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              The first big update to the published app: full Spanish localization (app + store listing), a redesigned
-              kinetic onboarding that demos every feature with animated mockups, in-context App Store rating prompts,
-              and a refreshed 6.9&quot; iPhone + 13&quot; iPad screenshot set.
+              Version 1.1 (full Spanish localization, kinetic onboarding, in-context rating prompts) is live on the
+              App Store. Next cycle: growth experiments — Apple Ads, UGC and carousel content engine — plus more
+              store locales built on the same localization pipeline.
             </p>
             <div className="flex flex-wrap gap-1.5 mt-3">
-              {['Localization', 'Onboarding', 'StoreKit'].map((t) => (
+              {['Growth', 'Localization', 'ASO'].map((t) => (
                 <span key={t} className="tag-pill">{t}</span>
               ))}
             </div>

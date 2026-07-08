@@ -68,7 +68,7 @@ const FACTS: [string, string][] = [
   ['Category', 'Travel · Lifestyle'],
   ['Price', 'Free + subscription & credit packs'],
   ['Platforms', 'iPhone · iPad'],
-  ['Languages', 'English · Spanish (v1.1)'],
+  ['Languages', 'English · Spanish'],
   ['Backend cost', '$0 fixed (CloudKit + Workers free tier)'],
   ['Released', 'July 2026'],
 ];
@@ -270,7 +270,7 @@ export const TriplookDetailView: React.FC<TriplookDetailViewProps> = ({ onBack }
             </section>
 
             <section>
-              <Kicker>Shipping next</Kicker>
+              <Kicker>Latest release · Live</Kicker>
               <h2 className="text-xl font-semibold mb-4">Version 1.1 — the bilingual update</h2>
               <CreamCard>
                 <ul className="space-y-2.5">
