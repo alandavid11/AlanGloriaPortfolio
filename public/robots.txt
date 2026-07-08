@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alangloria.com/sitemap.xml
+Sitemap: https://www.alangloria.com/sitemap.xml

@@ -416,13 +416,16 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   >
                     <Smartphone className="w-3.5 h-3.5" /> App Store
                   </button>
-                  <button
-                    type="button"
+                  <a
+                    href="/apps/triplook"
                     className="inline-flex items-center gap-1 text-xs text-[#C19C6E] font-medium"
-                    onClick={onNavigateToTriplook}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToTriplook();
+                    }}
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
               <ScreenshotGallery items={TRIPLOOK_SCREENSHOTS} variant="phone" />
@@ -464,13 +467,16 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   >
                     <Smartphone className="w-3.5 h-3.5" /> App Store
                   </button>
-                  <button
-                    type="button"
+                  <a
+                    href="/apps/word"
                     className="inline-flex items-center gap-1 text-xs text-sky-400 font-medium"
-                    onClick={onNavigateToApp}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToApp();
+                    }}
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
               <ScreenshotGallery items={WORD_SCREENSHOTS} variant="phone" />
@@ -512,13 +518,16 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   >
                     <Smartphone className="w-3.5 h-3.5" /> App Store
                   </button>
-                  <button
-                    type="button"
+                  <a
+                    href="/apps/remainingweeks"
                     className="inline-flex items-center gap-1 text-xs text-orange-300 font-medium"
-                    onClick={onNavigateToRemainingWeeks}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToRemainingWeeks();
+                    }}
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
               <ScreenshotGallery items={RWEEKS_SCREENSHOTS} variant="phone" />
