@@ -83,7 +83,9 @@ export const ProductDeck: React.FC = () => {
           </span>
           <img
             className="deck-browser-shot"
-            src="/rolya-01-landing.webp"
+            src="/rolya-01-landing-960.webp"
+            srcSet="/rolya-01-landing-960.webp 960w, /rolya-01-landing.webp 1600w"
+            sizes="(min-width: 1024px) 640px, 92vw"
             alt="Rolya shift-scheduling SaaS landing page"
             loading="eager"
             fetchPriority="high"

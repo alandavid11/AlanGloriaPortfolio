@@ -84,11 +84,64 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+    <link
+      rel="preload"
+      as="image"
+      href="/rolya-01-landing-960.webp"
+      imagesrcset="/rolya-01-landing-960.webp 960w, /rolya-01-landing.webp 1600w"
+      imagesizes="(min-width: 1024px) 640px, 92vw"
+      fetchpriority="high"
+    />
+    <style>
+      /* Pre-hydration hero: paints before the JS bundle so FCP fires early. */
+      .boot-hero {
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 2.75rem 1.25rem 0;
+        font-family: 'Outfit', system-ui, sans-serif;
+      }
+      .boot-kicker {
+        margin: 0 0 1.1rem;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #7f7f8a;
+      }
+      .boot-name {
+        margin: 0;
+        font-size: clamp(2.25rem, 5vw, 3.35rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.02;
+        color: #fafafa;
+      }
+      .boot-sub {
+        margin: 0.5rem 0 0;
+        font-size: clamp(1.4rem, 3vw, 1.875rem);
+        font-weight: 400;
+        color: #7f7f8a;
+      }
+    </style>
     <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="boot-hero">
+        <p class="boot-kicker">Open to opportunities</p>
+        <p class="boot-name">Alan Gloria</p>
+        <p class="boot-sub">iOS Engineer building product systems</p>
+      </div>
+    </div>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
