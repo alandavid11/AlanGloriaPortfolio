@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life in Weeks Calculator — See How Many Weeks You Have Left</title>
+  <meta name="description" content="Free life in weeks calculator: enter your birthday and see your whole life as a grid of weeks — lived, current, and remaining. Download your grid as an image." />
+  <link rel="canonical" href="https://www.alangloria.com/remainingweeks/calculator" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="apple-itunes-app" content="app-id=6785275888" />
+  <link rel="icon" type="image/webp" href="/remainingweeks-icon.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemainingWeeks" />
+  <meta property="og:url" content="https://www.alangloria.com/remainingweeks/calculator" />
+  <meta property="og:title" content="Life in Weeks Calculator — how many weeks do you have left?" />
+  <meta property="og:description" content="Enter your birthday and see your whole life as a grid of weeks. Free, instant, and you can download your grid as an image." />
+  <meta property="og:image" content="https://www.alangloria.com/og-remainingweeks.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Life in Weeks Calculator" />
+  <meta name="twitter:image" content="https://www.alangloria.com/og-remainingweeks.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Life in Weeks Calculator",
+    "url": "https://www.alangloria.com/remainingweeks/calculator",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Alan Gloria", "url": "https://www.alangloria.com/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b; --panel: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
+      --text: #fafafa; --muted: #a1a1aa; --dim: #8f8f98; --accent: #c8745a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(60% 50% at 50% 0%, rgba(200,116,90,0.12), transparent 70%);
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: inherit; }
+
+    header { padding: 28px 0; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; text-decoration: none; }
+    .glyph { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(160deg, var(--accent), #8f4d3a); display: grid; place-items: center; color: #fff; font-weight: 700; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 18px; }
+    .nav a:hover { color: var(--text); }
+
+    .hero { padding: 40px 0 10px; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 14px; }
+    .lede { color: var(--muted); max-width: 58ch; }
+
+    .panel {
+      margin: 26px 0; border: 1px solid var(--border); border-radius: 20px;
+      background: var(--panel); padding: 26px 24px;
+    }
+    .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: end; }
+    .field label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+    input[type="date"] {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text);
+      font-family: 'Outfit', sans-serif; font-size: 15px; padding: 10px 14px; border-radius: 12px;
+      color-scheme: dark;
+    }
+    input[type="range"] { accent-color: var(--accent); width: 180px; }
+    .exp-val { font-family: 'JetBrains Mono', monospace; color: var(--text); font-size: 14px; margin-left: 8px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer;
+      padding: 11px 20px; border-radius: 999px; background: var(--accent); color: #fff;
+      font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600;
+      transition: opacity 0.2s ease; text-decoration: none;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 22px 0; }
+    .stat { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+    .stat b { display: block; font-size: 1.5rem; font-weight: 650; letter-spacing: -0.01em; }
+    .stat.hl b { color: var(--accent); }
+    .stat span { font-size: 12px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+
+    #grid-canvas { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); background: #0c0c0f; display: block; }
+    .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; font-size: 12.5px; color: var(--dim); }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+    .cta-card {
+      margin-top: 26px; padding: 22px; border-radius: 16px;
+      border: 1px solid rgba(200,116,90,0.3); background: rgba(200,116,90,0.08);
+    }
+    .cta-card strong { display: block; margin-bottom: 6px; }
+    .cta-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
+
+    .more { padding: 8px 0 24px; color: var(--dim); font-size: 14px; }
+    .more a { color: var(--muted); }
+    footer { padding: 32px 0 44px; border-top: 1px solid var(--border); color: var(--dim); font-size: 13px; }
+    footer a { color: var(--muted); text-decoration: none; margin-right: 18px; }
+    footer a:hover { color: var(--text); }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/remainingweeks"><span class="glyph">▦</span> RemainingWeeks</a>
+      <nav class="nav">
+        <a href="/remainingweeks/4000-weeks">4,000 weeks</a>
+        <a href="/remainingweeks">The app</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Your life, in weeks.</h1>
+        <p class="lede">
+          A human life is roughly 4,000 weeks. Enter your birthday and see yours as a grid —
+          every week you've lived, the one you're living, and the ones still ahead.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="controls">
+          <div class="field">
+            <label for="dob">Your birthday</label>
+            <input type="date" id="dob" min="1920-01-01" max="2026-07-09" />
+          </div>
+          <div class="field">
+            <label for="exp">Life expectancy<span class="exp-val" id="exp-val">80 years</span></label>
+            <input type="range" id="exp" min="60" max="100" value="80" />
+          </div>
+          <button class="btn" id="btn-calc">Show my weeks</button>
+        </div>
+
+        <div id="result" class="hidden">
+          <div class="stats">
+            <div class="stat"><b id="s-lived">—</b><span>weeks lived</span></div>
+            <div class="stat hl"><b id="s-left">—</b><span>weeks left</span></div>
+            <div class="stat"><b id="s-pct">—</b><span>of life lived</span></div>
+            <div class="stat"><b id="s-sundays">—</b><span>weekends left</span></div>
+          </div>
+          <canvas id="grid-canvas"></canvas>
+          <div class="legend">
+            <span><i style="background:#fafafa;"></i>Lived</span>
+            <span><i style="background:#c8745a;"></i>This week</span>
+            <span><i style="background:rgba(255,255,255,0.14);"></i>Ahead</span>
+          </div>
+          <p style="margin-top:18px;"><button class="btn ghost" id="btn-download">Download as image</button></p>
+
+          <div class="cta-card">
+            <strong>Keep it where you'll actually see it.</strong>
+            <p>RemainingWeeks puts this grid on your iPhone, your Lock Screen, and your Apple Watch —
+               updated every week, with countdowns for the dates that matter. That's the difference
+               between a one-time gut punch and a weekly reminder to spend time on purpose.</p>
+            <a class="btn" href="https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888" target="_blank" rel="noopener">&#63743; Get RemainingWeeks free</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="more">Why weeks and not days or years? Read
+        <a href="/remainingweeks/4000-weeks">the idea behind the 4,000-week life</a>.</p>
+    </main>
+
+    <footer>
+      <a href="/remainingweeks">RemainingWeeks app</a>
+      <a href="/remainingweeks/4000-weeks">4,000 weeks</a>
+      <a href="/">Portfolio</a>
+      <div class="mono" style="margin-top:12px;">© 2026 Alan Gloria</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var dob = document.getElementById('dob');
+      var exp = document.getElementById('exp');
+      var expVal = document.getElementById('exp-val');
+      var result = document.getElementById('result');
+      var canvas = document.getElementById('grid-canvas');
+
+      exp.addEventListener('input', function () { expVal.textContent = exp.value + ' years'; });
+
+      function draw() {
+        if (!dob.value) { dob.focus(); return; }
+        var birth = new Date(dob.value + 'T00:00:00');
+        var now = new Date();
+        if (birth > now) return;
+
+        var years = parseInt(exp.value, 10);
+        var msWeek = 7 * 24 * 3600 * 1000;
+        var livedWeeks = Math.floor((now - birth) / msWeek);
+        var totalWeeks = years * 52;
+        var leftWeeks = Math.max(totalWeeks - livedWeeks, 0);
+        var pct = Math.min(Math.round((livedWeeks / totalWeeks) * 100), 100);
+
+        document.getElementById('s-lived').textContent = livedWeeks.toLocaleString();
+        document.getElementById('s-left').textContent = leftWeeks.toLocaleString();
+        document.getElementById('s-pct').textContent = pct + '%';
+        document.getElementById('s-sundays').textContent = leftWeeks.toLocaleString();
+
+        var cols = 52, rows = years;
+        var cell = 16, gap = 4, pad = 40, header = 76;
+        var w = pad * 2 + cols * cell + (cols - 1) * gap;
+        var h = header + pad + rows * cell + (rows - 1) * gap;
+        canvas.width = w; canvas.height = h;
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#0c0c0f';
+        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = '#fafafa';
+        ctx.font = '600 30px Outfit, sans-serif';
+        ctx.fillText('My life in weeks', pad, 46);
+        ctx.fillStyle = '#8f8f98';
+        ctx.font = '15px "JetBrains Mono", monospace';
+        ctx.fillText(livedWeeks.toLocaleString() + ' lived · ' + leftWeeks.toLocaleString() + ' left · ' + pct + '% — remainingweeks app', pad, 68);
+
+        for (var i = 0; i < totalWeeks; i++) {
+          var col = i % cols, row = Math.floor(i / cols);
+          var x = pad + col * (cell + gap);
+          var y = header + row * (cell + gap);
+          if (i < livedWeeks) ctx.fillStyle = '#fafafa';
+          else if (i === livedWeeks) ctx.fillStyle = '#c8745a';
+          else ctx.fillStyle = 'rgba(255,255,255,0.14)';
+          ctx.beginPath();
+          ctx.roundRect(x, y, cell, cell, 4);
+          ctx.fill();
+        }
+        result.classList.remove('hidden');
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      document.getElementById('btn-calc').addEventListener('click', draw);
+      document.getElementById('btn-download').addEventListener('click', function () {
+        var a = document.createElement('a');
+        a.download = 'my-life-in-weeks.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      });
+    })();
+  </script>
+</body>
+</html>

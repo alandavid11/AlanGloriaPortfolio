@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packing List Generator — What to Pack for Any Trip (Free)</title>
+  <meta name="description" content="Free packing list generator: pick your trip length, climate and trip type, and get a complete checklist — clothes with quantities, toiletries, tech and documents." />
+  <link rel="canonical" href="https://www.alangloria.com/triplook/packing-list" />
+  <meta name="theme-color" content="#F7F4EF" />
+  <meta name="apple-itunes-app" content="app-id=6784750326" />
+  <link rel="icon" type="image/webp" href="/triplook-icon.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Triplook" />
+  <meta property="og:url" content="https://www.alangloria.com/triplook/packing-list" />
+  <meta property="og:title" content="Packing List Generator — what to pack for any trip" />
+  <meta property="og:description" content="Pick trip length, climate and type — get a complete packing checklist with clothing quantities, toiletries, tech and documents. Free." />
+  <meta property="og:image" content="https://www.alangloria.com/triplook/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Packing List Generator — what to pack for any trip" />
+  <meta name="twitter:image" content="https://www.alangloria.com/triplook/og.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Packing List Generator",
+    "url": "https://www.alangloria.com/triplook/packing-list",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Alan Gloria", "url": "https://www.alangloria.com/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #F7F4EF; --card: #FFFFFF; --ink: #141210; --muted: #7A736A;
+      --tan: #C19C6E; --tan-deep: #8A6D45; --hair: rgba(20, 18, 16, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--paper); color: var(--ink);
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.6;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: inherit; }
+
+    header { padding: 26px 0; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; text-decoration: none; }
+    .brand img { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--hair); }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 18px; }
+    .nav a:hover { color: var(--ink); }
+
+    .hero { padding: 36px 0 8px; }
+    .kicker { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tan-deep); margin-bottom: 12px; font-weight: 500; }
+    h1 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; font-size: clamp(2rem, 5.6vw, 3rem); margin-bottom: 14px; }
+    .lede { color: var(--muted); max-width: 56ch; }
+
+    .panel { margin: 26px 0; background: var(--card); border: 1px solid var(--hair); border-radius: 22px; padding: 26px 24px; box-shadow: 0 16px 36px rgba(20,18,16,0.06); }
+    .field { margin-bottom: 20px; }
+    .field > label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .segs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .seg {
+      cursor: pointer; border: 1px solid var(--hair); background: var(--paper); color: var(--muted);
+      font-family: "Space Grotesk", sans-serif; font-size: 14px; padding: 9px 16px; border-radius: 999px;
+    }
+    .seg:hover { color: var(--ink); }
+    .seg.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer;
+      padding: 12px 24px; border-radius: 999px; background: var(--tan-deep); color: #fff;
+      font-family: "Space Grotesk", sans-serif; font-size: 15px; font-weight: 600; text-decoration: none;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn.ghost { background: transparent; border: 1px solid var(--hair); color: var(--ink); }
+
+    #list { margin-top: 6px; }
+    .cat { margin-top: 24px; }
+    .cat h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .cat h2 i { width: 8px; height: 8px; border-radius: 2px; background: var(--tan); }
+    .item { display: flex; align-items: center; gap: 10px; padding: 8px 4px; border-bottom: 1px solid var(--hair); font-size: 15px; }
+    .item input { accent-color: var(--tan-deep); width: 16px; height: 16px; }
+    .item.done label { text-decoration: line-through; color: var(--muted); }
+    .item label { cursor: pointer; }
+    .item b { font-weight: 600; }
+    .summary { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--muted); margin: 16px 0 4px; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+    .cta-card { margin-top: 26px; border-radius: 20px; border: 1px solid rgba(193,156,110,0.4); background: rgba(193,156,110,0.12); padding: 22px; }
+    .cta-card strong { display: block; margin-bottom: 6px; }
+    .cta-card p { color: #5d5245; font-size: 0.95rem; margin-bottom: 14px; }
+
+    .more { padding: 10px 0 24px; color: var(--muted); font-size: 14px; }
+    .more a { color: var(--tan-deep); }
+    footer { border-top: 1px solid var(--hair); margin-top: 30px; padding: 26px 0 44px; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted); text-decoration: none; margin-right: 18px; }
+    footer a:hover { color: var(--ink); }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/triplook/"><img src="/triplook-icon.webp" alt="Triplook app icon" /> Triplook</a>
+      <nav class="nav">
+        <a href="/triplook/capsule-wardrobe">Capsule wardrobe</a>
+        <a href="/triplook/">The app</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="kicker">Free tool</p>
+        <h1>What should you pack?</h1>
+        <p class="lede">
+          Pick your trip and get a complete checklist — clothing with real quantities
+          (not "some shirts"), plus toiletries, tech and documents people always forget.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="field">
+          <label>Trip length</label>
+          <div class="segs" id="days">
+            <button class="seg" data-v="3">Weekend · 3 days</button>
+            <button class="seg on" data-v="5">Short · 5 days</button>
+            <button class="seg" data-v="7">One week</button>
+            <button class="seg" data-v="10">10 days</button>
+            <button class="seg" data-v="14">Two weeks</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Climate</label>
+          <div class="segs" id="climate">
+            <button class="seg on" data-v="hot">Hot</button>
+            <button class="seg" data-v="mild">Mild</button>
+            <button class="seg" data-v="cold">Cold</button>
+            <button class="seg" data-v="rainy">Rainy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Trip type</label>
+          <div class="segs" id="type">
+            <button class="seg on" data-v="city">City</button>
+            <button class="seg" data-v="beach">Beach</button>
+            <button class="seg" data-v="outdoor">Outdoor</button>
+            <button class="seg" data-v="business">Business</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Packing style</label>
+          <div class="segs" id="style">
+            <button class="seg on" data-v="light">Carry-on only</button>
+            <button class="seg" data-v="full">Checked bag</button>
+          </div>
+        </div>
+        <button class="btn" id="btn-gen">Build my packing list</button>
+
+        <div id="list" class="hidden">
+          <p class="summary" id="summary"></p>
+          <div id="cats"></div>
+          <div class="actions">
+            <button class="btn ghost" id="btn-copy">Copy list</button>
+          </div>
+          <div class="cta-card">
+            <strong>This list doesn't know your closet. Triplook does.</strong>
+            <p>Photograph your clothes once and Triplook plans real outfits for every day of your trip —
+               matched to the weather forecast — then builds the packing list from the exact pieces
+               you're wearing. No more guessing quantities.</p>
+            <a class="btn" href="https://apps.apple.com/us/app/triplook-travel-outfits/id6784750326" target="_blank" rel="noopener">&#63743; Get Triplook free</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="more">Packing light on purpose? See the
+        <a href="/triplook/capsule-wardrobe">10-piece travel capsule wardrobe that makes 15+ outfits</a>.</p>
+    </main>
+
+    <footer>
+      <a href="/triplook/">Triplook app</a>
+      <a href="/triplook/capsule-wardrobe">Capsule wardrobe</a>
+      <a href="/">Portfolio</a>
+      <div class="mono" style="margin-top:12px;">© 2026 Alan Gloria</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var state = { days: 5, climate: 'hot', type: 'city', style: 'light' };
+
+      ['days', 'climate', 'type', 'style'].forEach(function (k) {
+        document.getElementById(k).addEventListener('click', function (e) {
+          var seg = e.target.closest('.seg');
+          if (!seg) return;
+          this.querySelectorAll('.seg').forEach(function (s) { s.classList.remove('on'); });
+          seg.classList.add('on');
+          state[k] = k === 'days' ? parseInt(seg.dataset.v, 10) : seg.dataset.v;
+        });
+      });
+
+      function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, Math.round(n))); }
+
+      function build() {
+        var d = state.days, light = state.style === 'light';
+        var c = state.climate, t = state.type;
+        var wash = light && d > 7;
+
+        var clothes = [];
+        clothes.push([clamp(d * (light ? 0.75 : 1), 2, light ? 6 : 9), 'tops / t-shirts']);
+        clothes.push([clamp(d / (light ? 3 : 2.5), 1, light ? 3 : 5), 'bottoms (pants, shorts or skirts)']);
+        clothes.push([clamp(Math.min(d + 1, light ? 7 : 10), 3, 10), 'sets of underwear']);
+        clothes.push([clamp(Math.min(d + 1, light ? 6 : 9), 3, 9), 'pairs of socks']);
+        if (c === 'cold') { clothes.push([1, 'warm coat']); clothes.push([clamp(d / 3, 1, 3), 'sweaters or hoodies']); clothes.push([1, 'thermal base layer']); clothes.push([1, 'beanie + gloves + scarf set']); }
+        if (c === 'mild') { clothes.push([1, 'light jacket or denim jacket']); clothes.push([1, 'sweater or hoodie']); }
+        if (c === 'hot') { clothes.push([1, 'light layer for cold evenings']); }
+        if (c === 'rainy') { clothes.push([1, 'rain jacket or packable shell']); clothes.push([1, 'compact umbrella']); }
+        if (t === 'beach' || (c === 'hot' && t !== 'business')) { clothes.push([2, 'swimsuits']); }
+        if (t === 'beach') { clothes.push([1, 'beach cover-up or sarong']); clothes.push([1, 'sun hat']); clothes.push([1, 'pair of sandals or flip-flops']); }
+        if (t === 'business') { clothes.push([1, 'blazer']); clothes.push([clamp(d / 2, 2, 5), 'dress shirts or blouses']); clothes.push([1, 'pair of dress shoes']); clothes.push([1, 'smart-casual outfit for dinners']); }
+        if (t === 'outdoor') { clothes.push([1, 'pair of hiking boots or trail shoes']); clothes.push([clamp(d / 3, 1, 3), 'moisture-wicking base layers']); clothes.push([1, 'daypack (20–30L)']); }
+        clothes.push([light ? 1 : 2, 'pairs of everyday shoes']);
+        clothes.push([1, 'sleepwear set']);
+        if (wash) clothes.push([1, 'travel detergent sheet pack (wash mid-trip)']);
+
+        var toiletries = [
+          [1, 'toothbrush + toothpaste'], [1, 'deodorant'], [1, 'shampoo / conditioner (travel size)'],
+          [1, 'skincare basics + SPF'], [1, 'razor'], [1, 'medications + painkillers'], [1, 'nail clippers']
+        ];
+        if (c === 'hot' || t === 'beach') toiletries.push([1, 'after-sun / aloe']);
+        if (c === 'cold') toiletries.push([1, 'lip balm + hand cream']);
+
+        var tech = [
+          [1, 'phone charger'], [1, 'power bank'], [1, 'universal plug adapter'], [1, 'headphones']
+        ];
+        if (t === 'business') tech.push([1, 'laptop + charger']);
+        if (t === 'outdoor' || t === 'beach') tech.push([1, 'waterproof phone pouch']);
+
+        var docs = [
+          [1, 'passport / ID'], [1, 'boarding passes (downloaded offline)'], [1, 'travel insurance details'],
+          [1, 'credit card + some local cash'], [1, 'copy of important documents (photo or print)']
+        ];
+
+        var cats = [
+          ['Clothes', clothes], ['Toiletries', toiletries], ['Tech', tech], ['Documents & money', docs]
+        ];
+
+        var total = 0;
+        var host = document.getElementById('cats');
+        host.innerHTML = '';
+        cats.forEach(function (cat, ci) {
+          var box = document.createElement('div');
+          box.className = 'cat';
+          box.innerHTML = '<h2><i></i>' + cat[0] + '</h2>';
+          cat[1].forEach(function (it, ii) {
+            total += 1;
+            var row = document.createElement('div');
+            row.className = 'item';
+            var id = 'it-' + ci + '-' + ii;
+            row.innerHTML = '<input type="checkbox" id="' + id + '" /><label for="' + id + '"><b>' + it[0] + '×</b> ' + it[1] + '</label>';
+            row.querySelector('input').addEventListener('change', function () { row.classList.toggle('done', this.checked); });
+            box.appendChild(row);
+          });
+          host.appendChild(box);
+        });
+
+        document.getElementById('summary').textContent =
+          state.days + ' days · ' + state.climate + ' · ' + state.type + ' · ' + (light ? 'carry-on only' : 'checked bag') + ' — ' + total + ' items';
+        document.getElementById('list').classList.remove('hidden');
+        document.getElementById('list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      document.getElementById('btn-gen').addEventListener('click', build);
+
+      document.getElementById('btn-copy').addEventListener('click', function () {
+        var lines = ['Packing list — ' + document.getElementById('summary').textContent, ''];
+        document.querySelectorAll('.cat').forEach(function (cat) {
+          lines.push(cat.querySelector('h2').textContent.toUpperCase());
+          cat.querySelectorAll('.item label').forEach(function (l) { lines.push('· ' + l.textContent); });
+          lines.push('');
+        });
+        lines.push('Built with triplook — https://www.alangloria.com/triplook/');
+        var btn = this;
+        navigator.clipboard.writeText(lines.join('\n')).then(function () {
+          btn.textContent = 'Copied ✓';
+          setTimeout(function () { btn.textContent = 'Copy list'; }, 1600);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -25,6 +25,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.alangloria.com/word/wpm-test</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alangloria.com/word/average-reading-speed</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.alangloria.com/remainingweeks/calculator</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alangloria.com/remainingweeks/4000-weeks</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.alangloria.com/triplook/packing-list</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.alangloria.com/triplook/capsule-wardrobe</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.alangloria.com/apps/triplook</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
