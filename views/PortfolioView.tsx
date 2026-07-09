@@ -269,7 +269,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                 <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
                 Saltillo, MX · Remote
               </span>
-              <span className="text-zinc-700">·</span>
+              <span className="text-zinc-500">·</span>
               <span className="inline-flex items-center gap-1">
                 <Globe className="w-3.5 h-3.5" strokeWidth={1.5} />
                 Spanish native · English B2
@@ -391,7 +391,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="triplook-serif text-xl text-zinc-50">Triplook</h3>
                       <span className="tag-pill text-[#E0C7A5] border-[#C19C6E]/25 bg-[#C19C6E]/10">App Store · v1.1 · EN/ES</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600 mt-0.5">AI travel outfits &amp; smart closet · SwiftUI</p>
+                    <p className="text-xs font-mono text-zinc-500 mt-0.5">AI travel outfits &amp; smart closet · SwiftUI</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -443,7 +443,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="text-lg font-semibold text-zinc-50">WoRD</h3>
                       <span className="tag-pill text-rose-300/90 border-rose-500/20 bg-rose-500/10">App Store · 4.4★</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600 mt-0.5">Speed Reading Trainer · SwiftUI</p>
+                    <p className="text-xs font-mono text-zinc-500 mt-0.5">Speed Reading Trainer · SwiftUI</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -494,7 +494,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="text-lg font-semibold text-zinc-50">RemainingWeeks</h3>
                       <span className="tag-pill text-orange-300/90 border-orange-500/20 bg-orange-500/10">App Store · New</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600 mt-0.5">Memento mori life calendar · SwiftUI</p>
+                    <p className="text-xs font-mono text-zinc-500 mt-0.5">Memento mori life calendar · SwiftUI</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -545,7 +545,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="text-lg font-semibold text-zinc-50">Rolya</h3>
                       <span className="tag-pill text-teal-300/90 border-teal-500/20 bg-teal-500/10">Live · SaaS</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600">Shift-scheduling SaaS for Mexican SMBs · rolya.com.mx</p>
+                    <p className="text-xs font-mono text-zinc-500">Shift-scheduling SaaS for Mexican SMBs · rolya.com.mx</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -590,7 +590,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="text-lg font-semibold text-zinc-50">Cachoquiniela</h3>
                       <span className="tag-pill text-emerald-300/90 border-emerald-500/20 bg-emerald-500/10">Vercel</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600">World Cup prediction pool with friends</p>
+                    <p className="text-xs font-mono text-zinc-500">World Cup prediction pool with friends</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -627,7 +627,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                       <h3 className="text-lg font-semibold text-zinc-50">CODTR</h3>
                       <span className="tag-pill text-sky-300/90 border-sky-500/20 bg-sky-500/10">Discontinued</span>
                     </div>
-                    <p className="text-xs font-mono text-zinc-600">CoD Warzone tournament platform</p>
+                    <p className="text-xs font-mono text-zinc-500">CoD Warzone tournament platform</p>
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
@@ -646,7 +646,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
         </div>
         <div className="built-strip mt-3" aria-label="Portfolio tooling">
           <div>
-            <p className="section-kicker text-zinc-600">Built with</p>
+            <p className="section-kicker text-zinc-500">Built with</p>
             <p className="text-xs text-zinc-400 mt-1">
               This portfolio was built in Cursor and deployed on Vercel.
             </p>
@@ -678,7 +678,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <h3 className="text-lg font-semibold text-zinc-50">Rolya — Attendance (Phase 2)</h3>
                   <span className="tag-pill text-emerald-300/90 border-emerald-500/20 bg-emerald-500/10">Next up</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">Attendance &amp; payroll reports for Rolya</p>
+                <p className="text-xs font-mono text-zinc-500">Attendance &amp; payroll reports for Rolya</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
@@ -700,7 +700,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <h3 className="text-lg font-semibold text-zinc-50">Triplook — What&apos;s next</h3>
                   <span className="tag-pill text-amber-300/90 border-amber-500/20 bg-amber-500/10">Roadmap</span>
                 </div>
-                <p className="text-xs font-mono text-zinc-600">v1.1 shipped · iOS</p>
+                <p className="text-xs font-mono text-zinc-500">v1.1 shipped · iOS</p>
               </div>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
@@ -728,7 +728,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <p className="font-mono text-[10px] uppercase tracking-wider text-sky-400/80">{edu.period}</p>
                   <h3 className="text-sm font-semibold text-zinc-50 mt-1 leading-snug">{edu.degree}</h3>
                   <p className="text-xs text-zinc-500 mt-0.5">{edu.school}</p>
-                  {edu.location && <p className="text-[11px] text-zinc-600 font-mono">{edu.location}</p>}
+                  {edu.location && <p className="text-[11px] text-zinc-500 font-mono">{edu.location}</p>}
                 </GlassCard>
               ))}
             </div>
@@ -743,7 +743,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
             <div className="space-y-4">
               {skillGroups.map((group) => (
                 <div key={group.label}>
-                  <p className="section-kicker text-zinc-600 mb-2">{group.label}</p>
+                  <p className="section-kicker text-zinc-500 mb-2">{group.label}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {group.skills.map((skill) => (
                       <span key={skill.name} className={`tag-pill text-xs py-1 px-2 ${skill.textColor}`}>
@@ -781,7 +781,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               <div className="relative">
                 <div className="flex items-center justify-between mb-2">
                   <div className="p-2 rounded-lg bg-white/[0.04] border border-white/[0.06] transition-transform duration-200 group-hover:scale-105">{tool.icon}</div>
-                  <span className="font-mono text-[9px] uppercase text-zinc-600">{tool.type}</span>
+                  <span className="font-mono text-[9px] uppercase text-zinc-500">{tool.type}</span>
                 </div>
                 <h3 className="text-sm font-semibold text-zinc-50">{tool.name}</h3>
                 <p className="text-[11px] text-zinc-500 mt-1 leading-relaxed">{tool.description}</p>
@@ -807,7 +807,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               <Linkedin className="w-3.5 h-3.5" /> LinkedIn
             </button>
           </div>
-          <p className="font-mono text-[10px] text-zinc-700 mt-6">
+          <p className="font-mono text-[10px] text-zinc-500 mt-6">
             © {new Date().getFullYear()} Alan Gloria
           </p>
         </GlassCard>

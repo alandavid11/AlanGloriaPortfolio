@@ -56,7 +56,7 @@ const viewFromPath = (pathname: string): ViewState => {
 
 function ViewFallback() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 pb-28 pt-5 md:pt-8 animate-pulse">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 pb-28 pt-5 md:pt-8 animate-pulse min-h-[80dvh]">
       <div className="h-48 rounded-2xl bg-white/[0.03] border border-white/[0.06]" />
     </div>
   );

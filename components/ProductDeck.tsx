@@ -86,6 +86,7 @@ export const ProductDeck: React.FC = () => {
             src="/rolya-01-landing.webp"
             alt="Rolya shift-scheduling SaaS landing page"
             loading="eager"
+            fetchPriority="high"
             decoding="async"
           />
         </motion.a>

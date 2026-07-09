@@ -1,3 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-accent: #38bdf8;
+  /* Brightened from Tailwind's #71717a so small text passes WCAG AA (4.9:1) on #09090b */
+  --color-zinc-500: #7f7f8a;
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+}
+
 /* Design system — editorial glass portfolio */
 
 :root {
@@ -8,7 +22,7 @@
   --border-strong: rgba(255, 255, 255, 0.14);
   --text: #fafafa;
   --text-muted: #a1a1aa;
-  --text-subtle: #71717a;
+  --text-subtle: #7f7f8a;
   --accent: #38bdf8;
   --accent-muted: rgba(56, 189, 248, 0.12);
   --accent-rose: #fb7185;

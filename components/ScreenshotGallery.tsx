@@ -54,7 +54,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({
   return (
     <div className={`screenshot-gallery relative group/gallery ${className}`} onClick={(e) => e.stopPropagation()}>
       <div className="flex items-center justify-between mb-2">
-        <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">Screenshots</p>
+        <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">Screenshots</p>
         {items.length > 1 && (
           <div className="flex gap-1 opacity-60 group-hover/gallery:opacity-100 transition-opacity">
             <button
@@ -96,7 +96,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({
             >
               <img src={item.src} alt={item.alt} className={cfg.image} loading="lazy" />
             </div>
-            <figcaption className="mt-1.5 text-[10px] font-mono text-zinc-600 tracking-wide">
+            <figcaption className="mt-1.5 text-[10px] font-mono text-zinc-500 tracking-wide">
               {item.label}
             </figcaption>
           </motion.figure>

@@ -178,6 +178,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
             <button
               key={id}
               type="button"
+              aria-label={label}
               className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}
@@ -199,6 +200,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
             <button
               key={app.id}
               type="button"
+              aria-label={app.label}
               className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}

@@ -62,7 +62,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index = 0 
             </div>
             <span className="tag-pill shrink-0">{item.period}</span>
           </div>
-          <p className="text-[11px] font-mono text-zinc-600 mt-1">{item.context}</p>
+          <p className="text-[11px] font-mono text-zinc-500 mt-1">{item.context}</p>
           <p className="text-sm text-zinc-400 leading-snug mt-2">{item.summary}</p>
         </div>
       </div>
@@ -83,7 +83,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index = 0 
             className="inline-flex items-baseline gap-1.5 px-2 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs transition-colors duration-200 group-hover:border-white/10"
           >
             <span className="font-mono font-semibold text-zinc-200">{m.value}</span>
-            <span className="text-zinc-600">{m.label}</span>
+            <span className="text-zinc-500">{m.label}</span>
           </span>
         ))}
         {item.tags.map((tag) => (
