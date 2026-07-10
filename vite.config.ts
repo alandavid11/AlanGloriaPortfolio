@@ -1,7 +1,27 @@
 import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import fs from 'fs';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+
+/** Mirrors Vercel's cleanUrls in dev: /word -> public/word.html when the file exists. */
+function cleanUrlsDev(): Plugin {
+  return {
+    name: 'clean-urls-dev',
+    configureServer(server) {
+      server.middlewares.use((req, _res, next) => {
+        const url = (req.url || '').split('?')[0];
+        if (url && url !== '/' && !url.includes('.')) {
+          const candidate = path.resolve(__dirname, 'public', url.replace(/^\//, '').replace(/\/$/, '') + '.html');
+          if (fs.existsSync(candidate)) {
+            req.url = url.replace(/\/$/, '') + '.html';
+          }
+        }
+        next();
+      });
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -10,7 +30,7 @@ export default defineConfig(({ mode }) => {
         port: Number(process.env.PORT) || 3000,
         host: '0.0.0.0',
       },
-      plugins: [react(), tailwindcss()],
+      plugins: [react(), tailwindcss(), cleanUrlsDev()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
