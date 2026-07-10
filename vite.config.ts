@@ -4,7 +4,10 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
-/** Mirrors Vercel's cleanUrls in dev: /word -> public/word.html when the file exists. */
+/**
+ * Mirrors Vercel's static routing in dev: /word -> public/word.html and
+ * /triplook/ -> public/triplook/index.html when those files exist.
+ */
 function cleanUrlsDev(): Plugin {
   return {
     name: 'clean-urls-dev',
@@ -12,9 +15,13 @@ function cleanUrlsDev(): Plugin {
       server.middlewares.use((req, _res, next) => {
         const url = (req.url || '').split('?')[0];
         if (url && url !== '/' && !url.includes('.')) {
-          const candidate = path.resolve(__dirname, 'public', url.replace(/^\//, '').replace(/\/$/, '') + '.html');
-          if (fs.existsSync(candidate)) {
-            req.url = url.replace(/\/$/, '') + '.html';
+          const clean = url.replace(/^\//, '').replace(/\/$/, '');
+          const flat = path.resolve(__dirname, 'public', clean + '.html');
+          const dirIndex = path.resolve(__dirname, 'public', clean, 'index.html');
+          if (fs.existsSync(flat)) {
+            req.url = '/' + clean + '.html';
+          } else if (fs.existsSync(dirIndex)) {
+            req.url = '/' + clean + '/index.html';
           }
         }
         next();
