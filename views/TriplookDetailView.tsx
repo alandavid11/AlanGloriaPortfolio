@@ -313,6 +313,13 @@ export const TriplookDetailView: React.FC<TriplookDetailViewProps> = ({ onBack }
                   <Download className="w-4 h-4" strokeWidth={1.5} />
                   Download on the App Store
                 </button>
+                <a
+                  href="/triplook/"
+                  className="w-full mt-3 inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-sm font-medium transition-opacity hover:opacity-80"
+                  style={{ color: '#8A6D45', border: '1px solid rgba(138,109,69,0.35)' }}
+                >
+                  Visit the product website
+                </a>
               </CreamCard>
 
               <CreamCard>

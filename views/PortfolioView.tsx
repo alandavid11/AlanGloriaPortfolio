@@ -426,6 +426,12 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
+                  <a
+                    href="/triplook/"
+                    className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-200 font-medium transition-colors"
+                  >
+                    Website <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
               <ScreenshotGallery items={TRIPLOOK_SCREENSHOTS} variant="phone" />
@@ -477,6 +483,12 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
+                  <a
+                    href="/word"
+                    className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-200 font-medium transition-colors"
+                  >
+                    Website <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
               <ScreenshotGallery items={WORD_SCREENSHOTS} variant="phone" />
@@ -527,6 +539,12 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                     }}
                   >
                     Case study <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href="/remainingweeks"
+                    className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-200 font-medium transition-colors"
+                  >
+                    Website <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>

@@ -426,6 +426,13 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
                   >
                     View listing <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
                   </button>
+
+                  <a
+                    href="/word"
+                    className="w-full mt-3 inline-flex items-center justify-center gap-2 rounded-2xl border border-white/[0.1] px-4 py-2.5 text-sm font-medium text-zinc-300 hover:border-white/25 transition-colors"
+                  >
+                    Product website <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
+                  </a>
                 </DarkCard>
 
                 <DarkCard>
