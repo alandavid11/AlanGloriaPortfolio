@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["4MU58G3C6C.com.Producciones4D.Rarium"],
+        "components": [
+          { "/": "/raro/*" }
+        ]
+      }
+    ]
+  }
+}

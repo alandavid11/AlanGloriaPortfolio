@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RARO — Colecciona el mundo en cartas</title>
+  <meta name="description" content="Fotografía lugares reales y conviértelos en cartas coleccionables con rareza, foils y ediciones numeradas.">
+  <meta property="og:title" content="RARO — Colecciona el mundo en cartas">
+  <meta property="og:description" content="Fotografía lugares reales y conviértelos en cartas coleccionables.">
+  <style>
+    :root { color-scheme: dark; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000; color: #fff; min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: ui-monospace, "JetBrains Mono", "SF Mono", SFMono-Regular, Menlo, monospace;
+      text-align: center; padding: 24px; gap: 0;
+    }
+    .wordmark { font-size: 28px; font-weight: 500; letter-spacing: .34em; margin-left: .34em; }
+    .profile { margin-top: 40px; font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+    .tagline { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.65); letter-spacing: .08em; line-height: 1.7; max-width: 420px; }
+    .accent { color: #DCC08A; }
+    .cta {
+      margin-top: 44px; display: inline-block; border: 1px solid rgba(220,192,138,.6);
+      color: #DCC08A; padding: 13px 26px; border-radius: 999px; text-decoration: none;
+      font-size: 11px; letter-spacing: .22em; font-weight: 600;
+    }
+    .soon { margin-top: 14px; font-size: 10px; letter-spacing: .18em; color: rgba(255,255,255,.35); }
+    .back { position: fixed; bottom: 28px; font-size: 10px; letter-spacing: .15em; color: rgba(255,255,255,.3); text-decoration: none; }
+    .card {
+      margin-top: 40px; width: 150px; aspect-ratio: 63/88; border-radius: 12px;
+      border: 1px solid rgba(220,192,138,.45);
+      background: linear-gradient(160deg, rgba(220,192,138,.16), rgba(255,255,255,.03) 55%, rgba(220,192,138,.08));
+      display: flex; align-items: flex-end; padding: 12px; box-shadow: 0 24px 60px rgba(0,0,0,.6);
+    }
+    .card span { font-size: 8px; letter-spacing: .2em; color: rgba(255,255,255,.5); }
+  </style>
+</head>
+<body>
+  <div class="wordmark">RARO</div>
+  <div class="card"><span id="cardLabel">CARTA #1</span></div>
+  <div class="profile" id="profileLine" hidden></div>
+  <p class="tagline" id="tagline">Fotografía lugares reales y conviértelos en cartas coleccionables — con rareza, foils y ediciones numeradas.</p>
+  <a class="cta" id="cta" href="#" hidden>DESCARGAR EN APP STORE</a>
+  <div class="soon" id="soon">PRÓXIMAMENTE EN APP STORE</div>
+  <a class="back" href="/">← alangloria.com</a>
+  <script>
+    // Cuando la app esté publicada, poner aquí la URL de App Store y quitar el "hidden" del CTA.
+    var APP_STORE_URL = "";
+    var en = !/^es|^pt|^fr|^de/.test(navigator.language);
+    var match = location.pathname.match(/^\/raro\/u\/([A-Za-z0-9_\.\-]+)/);
+    if (match) {
+      var el = document.getElementById("profileLine");
+      el.hidden = false;
+      el.innerHTML = '@' + match[1] + ' <span class="accent">·</span> ' + (en ? "is collecting the world" : "está coleccionando el mundo");
+      document.getElementById("tagline").textContent = en
+        ? "Download Raro to see their showcase — rare pulls, numbered editions and world-first cards."
+        : "Descarga Raro para ver su vitrina — pulls raros, ediciones numeradas y Cartas #1.";
+      document.getElementById("cardLabel").textContent = "@" + match[1].toUpperCase();
+    } else if (en) {
+      document.getElementById("tagline").textContent =
+        "Photograph real places and turn them into collectible cards — with rarity, foils and numbered editions.";
+    }
+    if (en) document.getElementById("soon").textContent = "COMING SOON TO THE APP STORE";
+    if (APP_STORE_URL) {
+      var cta = document.getElementById("cta");
+      cta.href = APP_STORE_URL; cta.hidden = false;
+      document.getElementById("soon").hidden = true;
+    }
+  </script>
+</body>
+</html>
