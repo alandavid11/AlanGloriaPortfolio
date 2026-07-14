@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Many Weeks Are Left in 2026? (Live Counter)</title>
+  <meta name="description" content="Live counter of the weeks, days and weekends left in 2026, with a visual week-by-week grid of the year. Updates automatically every day." />
+  <link rel="canonical" href="https://www.alangloria.com/remainingweeks/weeks-left-this-year" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="apple-itunes-app" content="app-id=6785275888" />
+  <link rel="icon" type="image/webp" href="/remainingweeks-icon.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RemainingWeeks" />
+  <meta property="og:url" content="https://www.alangloria.com/remainingweeks/weeks-left-this-year" />
+  <meta property="og:title" content="How many weeks are left in 2026?" />
+  <meta property="og:description" content="Live counter of the weeks, days and weekends left this year, with a week-by-week grid. Updates automatically." />
+  <meta property="og:image" content="https://www.alangloria.com/og-remainingweeks.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How many weeks are left in 2026?" />
+  <meta name="twitter:image" content="https://www.alangloria.com/og-remainingweeks.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Weeks Left This Year — Live Counter",
+        "url": "https://www.alangloria.com/remainingweeks/weeks-left-this-year",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "Alan Gloria", "url": "https://www.alangloria.com/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many weeks are in a year?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A regular year has 365 days, which is 52 full weeks plus one extra day (leap years have two extra days). That's why the calendar shifts by one weekday every year."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the number of weeks left calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We count the days remaining from today until December 31 and divide by seven, rounding down to full weeks. The counter updates automatically every day."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many weekends are left this year?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is one weekend per remaining week, so the number of weekends left is roughly equal to the number of full weeks left in the year."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b; --panel: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
+      --text: #fafafa; --muted: #a1a1aa; --dim: #8f8f98; --accent: #c8745a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(60% 50% at 50% 0%, rgba(200,116,90,0.12), transparent 70%);
+    }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: #dda58f; }
+
+    header { padding: 28px 0; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; text-decoration: none; color: var(--text); }
+    .glyph { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(160deg, var(--accent), #8f4d3a); display: grid; place-items: center; color: #fff; font-weight: 700; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 18px; }
+    .nav a:hover { color: var(--text); }
+
+    .hero { padding: 36px 0 10px; }
+    h1 { font-size: clamp(1.9rem, 5.6vw, 2.8rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
+    .lede { color: var(--muted); max-width: 58ch; }
+
+    .counter {
+      margin: 26px 0; border: 1px solid var(--border); border-radius: 20px;
+      background: var(--panel); padding: 30px 26px; text-align: center;
+    }
+    .big { font-size: clamp(4rem, 15vw, 6.5rem); font-weight: 650; letter-spacing: -0.03em; line-height: 1; color: var(--accent); }
+    .big-label { font-size: 1.1rem; color: var(--text); margin-top: 4px; }
+    .sub-stats { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--dim); }
+    .sub-stats b { display: block; font-size: 1.3rem; color: var(--text); font-family: 'Outfit', sans-serif; letter-spacing: -0.01em; }
+
+    .year-grid { display: grid; grid-template-columns: repeat(13, 1fr); gap: 6px; max-width: 420px; margin: 26px auto 0; }
+    .cell { aspect-ratio: 1; border-radius: 4px; background: rgba(255,255,255,0.1); }
+    .cell.gone { background: #fafafa; }
+    .cell.now { background: var(--accent); box-shadow: 0 0 10px rgba(200,116,90,0.7); }
+    .legend { display: flex; justify-content: center; gap: 18px; margin-top: 14px; font-size: 12.5px; color: var(--dim); }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+    section { padding: 22px 0; }
+    h2 { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; }
+    p { color: var(--muted); margin-bottom: 12px; max-width: 66ch; }
+    p strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 8px; font-size: 0.95rem; }
+    th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+    th { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); }
+    td { color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr.past td { opacity: 0.35; }
+
+    .faq details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+    .faq summary { cursor: pointer; font-weight: 600; color: var(--text); }
+    .faq p { margin-top: 8px; font-size: 0.95rem; }
+
+    .cta-card {
+      margin: 22px 0; padding: 22px; border-radius: 16px;
+      border: 1px solid rgba(200,116,90,0.3); background: rgba(200,116,90,0.08);
+    }
+    .cta-card strong { display: block; margin-bottom: 6px; color: var(--text); }
+    .cta-card p { font-size: 0.95rem; margin-bottom: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px; border-radius: 999px; background: var(--accent); color: #fff;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    footer { padding: 32px 0 44px; border-top: 1px solid var(--border); color: var(--dim); font-size: 13px; }
+    footer a { color: var(--muted); text-decoration: none; margin-right: 18px; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/remainingweeks"><span class="glyph">▦</span> RemainingWeeks</a>
+      <nav class="nav">
+        <a href="/remainingweeks/calculator">Life calculator</a>
+        <a href="/remainingweeks">The app</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>How many weeks are left in <span class="js-year">2026</span>?</h1>
+        <p class="lede">
+          A live counter of the time this year still has for you — full weeks, days and weekends —
+          with the year drawn week by week. It updates automatically every day.
+        </p>
+      </section>
+
+      <div class="counter">
+        <p class="big" id="weeks-left">–</p>
+        <p class="big-label">full weeks left in <span class="js-year">2026</span></p>
+        <div class="sub-stats">
+          <span><b id="days-left">–</b>days left</span>
+          <span><b id="weekends-left">–</b>weekends left</span>
+          <span><b id="pct-gone">–</b>of the year gone</span>
+        </div>
+        <div class="year-grid" id="year-grid" aria-hidden="true"></div>
+        <div class="legend">
+          <span><i style="background:#fafafa;"></i>Weeks gone</span>
+          <span><i style="background:#c8745a;"></i>This week</span>
+          <span><i style="background:rgba(255,255,255,0.1);"></i>Weeks ahead</span>
+        </div>
+      </div>
+
+      <section>
+        <h2>Weeks left from the start of each month</h2>
+        <p>Planning something for later in the year? This is how much runway each month still gives you:</p>
+        <table id="month-table">
+          <thead><tr><th>From</th><th>Days left in the year</th><th>Full weeks left</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="faq">
+        <h2>Quick answers</h2>
+        <details open>
+          <summary>How many weeks are in a year?</summary>
+          <p>A regular year has 365 days — that's <strong>52 full weeks plus one extra day</strong> (leap years
+          have two extra days). That single spare day is why the calendar shifts by one weekday every year.</p>
+        </details>
+        <details>
+          <summary>How is this calculated?</summary>
+          <p>We count the days from today through December 31 and divide by seven, rounding down to
+          full weeks. No time zones tricks — it uses your device's local date.</p>
+        </details>
+        <details>
+          <summary>How many weekends are left?</summary>
+          <p>One per remaining week. If there are 24 full weeks left, you have about 24 Saturdays
+          — it's a surprisingly small number when you see it written down.</p>
+        </details>
+      </section>
+
+      <div class="cta-card">
+        <strong>This number hits different when it's your whole life.</strong>
+        <p>RemainingWeeks shows your weeks — this year, this month, or your entire life — on your
+          iPhone Home Screen, Lock Screen and Apple Watch, with a new square filling in every Monday.</p>
+        <a class="btn" href="https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888" target="_blank" rel="noopener">&#63743; Get RemainingWeeks free</a>
+      </div>
+
+      <p style="color:var(--dim); font-size:14px; padding-bottom:20px;">Want the bigger picture? Try the
+        <a href="/remainingweeks/calculator">life in weeks calculator</a> or read
+        <a href="/remainingweeks/4000-weeks">why 4,000 weeks changes how you plan</a>.</p>
+    </main>
+
+    <footer>
+      <a href="/remainingweeks">RemainingWeeks app</a>
+      <a href="/remainingweeks/calculator">Life calculator</a>
+      <a href="/remainingweeks/4000-weeks">4,000 weeks</a>
+      <a href="/">Portfolio</a>
+      <div class="mono" style="margin-top:12px;">© 2026 Alan Gloria</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var now = new Date();
+      var year = now.getFullYear();
+      var endOfYear = new Date(year, 11, 31, 23, 59, 59);
+      var startOfYear = new Date(year, 0, 1);
+      var msDay = 24 * 3600 * 1000;
+
+      var daysLeft = Math.max(Math.floor((endOfYear - now) / msDay), 0);
+      var weeksLeft = Math.floor(daysLeft / 7);
+      var totalDays = Math.round((new Date(year + 1, 0, 1) - startOfYear) / msDay);
+      var dayOfYear = Math.floor((now - startOfYear) / msDay) + 1;
+      var pctGone = Math.round((dayOfYear / totalDays) * 100);
+      var currentWeek = Math.min(Math.floor((dayOfYear - 1) / 7), 51);
+
+      document.querySelectorAll('.js-year').forEach(function (el) { el.textContent = year; });
+      document.title = 'How Many Weeks Are Left in ' + year + '? (Live Counter)';
+      document.getElementById('weeks-left').textContent = weeksLeft;
+      document.getElementById('days-left').textContent = daysLeft;
+      document.getElementById('weekends-left').textContent = weeksLeft;
+      document.getElementById('pct-gone').textContent = pctGone + '%';
+
+      var grid = document.getElementById('year-grid');
+      var cells = '';
+      for (var i = 0; i < 52; i++) {
+        cells += '<span class="cell ' + (i < currentWeek ? 'gone' : i === currentWeek ? 'now' : '') + '"></span>';
+      }
+      grid.innerHTML = cells;
+
+      var tbody = document.querySelector('#month-table tbody');
+      var names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      var rows = '';
+      for (var m = 0; m < 12; m++) {
+        var first = new Date(year, m, 1);
+        var d = Math.max(Math.round((endOfYear - first) / msDay), 0);
+        var w = Math.floor(d / 7);
+        var past = first < new Date(now.getFullYear(), now.getMonth(), 1);
+        rows += '<tr' + (past ? ' class="past"' : '') + '><td>' + names[m] + ' 1</td><td>' + d + ' days</td><td>' + w + ' weeks</td></tr>';
+      }
+      tbody.innerHTML = rows;
+    })();
+  </script>
+</body>
+</html>
