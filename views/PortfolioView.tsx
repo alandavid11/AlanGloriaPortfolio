@@ -51,8 +51,8 @@ const TRIPLOOK_SCREENSHOTS: ScreenshotItem[] = [
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/word-01.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
-  { src: '/word-02.webp', alt: 'WoRD home dashboard with streaks and best WPM', label: 'Home' },
-  { src: '/word-03.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
+  { src: '/word-02.webp', alt: 'WoRD RSVP reader with a glowing golden word to catch', label: 'Reader' },
+  { src: '/word-03.webp', alt: 'WoRD Arcade — Word Hunt, Odd One Out and daily missions', label: 'Arcade' },
   { src: '/word-04.webp', alt: 'WoRD reading analytics, records and consistency heatmap', label: 'Stats' },
   { src: '/word-05.webp', alt: 'WoRD personalized reading plan with schedule', label: 'Reading Plan' },
   { src: '/word-06.webp', alt: 'WoRD achievements and badges', label: 'Achievements' },
@@ -453,12 +453,14 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   </div>
                 </div>
                 <p className="text-xs text-zinc-400 leading-relaxed">
-                  CADisplayLink RSVP engine, personalized Reading Plans, 720 stories in 4 languages, WidgetKit widgets,
-                  Swift Charts analytics, and shareable stat cards. RevenueCat subscriptions (WoRD Pro) with a
-                  conversion-focused paywall + AdMob behind a single entitlement, plus ongoing ASO and social growth.
+                  CADisplayLink RSVP engine with an Arcade layer — golden words to catch, intruders to expel, daily
+                  missions and a Game Center Weekly League — plus personalized Reading Plans, 720 stories in 4
+                  languages, WidgetKit widgets, Swift Charts analytics, and shareable stat cards. RevenueCat
+                  subscriptions (WoRD Pro) with a conversion-focused paywall + AdMob behind a single entitlement,
+                  plus ongoing ASO and social growth.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-2">
-                  {['SwiftUI', 'MVVM', 'RevenueCat', 'AdMob', 'WidgetKit'].map((t) => (
+                  {['SwiftUI', 'MVVM', 'RevenueCat', 'AdMob', 'WidgetKit', 'Game Center'].map((t) => (
                     <span key={t} className="tag-pill">{t}</span>
                   ))}
                 </div>

@@ -15,8 +15,8 @@ const DIM = '#98989F';
 
 const WORD_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/word-01.webp', alt: 'WoRD hero — read faster, think sharper', label: 'Hero' },
-  { src: '/word-02.webp', alt: 'WoRD home dashboard with streaks and best WPM', label: 'Home' },
-  { src: '/word-03.webp', alt: 'WoRD RSVP reader with focal-point word', label: 'Reader' },
+  { src: '/word-02.webp', alt: 'WoRD RSVP reader with a glowing golden word to catch', label: 'Reader' },
+  { src: '/word-03.webp', alt: 'WoRD Arcade — Word Hunt, Odd One Out and daily missions', label: 'Arcade' },
   { src: '/word-04.webp', alt: 'WoRD reading analytics, records and consistency heatmap', label: 'Stats' },
   { src: '/word-05.webp', alt: 'WoRD personalized reading plan with schedule', label: 'Reading Plan' },
   { src: '/word-06.webp', alt: 'WoRD achievements and badges', label: 'Achievements' },
@@ -33,12 +33,14 @@ interface AppDetailViewProps {
 
 const KEY_FEATURES = [
   'Practice Mode — CADisplayLink RSVP engine with focal-point & bionic rendering up to 900 WPM',
+  'Arcade layer — Word Hunt (catch golden words) & Odd One Out (expel intruders) woven into reading, with combo heat and difficulty that ramps exponentially as your combo climbs',
+  'Daily missions with an XP chest + Weekly League on a global Game Center leaderboard',
   'Reading Plans — personalized schedule that ramps your target WPM toward a goal, never repeating a reading',
   'Challenge Mode — read + quiz scoring (accuracy × WPM), daily challenge & 60s Focus Sprint',
   '"Find Your Limit" speed test that measures real reading speed and assigns a level',
   '720 stories + 160 quick-practice readings across EN / ES / FR / PT — shuffled-bag rotation so sessions never repeat',
   'Training Hub — XP, levels 1–25, achievements, streaks with automatic Streak Freeze',
-  'WidgetKit home + lock-screen widgets synced via App Group',
+  'WidgetKit home + lock-screen widgets synced via App Group, and streak notifications that deep-link straight into a session',
   'Shareable result cards sized for Instagram & Facebook Stories',
 ];
 
@@ -47,25 +49,26 @@ const MONETIZATION = [
     title: 'RevenueCat — WoRD Pro',
     pro: true,
     detail:
-      'Weekly, monthly, and yearly subscriptions behind the "WoRD Pro" entitlement. Conversion-focused custom paywall: personalized WPM hook, Free-vs-Pro comparison table, Blinkist-style trial timeline backed by a real reminder notification, and a 7-day free trial anchored on the annual plan.',
+      'Weekly, monthly, and yearly subscriptions behind the "WoRD Pro" entitlement. Conversion-focused custom paywall: crown hero, Free-vs-Pro comparison table, a 7-day free trial anchored on the annual plan, and Pro perks that multiply the arcade (×2 game XP, 250-XP mission chest).',
   },
   {
     title: 'Google AdMob',
     pro: false,
     detail:
-      'Centralized AdService with a single shared banner claimed by the visible screen (one ad WebView alive at a time — a large energy win), never on the RSVP reader. Interstitials every 4 completed challenges; rewarded ads unlock one premium story per day. Full SKAdNetwork attribution (53 network IDs).',
+      'Centralized AdService with a single shared banner claimed by the visible screen (one ad WebView alive at a time — a large energy win), never on the RSVP reader or inside games. Interstitials at natural session ends with just-in-time loading and a 4-per-day cap; rewarded ads unlock one premium story per day. Full SKAdNetwork attribution (53 network IDs).',
   },
   {
     title: 'Pro gating',
     pro: false,
     detail:
-      'SubscriptionService.isPro is the single flag: suppresses all ads, unlocks ~100 premium stories, speed test, advanced Swift Charts stats, premium challenge categories, and Pro training drills.',
+      'SubscriptionService.isPro is the single flag: suppresses all ads, unlocks ~100 premium stories, speed test, advanced Swift Charts stats, premium challenge categories, Pro training drills, and doubles arcade rewards.',
   },
 ];
 
 const ARCHITECTURE = [
   'MVVM + singleton Services — Views → ViewModels → Services → bundled JSON / UserDefaults',
-  'TimingEngine (CADisplayLink) drives word-by-word RSVP with punctuation pause multipliers',
+  'TimingEngine (CADisplayLink) drives word-by-word RSVP with punctuation pause multipliers — golden/intruder words dwell longer with a tap grace window that shrinks exponentially with the combo',
+  'QuestService generates deterministic daily missions (seeded from the day ordinal) with a claimable XP chest; GameCenterService submits daily-challenge scores to the global leaderboard',
   'ContentCatalogService aggregates 180 stories × 4 languages from bundled JSON',
   'ScoreService persists sessions to UserDefaults and writes shared stats for the widget extension',
   'CAEmitterLayer ember particle system renders the brand atmosphere on the GPU render server — near-zero main-thread cost, honors Reduce Motion',
@@ -75,13 +78,14 @@ const TECH_STACK = [
   'SwiftUI + @Observable ViewModels',
   'RevenueCat 5.73 + RevenueCatUI',
   'Google Mobile Ads 13.3 + UMP consent',
+  'GameKit — Game Center leaderboards',
   'WidgetKit extension with App Group sync',
   'Custom LocalizedStrings (4 languages, no .strings files)',
 ];
 
 const FACTS: [string, string][] = [
   ['Rating', '4.4 / 5'],
-  ['Version', '1.6'],
+  ['Version', '1.7 — Arcade Update'],
   ['Bundle', 'com.Producciones4D.WoRD'],
   ['Category', 'Education'],
   ['Monetization', 'RevenueCat + AdMob'],
@@ -165,6 +169,11 @@ const MiniReader: React.FC = () => {
 
   const word = RSVP_WORDS[idx];
   const fi = focalIndex(word);
+  // Word Hunt cameo: one word per cycle turns golden, like in the app.
+  const golden = word === 'time';
+  const sideColor = golden ? GOLD : PAPER;
+  const focalColor = golden ? GOLD : FOCAL;
+  const glow = golden ? { textShadow: `0 0 14px rgba(255,219,107,0.85)` } : {};
 
   return (
     <button
@@ -194,19 +203,19 @@ const MiniReader: React.FC = () => {
         />
         <span
           className="absolute top-1/2 -translate-y-1/2"
-          style={{ right: 'calc(50% + 0.5ch)', color: PAPER }}
+          style={{ right: 'calc(50% + 0.5ch)', color: sideColor, ...glow }}
         >
           {word.slice(0, fi)}
         </span>
         <span
           className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
-          style={{ color: FOCAL }}
+          style={{ color: focalColor, ...glow }}
         >
           {word[fi]}
         </span>
         <span
           className="absolute top-1/2 -translate-y-1/2"
-          style={{ left: 'calc(50% + 0.5ch)', color: PAPER }}
+          style={{ left: 'calc(50% + 0.5ch)', color: sideColor, ...glow }}
         >
           {word.slice(fi + 1)}
         </span>
@@ -270,7 +279,7 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
               style={{ boxShadow: '0 18px 50px rgba(230,57,53,0.22)' }}
             />
             <div>
-              <Kicker>Published app · v1.6 · App Store</Kicker>
+              <Kicker>Published app · v1.7 · App Store</Kicker>
               <h1 className="text-3xl md:text-4xl tracking-tight">
                 <WordMark className="text-4xl md:text-5xl" />
                 <span className="font-semibold text-zinc-300"> — Speed Reading Trainer</span>
@@ -322,8 +331,10 @@ export const AppDetailView: React.FC<AppDetailViewProps> = ({ onBack }) => {
                   </p>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: DIM }}>
                     The app ships 720 stories (180 per language × 4 locales), personalized Reading Plans that schedule
-                    sessions and ramp the target speed toward a goal, a Challenge Arena with daily challenges and Focus
-                    Sprint mode, XP/level progression, and WidgetKit extensions that read live stats from an App Group.
+                    sessions and ramp the target speed toward a goal, and an Arcade layer that turns reading itself into
+                    a game: golden words to catch mid-stream, intruder words to expel, daily missions with an XP chest,
+                    and a Weekly League on Game Center — plus XP/level progression and WidgetKit extensions that read
+                    live stats from an App Group.
                   </p>
                   <p className="text-sm leading-relaxed" style={{ color: DIM }}>
                     I owned architecture, UI/UX, content pipeline, App Store submission, ASO, compliance (ATT +
