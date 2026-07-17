@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Life in Weeks Calculator — See How Many Weeks You Have Left</title>
-  <meta name="description" content="Free life in weeks calculator: enter your birthday and see your whole life as a grid of weeks — lived, current, and remaining. Download your grid as an image." />
-  <link rel="canonical" href="https://www.alangloria.com/remainingweeks/calculator" />
+  <title>Calculadora de Vida en Semanas — ¿Cuántas Semanas te Quedan?</title>
+  <meta name="description" content="Calculadora gratis de tu vida en semanas: escribe tu fecha de nacimiento y mira toda tu vida como una cuadrícula de semanas — vividas, actual y restantes. Descarga tu cuadrícula como imagen." />
+  <link rel="canonical" href="https://www.alangloria.com/remainingweeks/calculadora-vida-en-semanas" />
   <link rel="alternate" hreflang="en" href="https://www.alangloria.com/remainingweeks/calculator" />
   <link rel="alternate" hreflang="es" href="https://www.alangloria.com/remainingweeks/calculadora-vida-en-semanas" />
   <link rel="alternate" hreflang="x-default" href="https://www.alangloria.com/remainingweeks/calculator" />
@@ -15,22 +15,23 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="RemainingWeeks" />
-  <meta property="og:url" content="https://www.alangloria.com/remainingweeks/calculator" />
-  <meta property="og:title" content="Life in Weeks Calculator — how many weeks do you have left?" />
-  <meta property="og:description" content="Enter your birthday and see your whole life as a grid of weeks. Free, instant, and you can download your grid as an image." />
+  <meta property="og:url" content="https://www.alangloria.com/remainingweeks/calculadora-vida-en-semanas" />
+  <meta property="og:title" content="Calculadora de vida en semanas — ¿cuántas te quedan?" />
+  <meta property="og:description" content="Escribe tu fecha de nacimiento y mira toda tu vida como una cuadrícula de semanas. Gratis, al instante, y puedes descargar tu cuadrícula como imagen." />
   <meta property="og:image" content="https://www.alangloria.com/og-remainingweeks.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Life in Weeks Calculator" />
+  <meta name="twitter:title" content="Calculadora de vida en semanas" />
   <meta name="twitter:image" content="https://www.alangloria.com/og-remainingweeks.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Life in Weeks Calculator",
-    "url": "https://www.alangloria.com/remainingweeks/calculator",
+    "name": "Calculadora de Vida en Semanas",
+    "url": "https://www.alangloria.com/remainingweeks/calculadora-vida-en-semanas",
+    "inLanguage": "es",
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -119,68 +120,68 @@
     <header>
       <a class="brand" href="/remainingweeks"><span class="glyph">▦</span> RemainingWeeks</a>
       <nav class="nav">
-        <a href="/remainingweeks/calculadora-vida-en-semanas">Español</a>
-        <a href="/remainingweeks/4000-weeks">4,000 weeks</a>
-        <a href="/remainingweeks">The app</a>
+        <a href="/remainingweeks/calculator">English</a>
+        <a href="/remainingweeks">La app</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1>Your life, in weeks.</h1>
+        <h1>Tu vida, en semanas.</h1>
         <p class="lede">
-          A human life is roughly 4,000 weeks. Enter your birthday and see yours as a grid —
-          every week you've lived, the one you're living, and the ones still ahead.
+          Una vida humana dura unas 4,000 semanas. Escribe tu fecha de nacimiento y mira la tuya
+          como una cuadrícula: cada semana que has vivido, la que estás viviendo y las que vienen.
         </p>
       </section>
 
       <section class="panel">
         <div class="controls">
           <div class="field">
-            <label for="dob">Your birthday</label>
-            <input type="date" id="dob" min="1920-01-01" max="2026-07-09" />
+            <label for="dob">Tu fecha de nacimiento</label>
+            <input type="date" id="dob" min="1920-01-01" max="2026-07-17" />
           </div>
           <div class="field">
-            <label for="exp">Life expectancy<span class="exp-val" id="exp-val">80 years</span></label>
+            <label for="exp">Esperanza de vida<span class="exp-val" id="exp-val">80 años</span></label>
             <input type="range" id="exp" min="60" max="100" value="80" />
           </div>
-          <button class="btn" id="btn-calc">Show my weeks</button>
+          <button class="btn" id="btn-calc">Ver mis semanas</button>
         </div>
 
         <div id="result" class="hidden">
           <div class="stats">
-            <div class="stat"><b id="s-lived">—</b><span>weeks lived</span></div>
-            <div class="stat hl"><b id="s-left">—</b><span>weeks left</span></div>
-            <div class="stat"><b id="s-pct">—</b><span>of life lived</span></div>
-            <div class="stat"><b id="s-sundays">—</b><span>weekends left</span></div>
+            <div class="stat"><b id="s-lived">—</b><span>semanas vividas</span></div>
+            <div class="stat hl"><b id="s-left">—</b><span>semanas restantes</span></div>
+            <div class="stat"><b id="s-pct">—</b><span>de vida transcurrida</span></div>
+            <div class="stat"><b id="s-sundays">—</b><span>fines de semana</span></div>
           </div>
           <canvas id="grid-canvas"></canvas>
           <div class="legend">
-            <span><i style="background:#fafafa;"></i>Lived</span>
-            <span><i style="background:#c8745a;"></i>This week</span>
-            <span><i style="background:rgba(255,255,255,0.14);"></i>Ahead</span>
+            <span><i style="background:#fafafa;"></i>Vividas</span>
+            <span><i style="background:#c8745a;"></i>Esta semana</span>
+            <span><i style="background:rgba(255,255,255,0.14);"></i>Por venir</span>
           </div>
-          <p style="margin-top:18px;"><button class="btn ghost" id="btn-download">Download as image</button></p>
+          <p style="margin-top:18px;"><button class="btn ghost" id="btn-download">Descargar como imagen</button></p>
 
           <div class="cta-card">
-            <strong>Keep it where you'll actually see it.</strong>
-            <p>RemainingWeeks puts this grid on your iPhone, your Lock Screen, and your Apple Watch —
-               updated every week, with countdowns for the dates that matter. That's the difference
-               between a one-time gut punch and a weekly reminder to spend time on purpose.</p>
-            <a class="btn" href="https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888" target="_blank" rel="noopener">&#63743; Get RemainingWeeks free</a>
+            <strong>Tenla donde sí la veas.</strong>
+            <p>RemainingWeeks pone esta cuadrícula en tu iPhone, tu Lock Screen y tu Apple Watch —
+               actualizada cada semana, con cuentas regresivas para las fechas que importan. Esa es la
+               diferencia entre un golpe de realidad de una vez y un recordatorio semanal para gastar
+               el tiempo a propósito.</p>
+            <a class="btn" href="https://apps.apple.com/mx/app/remainingweeks-time-left/id6785275888" target="_blank" rel="noopener">&#63743; Descarga RemainingWeeks gratis</a>
           </div>
         </div>
       </section>
 
-      <p class="more">Why weeks and not days or years? Read
-        <a href="/remainingweeks/4000-weeks">the idea behind the 4,000-week life</a> — or check
-        <a href="/remainingweeks/weeks-left-this-year">how many weeks are left this year</a>.</p>
+      <p class="more">¿Por qué semanas y no días o años? Checa también
+        <a href="/remainingweeks/cuantas-semanas-quedan">cuántas semanas quedan este año</a>.</p>
     </main>
 
     <footer>
-      <a href="/remainingweeks">RemainingWeeks app</a>
-      <a href="/remainingweeks/4000-weeks">4,000 weeks</a>
-      <a href="/">Portfolio</a>
+      <a href="/remainingweeks">La app RemainingWeeks</a>
+      <a href="/remainingweeks/cuantas-semanas-quedan">Semanas restantes del año</a>
+      <a href="/remainingweeks/calculator">English version</a>
+      <a href="/">Portafolio</a>
       <div class="mono" style="margin-top:12px;">© 2026 Alan Gloria</div>
     </footer>
   </div>
@@ -193,7 +194,7 @@
       var result = document.getElementById('result');
       var canvas = document.getElementById('grid-canvas');
 
-      exp.addEventListener('input', function () { expVal.textContent = exp.value + ' years'; });
+      exp.addEventListener('input', function () { expVal.textContent = exp.value + ' años'; });
 
       function draw() {
         if (!dob.value) { dob.focus(); return; }
@@ -208,10 +209,10 @@
         var leftWeeks = Math.max(totalWeeks - livedWeeks, 0);
         var pct = Math.min(Math.round((livedWeeks / totalWeeks) * 100), 100);
 
-        document.getElementById('s-lived').textContent = livedWeeks.toLocaleString();
-        document.getElementById('s-left').textContent = leftWeeks.toLocaleString();
+        document.getElementById('s-lived').textContent = livedWeeks.toLocaleString('es-MX');
+        document.getElementById('s-left').textContent = leftWeeks.toLocaleString('es-MX');
         document.getElementById('s-pct').textContent = pct + '%';
-        document.getElementById('s-sundays').textContent = leftWeeks.toLocaleString();
+        document.getElementById('s-sundays').textContent = leftWeeks.toLocaleString('es-MX');
 
         var cols = 52, rows = years;
         var cell = 16, gap = 4, pad = 40, header = 76;
@@ -224,10 +225,10 @@
         ctx.fillRect(0, 0, w, h);
         ctx.fillStyle = '#fafafa';
         ctx.font = '600 30px Outfit, sans-serif';
-        ctx.fillText('My life in weeks', pad, 46);
+        ctx.fillText('Mi vida en semanas', pad, 46);
         ctx.fillStyle = '#8f8f98';
         ctx.font = '15px "JetBrains Mono", monospace';
-        ctx.fillText(livedWeeks.toLocaleString() + ' lived · ' + leftWeeks.toLocaleString() + ' left · ' + pct + '% — remainingweeks app', pad, 68);
+        ctx.fillText(livedWeeks.toLocaleString('es-MX') + ' vividas · ' + leftWeeks.toLocaleString('es-MX') + ' restantes · ' + pct + '% — app remainingweeks', pad, 68);
 
         for (var i = 0; i < totalWeeks; i++) {
           var col = i % cols, row = Math.floor(i / cols);
@@ -247,7 +248,7 @@
       document.getElementById('btn-calc').addEventListener('click', draw);
       document.getElementById('btn-download').addEventListener('click', function () {
         var a = document.createElement('a');
-        a.download = 'my-life-in-weeks.png';
+        a.download = 'mi-vida-en-semanas.png';
         a.href = canvas.toDataURL('image/png');
         a.click();
       });
