@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reading Speed Test — How Many Words Per Minute Do You Read?</title>
+  <title>Free Reading Speed Test — How Many Words Per Minute Do You Read?</title>
   <meta name="description" content="Free reading speed test: read a short passage, answer 3 comprehension questions, and get your words-per-minute (WPM) score compared to the average reader." />
   <link rel="canonical" href="https://www.alangloria.com/word/wpm-test" />
   <meta name="theme-color" content="#09090b" />
@@ -22,6 +22,46 @@
   <meta name="twitter:title" content="Reading Speed Test — What's your WPM?" />
   <meta name="twitter:image" content="https://www.alangloria.com/og-word.png" />
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does the reading speed test take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About one minute. You read a 190-word passage at your natural pace, answer three comprehension questions, and get your words-per-minute score instantly. No signup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good reading speed test score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The average adult scores around 238 WPM. Anything above 300 WPM with good comprehension is above average, 350–500 is a fast reader, and 500+ with solid comprehension is speed-reader territory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the test include comprehension questions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Raw speed without understanding is just skimming. The three questions verify you actually read the passage, which keeps your WPM score honest and comparable to published reading averages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I improve my reading speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Train with RSVP (one word at a time at a fixed point), practice slightly above your comfortable pace, and keep sessions short and daily. Most people can reach 1.5–2× their starting speed with consistent training while keeping comprehension."
+        }
+      }
+    ]
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -112,6 +152,20 @@
 
     .more { padding: 8px 0 24px; color: var(--dim); font-size: 14px; }
     .more a { color: var(--muted); }
+
+    .prose-block { padding: 10px 0 8px; }
+    .prose-block h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin: 30px 0 10px; }
+    .prose-block p { color: var(--muted); max-width: 66ch; margin-bottom: 12px; line-height: 1.7; }
+    .prose-block p strong { color: var(--text); }
+    .prose-block a { color: #fb7185; }
+    .prose-block table { width: 100%; border-collapse: collapse; margin: 14px 0 8px; font-size: 0.95rem; }
+    .prose-block th, .prose-block td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+    .prose-block th { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); }
+    .prose-block td { color: var(--muted); }
+    .prose-block td:first-child { color: var(--text); }
+    .faq details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+    .faq summary { cursor: pointer; font-weight: 600; color: var(--text); }
+    .faq details p { margin-top: 8px; font-size: 0.95rem; }
     footer { padding: 32px 0 44px; border-top: 1px solid var(--border); color: var(--dim); font-size: 13px; }
     footer a { color: var(--muted); text-decoration: none; margin-right: 18px; }
     footer a:hover { color: var(--text); }
@@ -200,6 +254,54 @@
           <a class="btn" href="https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956" target="_blank" rel="noopener">&#63743; Train with WoRD — free</a>
         </div>
         <p style="margin-top:18px;"><button class="btn ghost" id="btn-retry">Take it again</button></p>
+      </section>
+
+      <section class="prose-block">
+        <h2>How this reading speed test works</h2>
+        <p>
+          This is a <strong>one-minute reading and comprehension test</strong>. You read a 190-word
+          passage at your natural pace — no racing, no skimming — and the timer measures exactly how
+          long it takes. Your score is calculated as words ÷ minutes, the same words-per-minute (WPM)
+          metric used in reading research. Three quick comprehension questions verify you actually
+          read the passage, because raw speed without understanding is just skimming.
+        </p>
+
+        <h2>What your WPM score means</h2>
+        <table>
+          <thead><tr><th>Score</th><th>Level</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>Under 150 WPM</td><td>Below average</td><td>Common, and where training gains come fastest.</td></tr>
+            <tr><td>150–250 WPM</td><td>Average</td><td>Most adults land here — the mean is ~238 WPM.</td></tr>
+            <tr><td>250–350 WPM</td><td>Above average</td><td>Faster than most; close to trained territory.</td></tr>
+            <tr><td>350–500 WPM</td><td>Fast reader</td><td>Top tier of untrained readers.</td></tr>
+            <tr><td>500+ WPM</td><td>Speed reader</td><td>Elite pace — legitimate only with solid comprehension.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details open>
+            <summary>How long does the test take?</summary>
+            <p>About a minute: one short passage, three questions, instant score. Free, no signup.</p>
+          </details>
+          <details>
+            <summary>What is a good score?</summary>
+            <p>Above <strong>300 WPM with good comprehension</strong> beats the average adult (~238 WPM).
+            See the full <a href="/word/average-reading-speed">average reading speed by age and grade</a> chart.</p>
+          </details>
+          <details>
+            <summary>Can I retake it?</summary>
+            <p>Yes, as many times as you want — though re-reading the same passage inflates your score.
+            For honest progress tracking, train daily and re-test weekly.</p>
+          </details>
+          <details>
+            <summary>How do I actually get faster?</summary>
+            <p>RSVP training: one word at a time, at a pace slightly above your comfort zone, in short
+            daily sessions. That's exactly what
+            <a href="https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956" target="_blank" rel="noopener">WoRD</a>
+            does — most readers reach 1.5–2× their starting speed.</p>
+          </details>
+        </div>
       </section>
 
       <p class="more">Curious how you compare by age and reading level? See

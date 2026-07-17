@@ -827,7 +827,26 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
               <Linkedin className="w-3.5 h-3.5" /> LinkedIn
             </button>
           </div>
-          <p className="font-mono text-[10px] text-zinc-500 mt-6">
+          <div className="mt-7 pt-5 border-t border-white/[0.06]">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500 mb-2">
+              Free tools I built
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-[11px]">
+              <a href="/word/wpm-test" className="text-zinc-400 hover:text-zinc-100 transition-colors">
+                Reading speed test
+              </a>
+              <a href="/remainingweeks/weeks-left-this-year" className="text-zinc-400 hover:text-zinc-100 transition-colors">
+                Weeks left this year
+              </a>
+              <a href="/remainingweeks/calculator" className="text-zinc-400 hover:text-zinc-100 transition-colors">
+                Life in weeks calculator
+              </a>
+              <a href="/triplook/packing-list" className="text-zinc-400 hover:text-zinc-100 transition-colors">
+                Packing list generator
+              </a>
+            </div>
+          </div>
+          <p className="font-mono text-[10px] text-zinc-500 mt-5">
             © {new Date().getFullYear()} Alan Gloria
           </p>
         </GlassCard>
