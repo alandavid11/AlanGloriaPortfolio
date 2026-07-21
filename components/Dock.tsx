@@ -23,6 +23,14 @@ const RWEEKS_ID = 'remainingweeks';
 
 const APP_ITEMS = [
   {
+    id: 'raro',
+    label: 'Raro',
+    icon: '/raro-icon.webp',
+    alt: 'Raro app icon',
+    view: 'raro-detail' as const,
+    activeRing: 'ring-[#DCC08A]/50',
+  },
+  {
     id: 'triplook',
     label: 'Triplook',
     icon: '/triplook-icon.webp',

@@ -15,6 +15,9 @@ const RemainingWeeksDetailView = React.lazy(() =>
 const TriplookDetailView = React.lazy(() =>
   import('./views/TriplookDetailView').then((m) => ({ default: m.TriplookDetailView }))
 );
+const RaroDetailView = React.lazy(() =>
+  import('./views/RaroDetailView').then((m) => ({ default: m.RaroDetailView }))
+);
 const ParticleBackground3D = React.lazy(
   () => import('./components/three/ParticleBackground3D').then((m) => ({ default: m.ParticleBackground3D }))
 );
@@ -25,6 +28,12 @@ const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
     title: 'Alan Gloria — iOS Engineer',
     description:
       'iOS Engineer building clinical SDKs, retail apps at scale, and App Store products — Triplook (AI travel outfits), WoRD and RemainingWeeks. Saltillo, Mexico.',
+  },
+  'raro-detail': {
+    path: '/apps/raro',
+    title: 'Raro case study — collectible cards from real places | Alan Gloria',
+    description:
+      'How I am building Raro: an iOS camera that turns real places into collectible cards — server-side rarity rolls, world-first Card #1, Metal foils, H3 geo-cells, Supabase and App Attest.',
   },
   'triplook-detail': {
     path: '/apps/triplook',
@@ -105,11 +114,14 @@ function App() {
               onNavigateToApp={() => navigate('app-detail')}
               onNavigateToRemainingWeeks={() => navigate('remainingweeks-detail')}
               onNavigateToTriplook={() => navigate('triplook-detail')}
+              onNavigateToRaro={() => navigate('raro-detail')}
             />
           ) : currentView === 'app-detail' ? (
             <AppDetailView onBack={() => navigate('portfolio')} />
           ) : currentView === 'triplook-detail' ? (
             <TriplookDetailView onBack={() => navigate('portfolio')} />
+          ) : currentView === 'raro-detail' ? (
+            <RaroDetailView onBack={() => navigate('portfolio')} />
           ) : (
             <RemainingWeeksDetailView onBack={() => navigate('portfolio')} />
           )}

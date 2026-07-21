@@ -40,6 +40,14 @@ const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/remainingweeks-08-watch.webp', alt: 'RemainingWeeks Apple Watch complications', label: 'Apple Watch' },
 ];
 
+const RARO_SCREENSHOTS: ScreenshotItem[] = [
+  { src: '/raro-01-camara.webp', alt: 'Raro camera turning a real place into a collectible card', label: 'Capture' },
+  { src: '/raro-02-rarezas.webp', alt: 'Raro rarity tiers with foil inserts and graded cards', label: 'Rarities' },
+  { src: '/raro-03-primero.webp', alt: 'World-first Card #1 reveal with score and badges', label: 'Card #1' },
+  { src: '/raro-04-coleccion.webp', alt: 'Raro collection grid with badges and rankings', label: 'Collection' },
+  { src: '/raro-05-compartir.webp', alt: 'Sharing a Raro card to Instagram Stories with moving foil', label: 'Share' },
+];
+
 const TRIPLOOK_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/triplook-tripDetail.webp', alt: 'Triplook trip itinerary with weather and planned outfits per day', label: 'Trip' },
   { src: '/triplook-closet.webp', alt: 'Triplook digital closet with AI background-removed garments', label: 'Closet' },
@@ -146,9 +154,10 @@ interface PortfolioViewProps {
   onNavigateToApp: () => void;
   onNavigateToRemainingWeeks: () => void;
   onNavigateToTriplook: () => void;
+  onNavigateToRaro: () => void;
 }
 
-export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, onNavigateToRemainingWeeks, onNavigateToTriplook }) => {
+export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, onNavigateToRemainingWeeks, onNavigateToTriplook, onNavigateToRaro }) => {
   const reduceMotion = useReducedMotion();
   const educationData: EducationItem[] = [
     {
@@ -380,8 +389,57 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           compact
         />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          {/* Raro — newest, champagne over black */}
+          <GlassCard id="project-raro" className="lg:col-span-12 bento-card project-card project-card-raro group flex flex-col scroll-mt-24" accent="tan" revealIndex={0}>
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
+              <div>
+                <div className="flex items-start gap-3 mb-2">
+                  <img src="/raro-icon.webp" alt="Raro" className="project-emblem w-12 h-12 rounded-xl border border-white/10 shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-semibold text-zinc-50 tracking-[0.18em]">RARO</h3>
+                      <span className="tag-pill text-[#EBD9B4] border-[#DCC08A]/25 bg-[#DCC08A]/10">Launching · TestFlight</span>
+                    </div>
+                    <p className="text-xs font-mono text-zinc-500 mt-0.5">Collect the world in cards · SwiftUI + Metal</p>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Photograph a real place with the in-app camera and open it like a pack: the card can come out
+                  common… or mythic. Rarity is real — driven by how rarely that place has been scanned worldwide
+                  (H3 geo-cells). World-first scans mint the unique Card #1. Server-side luck rolls on Supabase,
+                  App Attest anti-cheat, on-device Vision grading, Metal foil shaders, and Stories sharing with
+                  foil in motion.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {['SwiftUI', 'Swift 6', 'Metal', 'Vision', 'H3', 'Supabase', 'App Attest'].map((t) => (
+                    <span key={t} className="tag-pill">{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-white/[0.06]">
+                  <a
+                    href="/apps/raro"
+                    className="inline-flex items-center gap-1 text-xs text-[#DCC08A] font-medium"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToRaro();
+                    }}
+                  >
+                    Case study <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href="/raro/"
+                    className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-200 font-medium transition-colors"
+                  >
+                    Website <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+              <ScreenshotGallery items={RARO_SCREENSHOTS} variant="phone" />
+            </div>
+          </GlassCard>
+
           {/* Triplook — flagship, Black & Tan editorial */}
-          <GlassCard id="project-triplook" className="lg:col-span-12 bento-card project-card project-card-triplook group flex flex-col scroll-mt-24" accent="tan" revealIndex={0}>
+          <GlassCard id="project-triplook" className="lg:col-span-12 bento-card project-card project-card-triplook group flex flex-col scroll-mt-24" accent="tan" revealIndex={1}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -439,7 +497,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* WoRD — featured full width */}
-          <GlassCard id="project-word" className="lg:col-span-12 bento-card project-card project-card-word group flex flex-col scroll-mt-24" accent="rose" revealIndex={1}>
+          <GlassCard id="project-word" className="lg:col-span-12 bento-card project-card project-card-word group flex flex-col scroll-mt-24" accent="rose" revealIndex={2}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">
@@ -498,7 +556,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           </GlassCard>
 
           {/* RemainingWeeks — featured full width */}
-          <GlassCard id="project-remainingweeks" className="lg:col-span-12 bento-card project-card project-card-rweeks group flex flex-col scroll-mt-24" accent="amber" revealIndex={2}>
+          <GlassCard id="project-remainingweeks" className="lg:col-span-12 bento-card project-card project-card-rweeks group flex flex-col scroll-mt-24" accent="amber" revealIndex={3}>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 items-start">
               <div>
                 <div className="flex items-start gap-3 mb-2">

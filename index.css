@@ -265,6 +265,12 @@ p {
   --project-rgb-secondary: 224, 199, 165;
 }
 
+.project-card-raro {
+  /* Raro champagne gold (#DCC08A) over pure black */
+  --project-rgb: 220, 192, 138;
+  --project-rgb-secondary: 240, 220, 180;
+}
+
 .triplook-serif {
   font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
   letter-spacing: -0.01em;
@@ -768,6 +774,10 @@ p {
 
 .deck-phone-triplook {
   --phone-glow: rgba(193, 156, 110, 0.5);
+}
+
+.deck-phone-raro {
+  --phone-glow: rgba(220, 192, 138, 0.5);
 }
 
 .deck-phone-word {

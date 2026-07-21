@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type ViewState = 'portfolio' | 'app-detail' | 'remainingweeks-detail' | 'triplook-detail';
+export type ViewState = 'portfolio' | 'app-detail' | 'remainingweeks-detail' | 'triplook-detail' | 'raro-detail';
 
 export interface NavItem {
   id: string;
