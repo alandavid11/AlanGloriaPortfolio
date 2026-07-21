@@ -103,17 +103,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.alangloria.com/triplook/support.html</loc>
+    <loc>https://www.alangloria.com/triplook/support</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.alangloria.com/triplook/privacy.html</loc>
+    <loc>https://www.alangloria.com/triplook/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://www.alangloria.com/triplook/terms.html</loc>
+    <loc>https://www.alangloria.com/triplook/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
