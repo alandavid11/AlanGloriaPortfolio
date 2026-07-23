@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ArrowUpRight, Download } from 'lucide-react';
 import { ScreenshotGallery, ScreenshotItem } from '../components/ScreenshotGallery';
 
 // Raro champagne-over-black — the case study adopts the app's own design system.
@@ -8,6 +8,10 @@ const CHAMPAGNE = '#DCC08A';
 const MUTED = 'rgba(255,255,255,0.55)';
 const CARD_BG = 'rgba(255,255,255,0.04)';
 const CARD_BORDER = 'rgba(255,255,255,0.08)';
+
+// App record 6790924401 — the store page only exists once Apple approves, so the
+// CTA stays out of the DOM until this is filled in.
+const RARO_APP_STORE_URL = '';
 
 const SCREENSHOTS: ScreenshotItem[] = [
   { src: '/raro-01-camara.webp', alt: 'Raro camera turning a real place into a collectible card', label: 'Capture' },
@@ -18,12 +22,14 @@ const SCREENSHOTS: ScreenshotItem[] = [
 ];
 
 const KEY_FEATURES = [
-  'Camera-only capture: no photo picker, no gallery. You have to physically be at the place — location freezes at the exact shutter instant.',
+  'Camera-only capture: cards can only be born in the in-app camera, never from a file. You have to physically be at the place — location is frozen inside the shutter callback itself, so photo, coordinates and timestamp arrive as one atomic package.',
   'Real scarcity: rarity is rolled server-side with odds driven by how rarely that H3 geo-cell has been scanned worldwide. Seven tiers, from common to mythic.',
   'Card #1: the first person ever to scan a place mints a unique world-first card with a champagne treatment — one per place, on the whole planet.',
-  'TCG texture: foil inserts (~5%), procedural frames (~1/12) with a per-tier minimal design ladder, factory condition, and a photo-quality grade 1–10 scored on-device by Vision.',
-  'Social layer: public profiles with a showcase, follows, a global feed of notable pulls, rankings, streaks and 23 hand-crafted badges.',
+  'TCG texture: foil inserts (~5%), a framed pull (~8.5%) drawn from six minimal vector designs arranged as a per-tier ladder, factory condition, and a photo-quality grade 1–10 scored on-device by Vision.',
+  'Social layer: public profiles with a showcase and follows, a community feed of notable pulls, rankings, streaks, and 23 badges awarded entirely server-side at the end of each mint — idempotent by count, so they apply retroactively by design.',
   'Stories sharing as growth: every shared card renders a branded template — including a 5-second video where the foil light moves continuously.',
+  'A real camera, not a viewfinder: it binds to the virtual multi-lens device so zoom crosses physical lenses the way the stock app does, with presets read from the hardware at runtime, ramped lens jumps, a persisted three-state flash, tap to focus and expose, long-press for AE/AF lock, and a ±2 EV slider.',
+  'The reveal is a five-phase ritual — flash, insertion, spin, deceleration, cascade — and the network mint runs during the spin, so latency is absorbed by the animation instead of a spinner. The tier glow only appears once the server has actually answered: the animation never lies about the outcome.',
 ];
 
 const ARCHITECTURE = [
@@ -33,6 +39,7 @@ const ARCHITECTURE = [
   'The validity gate (Vision scene classification + aesthetics) filters screens, documents and re-shots before any luck is rolled — quality lives in the grade, never in the tier.',
   'Foils are Metal layer effects driven by CoreMotion; the share pipeline re-creates them procedurally because ImageRenderer cannot rasterize shaders, and exports a dithered, Rec.709-tagged video tuned for Instagram’s re-encode.',
   'Push runs on raw APNs from pg_cron: a queue table drained every minute by an Edge Function signing ES256 JWTs, with localized loc-keys so each device renders its own language.',
+  'Analytics is first-party with zero SDKs in the binary: events batch on-device, survive relaunches, and post with the user’s JWT to a track function that validates every event name and property before a service-role insert. The privacy policy promises no third-party trackers, so the product had to be built to keep that promise.',
 ];
 
 const TECH_STACK = [
@@ -51,13 +58,15 @@ const FACTS: [string, string][] = [
   ['Price', 'Free · no ads, no IAP at launch'],
   ['Platforms', 'iPhone (iOS 18+)'],
   ['Languages', 'ES · EN · PT · FR · DE'],
-  ['Backend', 'Supabase — RPCs + 13 Edge Functions'],
-  ['Status', 'TestFlight → App Store review'],
+  ['Backend', 'Supabase — RPCs + 14 Edge Functions'],
+  ['Status', 'Submitted · in App Store review'],
 ];
 
 const TIER_LADDER = [
   { name: 'COMMON', color: 'rgba(255,255,255,0.35)' },
+  { name: 'UNCOMMON', color: 'rgba(160, 220, 190, 0.7)' },
   { name: 'RARE', color: 'rgba(140, 190, 255, 0.75)' },
+  { name: 'HOLO RARE', color: 'rgba(150, 215, 255, 0.8)' },
   { name: 'EPIC', color: 'rgba(200, 170, 255, 0.8)' },
   { name: 'LEGENDARY', color: 'rgba(240, 200, 120, 0.9)' },
   { name: 'MYTHIC', color: 'rgba(255, 160, 200, 0.85)' },
@@ -134,7 +143,7 @@ export const RaroDetailView: React.FC<RaroDetailViewProps> = ({ onBack }) => {
             className="w-24 h-24 md:w-28 md:h-28 rounded-[1.6rem] border border-white/10 shadow-lg shadow-black/40"
           />
           <div>
-            <Kicker>New app · TestFlight → App Store</Kicker>
+            <Kicker>New app · in App Store review</Kicker>
             <h1 className="text-3xl md:text-4xl font-semibold tracking-[0.22em]">RARO</h1>
             <p className="mt-3 max-w-[56ch] leading-relaxed text-sm md:text-base" style={{ color: MUTED }}>
               Photograph a real place with the in-app camera and open it like a trading-card pack: the card
@@ -241,10 +250,28 @@ export const RaroDetailView: React.FC<RaroDetailViewProps> = ({ onBack }) => {
                   ))}
                 </dl>
 
+                {RARO_APP_STORE_URL && (
+                  <button
+                    type="button"
+                    onClick={() => window.open(RARO_APP_STORE_URL, '_blank')}
+                    className="w-full mt-8 inline-flex items-center justify-center gap-2 rounded-full py-3 px-4 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: CHAMPAGNE }}
+                  >
+                    <Download className="w-4 h-4" strokeWidth={1.5} />
+                    Download on the App Store
+                  </button>
+                )}
+
                 <a
                   href="/raro/"
-                  className="w-full mt-8 inline-flex items-center justify-center gap-2 rounded-full py-3 px-4 text-sm font-semibold text-black transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: CHAMPAGNE }}
+                  className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 px-4 text-sm transition-opacity hover:opacity-90 ${
+                    RARO_APP_STORE_URL ? 'mt-3 font-medium' : 'mt-8 font-semibold text-black'
+                  }`}
+                  style={
+                    RARO_APP_STORE_URL
+                      ? { color: CHAMPAGNE, border: '1px solid rgba(220,192,138,0.3)' }
+                      : { backgroundColor: CHAMPAGNE }
+                  }
                 >
                   Visit the product website
                   <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />

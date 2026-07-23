@@ -28,6 +28,8 @@ const WORD_APP_STORE_URL =
   'https://apps.apple.com/us/app/word-speed-reading-trainer/id6757875956';
 const RWEEKS_APP_STORE_URL =
   'https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888';
+// App record 6790924401 — empty until Apple approves; the button renders only when set.
+const RARO_APP_STORE_URL = '';
 
 const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/remainingweeks-01-devices.webp', alt: 'RemainingWeeks on iPhone and Apple Watch', label: 'iPhone + Watch' },
@@ -398,7 +400,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-semibold text-zinc-50 tracking-[0.18em]">RARO</h3>
-                      <span className="tag-pill text-[#EBD9B4] border-[#DCC08A]/25 bg-[#DCC08A]/10">Launching · TestFlight</span>
+                      <span className="tag-pill text-[#EBD9B4] border-[#DCC08A]/25 bg-[#DCC08A]/10">Submitted · in review</span>
                     </div>
                     <p className="text-xs font-mono text-zinc-500 mt-0.5">Collect the world in cards · SwiftUI + Metal</p>
                   </div>
@@ -416,6 +418,18 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-white/[0.06]">
+                  {RARO_APP_STORE_URL && (
+                    <button
+                      type="button"
+                      className="btn-primary text-xs py-2 px-3"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(RARO_APP_STORE_URL, '_blank');
+                      }}
+                    >
+                      <Smartphone className="w-3.5 h-3.5" /> App Store
+                    </button>
+                  )}
                   <a
                     href="/apps/raro"
                     className="inline-flex items-center gap-1 text-xs text-[#DCC08A] font-medium"

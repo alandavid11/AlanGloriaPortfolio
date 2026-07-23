@@ -27,13 +27,13 @@ const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
     path: '/',
     title: 'Alan Gloria — iOS Engineer',
     description:
-      'iOS Engineer building clinical SDKs, retail apps at scale, and App Store products — Triplook (AI travel outfits), WoRD and RemainingWeeks. Saltillo, Mexico.',
+      'iOS Engineer building clinical SDKs, retail apps at scale, and App Store products — Raro (collectible cards from real places), Triplook (AI travel outfits), WoRD and RemainingWeeks. Saltillo, Mexico.',
   },
   'raro-detail': {
     path: '/apps/raro',
     title: 'Raro case study — collectible cards from real places | Alan Gloria',
     description:
-      'How I am building Raro: an iOS camera that turns real places into collectible cards — server-side rarity rolls, world-first Card #1, Metal foils, H3 geo-cells, Supabase and App Attest.',
+      'How I built Raro: an iOS camera that turns real places into collectible cards — server-side rarity rolls, world-first Card #1, Metal foils, H3 geo-cells, Supabase and App Attest.',
   },
   'triplook-detail': {
     path: '/apps/triplook',

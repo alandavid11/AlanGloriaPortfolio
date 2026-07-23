@@ -26,18 +26,19 @@
 <body>
 <main>
   <div class="wordmark">RARO</div>
-  <div class="updated">POLÍTICA DE PRIVACIDAD · ACTUALIZADA 2026-07-21</div>
+  <div class="updated">POLÍTICA DE PRIVACIDAD · ACTUALIZADA 2026-07-23</div>
 
   <h1>Resumen</h1>
-  <p>Raro no vende tus datos, no muestra publicidad y no usa rastreadores de terceros. Recolectamos lo mínimo necesario para operar un juego de cartas coleccionables basado en lugares reales.</p>
+  <p>Raro no vende tus datos, no muestra publicidad y no usa rastreadores de terceros. Recolectamos lo mínimo necesario para operar un juego de cartas coleccionables basado en lugares reales. Sí medimos el uso de la app, pero con analítica propia: los eventos se guardan en nuestra propia infraestructura y nunca salen de ella.</p>
 
   <h1>Qué datos recolectamos</h1>
   <ul>
     <li><strong>Cuenta</strong>: inicias sesión con Apple. Guardamos tu identificador de usuario, nombre de usuario, y si los configuras, nombre para mostrar y foto de perfil.</li>
     <li><strong>Fotos</strong>: las fotografías de lugares que tomas con la cámara de la app. La versión original de máxima resolución vive solo en tu dispositivo; al servidor sube una copia optimizada.</li>
-    <li><strong>Ubicación</strong>: se usa únicamente en el instante de la captura para determinar el lugar y su rareza. Se almacena la ubicación del disparo (privada) y la celda geográfica del lugar (~150 m). Públicamente jamás se muestra tu ubicación exacta — solo el centroide aproximado de la celda.</li>
+    <li><strong>Ubicación</strong>: se usa únicamente en el instante de la captura para determinar el lugar y su rareza. Se almacena la ubicación del disparo (privada) y la celda geográfica del lugar (celda H3 de resolución 10, ~75 m de arista). Públicamente jamás se muestra tu ubicación exacta — solo el centroide aproximado de la celda.</li>
     <li><strong>Juego</strong>: tus cartas, rarezas, puntajes, insignias, rachas, seguidores y vitrina.</li>
-    <li><strong>Dispositivo</strong>: un token de notificaciones push (si las activas) y una llave anónima de App Attest que verifica que los escaneos vienen de una app genuina en hardware Apple real. Ninguna identifica tu dispositivo ante terceros.</li>
+    <li><strong>Uso de la app</strong>: eventos de producto asociados a tu cuenta —arranque de sesión, captura iniciada, rechazo de la compuerta de validez y su motivo, carta acuñada con su tier y grado, y compartidos con su destino— para entender el embudo y la retención. Es analítica propia: se guarda en nuestra base de datos y no se envía a terceros.</li>
+    <li><strong>Dispositivo</strong>: un token de notificaciones push (si las activas) y una llave anónima de App Attest que verifica que los escaneos vienen de una app genuina en hardware Apple real. Además, cada lote de analítica incluye un identificador de sesión (nuevo en cada arranque en frío), la versión de la app, la versión de iOS, el modelo de dispositivo y tu idioma/región. Nada de esto identifica tu dispositivo ante terceros.</li>
   </ul>
 
   <h1>Para qué los usamos</h1>
@@ -45,14 +46,15 @@
     <li>Operar el juego: acuñar cartas, calcular rarezas y rankings, mostrar tu perfil público si lo compartes.</li>
     <li>Notificarte actividad relevante (drops de eventos, hitos) si activas las notificaciones.</li>
     <li>Prevenir trampas y abuso (verificación de dispositivo, señales de veracidad de la captura).</li>
+    <li>Entender cómo se usa la app y mejorarla: métricas agregadas de uso, embudo de acuñación y retención, calculadas sobre nuestros propios eventos.</li>
   </ul>
 
   <h1>Qué NO hacemos</h1>
   <ul>
     <li>No vendemos ni compartimos tus datos con anunciantes.</li>
-    <li>No usamos SDKs de publicidad ni de analítica de terceros.</li>
+    <li>No usamos SDKs de publicidad ni de analítica de terceros — nuestra analítica de producto es propia y se queda en nuestra infraestructura.</li>
     <li>No rastreamos tu ubicación en segundo plano — solo en el momento de la captura, con la app abierta.</li>
-    <li>No accedemos a tu galería de fotos: la única cámara es la de la app.</li>
+    <li>No leemos tu galería de fotos: toda carta nace en la cámara de la app, nunca de un archivo. Lo único que puedes elegir de tu galería es tu foto de perfil, y solo cuando tú abres el selector.</li>
   </ul>
 
   <h1>Dónde viven tus datos</h1>
@@ -74,26 +76,35 @@
   <p><a href="mailto:thealandavid11@gmail.com">thealandavid11@gmail.com</a></p>
 
   <div class="lang">
-  <div class="updated">PRIVACY POLICY · UPDATED 2026-07-21</div>
+  <div class="updated">PRIVACY POLICY · UPDATED 2026-07-23</div>
 
   <h1>Summary</h1>
-  <p>Raro does not sell your data, shows no ads, and uses no third-party trackers. We collect the minimum needed to run a collectible card game based on real places.</p>
+  <p>Raro does not sell your data, shows no ads, and uses no third-party trackers. We collect the minimum needed to run a collectible card game based on real places. We do measure app usage, but with first-party analytics: events land in our own infrastructure and never leave it.</p>
 
   <h1>What we collect</h1>
   <ul>
     <li><strong>Account</strong>: you sign in with Apple. We store your user identifier, username, and — if you set them — display name and profile photo.</li>
     <li><strong>Photos</strong>: the photos of places you take with the in-app camera. The full-resolution original stays only on your device; an optimized copy is uploaded.</li>
-    <li><strong>Location</strong>: used only at the moment of capture to determine the place and its rarity. We store the shutter location (private) and the place's geographic cell (~150 m). Your exact location is never shown publicly — only the approximate cell centroid.</li>
+    <li><strong>Location</strong>: used only at the moment of capture to determine the place and its rarity. We store the shutter location (private) and the place's geographic cell (an H3 resolution-10 cell, ~75 m edge). Your exact location is never shown publicly — only the approximate cell centroid.</li>
     <li><strong>Gameplay</strong>: your cards, rarities, scores, badges, streaks, followers and showcase.</li>
-    <li><strong>Device</strong>: a push notification token (if you enable them) and an anonymous App Attest key that verifies scans come from a genuine app on real Apple hardware. Neither identifies your device to third parties.</li>
+    <li><strong>App usage</strong>: product events linked to your account — session start, capture started, validity-gate rejection and its reason, card minted with its tier and grade, and shares with their destination — to understand the funnel and retention. This is first-party analytics: it lands in our own database and is not sent to third parties.</li>
+    <li><strong>Device</strong>: a push notification token (if you enable them) and an anonymous App Attest key that verifies scans come from a genuine app on real Apple hardware. Each analytics batch also carries a session identifier (new on every cold start), the app version, the iOS version, the device model and your language/region. None of this identifies your device to third parties.</li>
+  </ul>
+
+  <h1>What we use it for</h1>
+  <ul>
+    <li>Running the game: minting cards, computing rarities and rankings, showing your public profile if you share it.</li>
+    <li>Notifying you about relevant activity (event drops, milestones) if you enable notifications.</li>
+    <li>Preventing cheating and abuse (device verification, capture-integrity signals).</li>
+    <li>Understanding how the app is used and improving it: aggregate usage metrics, mint funnel and retention, computed over our own events.</li>
   </ul>
 
   <h1>What we DON'T do</h1>
   <ul>
     <li>We don't sell or share your data with advertisers.</li>
-    <li>No third-party ad or analytics SDKs.</li>
+    <li>No third-party ad or analytics SDKs — our product analytics is first-party and stays on our own infrastructure.</li>
     <li>No background location tracking — capture moment only, with the app open.</li>
-    <li>No photo library access: the in-app camera is the only way in.</li>
+    <li>We don't read your photo library: every card is born in the in-app camera, never from a file. The only thing you can pick from your library is your profile picture, and only when you open the picker yourself.</li>
   </ul>
 
   <h1>Storage</h1>

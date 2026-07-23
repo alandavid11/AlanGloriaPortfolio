@@ -25,7 +25,13 @@
       color: #DCC08A; padding: 13px 26px; border-radius: 999px; text-decoration: none;
       font-size: 11px; letter-spacing: .22em; font-weight: 600;
     }
+    /* El display de autor le gana a [hidden] del navegador; sin esto el CTA se
+       ve aunque no haya URL de tienda. */
+    [hidden] { display: none !important; }
     .soon { margin-top: 14px; font-size: 10px; letter-spacing: .18em; color: rgba(255,255,255,.35); }
+    .req { margin-top: 10px; font-size: 10px; letter-spacing: .18em; color: rgba(255,255,255,.28); }
+    .links { margin-top: 24px; margin-bottom: 48px; display: flex; gap: 12px; align-items: center; font-size: 10px; letter-spacing: .15em; color: rgba(255,255,255,.2); }
+    .links a { color: rgba(255,255,255,.45); text-decoration: none; }
     .back { position: fixed; bottom: 28px; font-size: 10px; letter-spacing: .15em; color: rgba(255,255,255,.3); text-decoration: none; }
     .card {
       margin-top: 40px; width: 150px; aspect-ratio: 63/88; border-radius: 12px;
@@ -42,12 +48,20 @@
   <div class="profile" id="profileLine" hidden></div>
   <p class="tagline" id="tagline">Fotografía lugares reales y conviértelos en cartas coleccionables — con rareza, foils y ediciones numeradas.</p>
   <a class="cta" id="cta" href="#" hidden>DESCARGAR EN APP STORE</a>
-  <div class="soon" id="soon">PRÓXIMAMENTE EN APP STORE</div>
+  <div class="soon" id="soon">EN REVISIÓN DE APP STORE</div>
+  <div class="req" id="req">IPHONE · iOS 18 O SUPERIOR</div>
+  <div class="links">
+    <a href="/raro/privacy/" id="lnkPrivacy">Privacidad</a>
+    <span>·</span>
+    <a href="/raro/terms/" id="lnkTerms">Términos</a>
+  </div>
   <a class="back" href="/">← alangloria.com</a>
   <script>
-    // Cuando la app esté publicada, poner aquí la URL de App Store y quitar el "hidden" del CTA.
+    // Al aprobarse: pegar aquí la URL de App Store. El CTA y el ocultado del
+    // aviso de revisión ya están cableados más abajo.
     var APP_STORE_URL = "";
-    var en = !/^es|^pt|^fr|^de/.test(navigator.language);
+    // Solo el español cae a la copia en español; todo lo demás va en inglés.
+    var en = !/^es/i.test(navigator.language || "");
     var match = location.pathname.match(/^\/raro\/u\/([A-Za-z0-9_\.\-]+)/);
     if (match) {
       var el = document.getElementById("profileLine");
@@ -61,7 +75,12 @@
       document.getElementById("tagline").textContent =
         "Photograph real places and turn them into collectible cards — with rarity, foils and numbered editions.";
     }
-    if (en) document.getElementById("soon").textContent = "COMING SOON TO THE APP STORE";
+    if (en) {
+      document.getElementById("soon").textContent = "IN APP STORE REVIEW";
+      document.getElementById("req").textContent = "IPHONE · iOS 18 OR LATER";
+      document.getElementById("lnkPrivacy").textContent = "Privacy";
+      document.getElementById("lnkTerms").textContent = "Terms";
+    }
     if (APP_STORE_URL) {
       var cta = document.getElementById("cta");
       cta.href = APP_STORE_URL; cta.hidden = false;

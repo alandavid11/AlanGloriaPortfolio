@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 const PHONES = [
   {
     name: 'Raro',
-    meta: 'App Store · Soon',
+    meta: 'App Store · In review',
     anchorId: 'project-raro',
     icon: '/raro-icon.webp',
     src: '/raro-app-home.webp',
@@ -134,7 +134,7 @@ export const ProductDeck: React.FC = () => {
       <div className="product-deck-caption">
         <div>
           <p className="section-kicker">Product deck</p>
-          <h2>Four iOS apps and a live SaaS — the newest one launching now.</h2>
+          <h2>Four iOS apps and a live SaaS — Raro is the newest.</h2>
         </div>
         <span className="deck-link">Selected work</span>
       </div>
