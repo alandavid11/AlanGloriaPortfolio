@@ -9,13 +9,15 @@ export const experienceData: ExperienceItem[] = [
     summary:
       'Own delivery on a clinical-grade iOS SDK: feature work, architecture, real-time device streams, and the team’s AI-assisted development standard.',
     highlights: [
+      'Analyzed the app architecture to remove bottlenecks hit by 347 tagged regression tests: critical-path run 5h46m → ~4h23m (~24%), freeing ~7.3 machine-hours per full run across 7 parallel CI machines.',
       'Led GitHub Copilot & Gemini CLI adoption — parallel SDK release tracks for the first time without adding headcount.',
       'Authored 250+ of 350+ Appium/Kotlin tests integrated into TestRail; expanded coverage ~40pts with zero false positives over 9 releases.',
       'Architected GitHub Actions + Fastlane CI/CD (~40% faster builds) enabling weekly releases with zero rollbacks in 9 months.',
     ],
     metrics: [
+      { value: '-24%', label: 'regression runtime' },
       { value: '350+', label: 'automated tests' },
-      { value: '~40%', label: 'faster CI' },
+      { value: '~40%', label: 'faster builds' },
       { value: 'Weekly', label: 'release cadence' },
     ],
     logo: '/itjuana-logo.webp',
