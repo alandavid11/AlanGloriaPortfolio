@@ -29,7 +29,7 @@ const WORD_APP_STORE_URL =
 const RWEEKS_APP_STORE_URL =
   'https://apps.apple.com/us/app/remainingweeks-time-left/id6785275888';
 // App record 6790924401 — empty until Apple approves; the button renders only when set.
-const RARO_APP_STORE_URL = '';
+const RARO_APP_STORE_URL = 'https://apps.apple.com/app/id6790924401';
 
 const RWEEKS_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/remainingweeks-01-devices.webp', alt: 'RemainingWeeks on iPhone and Apple Watch', label: 'iPhone + Watch' },
@@ -400,7 +400,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-semibold text-zinc-50 tracking-[0.18em]">RARO</h3>
-                      <span className="tag-pill text-[#EBD9B4] border-[#DCC08A]/25 bg-[#DCC08A]/10">Submitted · in review</span>
+                      <span className="tag-pill text-[#EBD9B4] border-[#DCC08A]/25 bg-[#DCC08A]/10">App Store · New · ES/EN</span>
                     </div>
                     <p className="text-xs font-mono text-zinc-500 mt-0.5">Collect the world in cards · SwiftUI + Metal</p>
                   </div>

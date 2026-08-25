@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 const PHONES = [
   {
     name: 'Raro',
-    meta: 'App Store · In review',
+    meta: 'App Store · New',
     anchorId: 'project-raro',
     icon: '/raro-icon.webp',
     src: '/raro-app-home.webp',

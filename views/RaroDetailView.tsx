@@ -11,7 +11,7 @@ const CARD_BORDER = 'rgba(255,255,255,0.08)';
 
 // App record 6790924401 — the store page only exists once Apple approves, so the
 // CTA stays out of the DOM until this is filled in.
-const RARO_APP_STORE_URL = '';
+const RARO_APP_STORE_URL = 'https://apps.apple.com/app/id6790924401';
 
 const SCREENSHOTS: ScreenshotItem[] = [
   { src: '/raro-01-camara.webp', alt: 'Raro camera turning a real place into a collectible card', label: 'Capture' },
@@ -59,7 +59,7 @@ const FACTS: [string, string][] = [
   ['Platforms', 'iPhone (iOS 18+)'],
   ['Languages', 'ES · EN · PT · FR · DE'],
   ['Backend', 'Supabase — RPCs + 14 Edge Functions'],
-  ['Status', 'Submitted · in App Store review'],
+  ['Status', 'App Store · v1.0'],
 ];
 
 const TIER_LADDER = [
@@ -143,7 +143,7 @@ export const RaroDetailView: React.FC<RaroDetailViewProps> = ({ onBack }) => {
             className="w-24 h-24 md:w-28 md:h-28 rounded-[1.6rem] border border-white/10 shadow-lg shadow-black/40"
           />
           <div>
-            <Kicker>New app · in App Store review</Kicker>
+            <Kicker>New app · on the App Store</Kicker>
             <h1 className="text-3xl md:text-4xl font-semibold tracking-[0.22em]">RARO</h1>
             <p className="mt-3 max-w-[56ch] leading-relaxed text-sm md:text-base" style={{ color: MUTED }}>
               Photograph a real place with the in-app camera and open it like a trading-card pack: the card
