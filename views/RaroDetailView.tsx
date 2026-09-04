@@ -59,7 +59,7 @@ const FACTS: [string, string][] = [
   ['Platforms', 'iPhone (iOS 18+)'],
   ['Languages', 'ES · EN · PT · FR · DE'],
   ['Backend', 'Supabase — RPCs + 14 Edge Functions'],
-  ['Status', 'App Store · v1.0'],
+  ['Status', 'App Store · v1.1'],
 ];
 
 const TIER_LADDER = [

@@ -7,6 +7,8 @@
   <meta name="description" content="Fotografía lugares reales y conviértelos en cartas coleccionables con rareza, foils y ediciones numeradas.">
   <meta property="og:title" content="RARO — Colecciona el mundo en cartas">
   <meta property="og:description" content="Fotografía lugares reales y conviértelos en cartas coleccionables.">
+  <meta name="apple-itunes-app" content="app-id=6790924401">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Raro","operatingSystem":"iOS 18","applicationCategory":"GameApplication","url":"https://www.alangloria.com/raro/","installUrl":"https://apps.apple.com/app/id6790924401","author":{"@type":"Person","name":"Alan Gloria","url":"https://www.alangloria.com/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
   <style>
     :root { color-scheme: dark; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,8 +49,7 @@
   <div class="card"><span id="cardLabel">CARTA #1</span></div>
   <div class="profile" id="profileLine" hidden></div>
   <p class="tagline" id="tagline">Fotografía lugares reales y conviértelos en cartas coleccionables — con rareza, foils y ediciones numeradas.</p>
-  <a class="cta" id="cta" href="#" hidden>DESCARGAR EN APP STORE</a>
-  <div class="soon" id="soon">EN REVISIÓN DE APP STORE</div>
+  <a class="cta" id="cta" href="https://apps.apple.com/app/id6790924401">DESCARGAR EN APP STORE</a>
   <div class="req" id="req">IPHONE · iOS 18 O SUPERIOR</div>
   <div class="links">
     <a href="/raro/privacy/" id="lnkPrivacy">Privacidad</a>
@@ -57,9 +58,6 @@
   </div>
   <a class="back" href="/">← alangloria.com</a>
   <script>
-    // Al aprobarse: pegar aquí la URL de App Store. El CTA y el ocultado del
-    // aviso de revisión ya están cableados más abajo.
-    var APP_STORE_URL = "https://apps.apple.com/app/id6790924401";
     // Solo el español cae a la copia en español; todo lo demás va en inglés.
     var en = !/^es/i.test(navigator.language || "");
     var match = location.pathname.match(/^\/raro\/u\/([A-Za-z0-9_\.\-]+)/);
@@ -76,15 +74,10 @@
         "Photograph real places and turn them into collectible cards — with rarity, foils and numbered editions.";
     }
     if (en) {
-      document.getElementById("soon").textContent = "IN APP STORE REVIEW";
+      document.getElementById("cta").textContent = "DOWNLOAD ON THE APP STORE";
       document.getElementById("req").textContent = "IPHONE · iOS 18 OR LATER";
       document.getElementById("lnkPrivacy").textContent = "Privacy";
       document.getElementById("lnkTerms").textContent = "Terms";
-    }
-    if (APP_STORE_URL) {
-      var cta = document.getElementById("cta");
-      cta.href = APP_STORE_URL; cta.hidden = false;
-      document.getElementById("soon").hidden = true;
     }
   </script>
 </body>
