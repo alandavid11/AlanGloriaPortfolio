@@ -712,8 +712,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: clamp(1.1rem, 4vw, 2.4rem);
-  margin-top: clamp(-5rem, -8.5vw, -3rem);
+  gap: clamp(1.5rem, 5vw, 3rem);
+  margin-top: 0;
   padding-bottom: 1.5rem;
 }
 
@@ -723,23 +723,27 @@ p {
 }
 
 .deck-phone + .deck-phone {
-  margin-top: 1.1rem;
+  margin-top: 0.8rem;
 }
 
 .deck-phone-tilt {
   position: relative;
   display: block;
-  transform: rotate(-3.2deg);
+  transform: rotate(-2.5deg);
   filter: drop-shadow(0 34px 30px rgba(0, 0, 0, 0.5));
   transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out);
 }
 
 .deck-phone + .deck-phone .deck-phone-tilt {
-  transform: rotate(3.2deg);
+  transform: rotate(2.5deg);
 }
 
 .deck-phone:nth-child(3) .deck-phone-tilt {
-  transform: rotate(-2.4deg);
+  transform: rotate(-1.8deg);
+}
+
+.deck-phone:nth-child(4) .deck-phone-tilt {
+  transform: rotate(2deg);
 }
 
 .deck-phone:hover .deck-phone-tilt,
@@ -750,7 +754,7 @@ p {
 
 .deck-phone-frame {
   display: block;
-  width: clamp(8.6rem, 16.5vw, 10.4rem);
+  width: clamp(8rem, 15vw, 9.8rem);
   aspect-ratio: 9 / 19.5;
   padding: 0.32rem;
   border-radius: 1.7rem;
@@ -958,10 +962,10 @@ p {
     margin-top: 0.5rem;
   }
 
-  /* Three phones no longer fit side by side on small screens — swipeable row */
+  /* Four phones no longer fit side by side on small screens — swipeable row */
   .deck-phones {
-    margin-top: -2.4rem;
-    gap: 1rem;
+    margin-top: 0;
+    gap: 1.2rem;
     justify-content: flex-start;
     overflow-x: auto;
     scroll-snap-type: x mandatory;

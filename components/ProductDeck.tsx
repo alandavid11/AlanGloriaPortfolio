@@ -66,42 +66,6 @@ export const ProductDeck: React.FC = () => {
       <div className="product-deck-glow" aria-hidden />
 
       <div className="deck-showcase">
-        <motion.a
-          href="#project-rolya"
-          className="deck-browser"
-          aria-label="View Rolya project details"
-          onClick={(event) => handleProjectScroll(event, 'project-rolya')}
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6, ease: EASE }}
-        >
-          <span className="deck-browser-chrome">
-            <span className="deck-browser-dots" aria-hidden>
-              <i />
-              <i />
-              <i />
-            </span>
-            <span className="deck-browser-url">
-              <img src="/rolya-icon.webp" alt="" aria-hidden />
-              rolya.com.mx
-            </span>
-            <span className="deck-browser-live">
-              <span className="deck-live-dot" aria-hidden />
-              Live
-            </span>
-          </span>
-          <img
-            className="deck-browser-shot"
-            src="/rolya-01-landing-960.webp"
-            srcSet="/rolya-01-landing-960.webp 960w, /rolya-01-landing.webp 1600w"
-            sizes="(min-width: 1024px) 640px, 92vw"
-            alt="Rolya shift-scheduling SaaS landing page"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </motion.a>
-
         <div className="deck-phones">
           {PHONES.map((phone, index) => (
             <motion.a
@@ -134,7 +98,7 @@ export const ProductDeck: React.FC = () => {
       <div className="product-deck-caption">
         <div>
           <p className="section-kicker">Product deck</p>
-          <h2>Four iOS apps and a live SaaS — Raro is the newest.</h2>
+          <h2>Four iOS apps — Raro is the newest.</h2>
         </div>
         <span className="deck-link">Selected work</span>
       </div>
