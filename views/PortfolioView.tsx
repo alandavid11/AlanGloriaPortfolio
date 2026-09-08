@@ -251,7 +251,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({ onNavigateToApp, o
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="hero-shell grid grid-cols-1 lg:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)] gap-8 lg:gap-10 items-center"
+          className="hero-shell grid grid-cols-1 xl:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)] gap-8 xl:gap-10 items-center"
         >
           <div className="hero-copy">
             <div className="hero-accent-line" />

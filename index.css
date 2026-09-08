@@ -712,13 +712,20 @@ p {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: clamp(1.5rem, 5vw, 3rem);
+  gap: clamp(0.5rem, 1.4vw, 1rem);
+  max-width: 44rem;
   margin-top: 0;
+  margin-inline: auto;
+  /* Slack for the tilted frames so their corners never reach the card's overflow clip */
+  padding-inline: 0.65rem;
   padding-bottom: 1.5rem;
 }
 
 .deck-phone {
   display: block;
+  /* Phones share the deck's width instead of sizing off the viewport, so four always fit */
+  flex: 1 1 0;
+  min-width: 0;
   text-decoration: none;
 }
 
@@ -729,6 +736,9 @@ p {
 .deck-phone-tilt {
   position: relative;
   display: block;
+  width: 100%;
+  max-width: 9.8rem;
+  margin-inline: auto;
   transform: rotate(-2.5deg);
   filter: drop-shadow(0 34px 30px rgba(0, 0, 0, 0.5));
   transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out);
@@ -754,7 +764,7 @@ p {
 
 .deck-phone-frame {
   display: block;
-  width: clamp(8rem, 15vw, 9.8rem);
+  width: 100%;
   aspect-ratio: 9 / 19.5;
   padding: 0.32rem;
   border-radius: 1.7rem;
@@ -800,7 +810,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  max-width: 100%;
+  /* Slight bleed into the row gap keeps "RemainingWeeks" readable on the narrower frames */
+  max-width: calc(100% + 0.75rem);
   padding: 0.28rem 0.55rem 0.28rem 0.34rem;
   border-radius: 999px;
   background: rgba(9, 9, 11, 0.88);
@@ -966,6 +977,7 @@ p {
   .deck-phones {
     margin-top: 0;
     gap: 1.2rem;
+    max-width: none;
     justify-content: flex-start;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -985,8 +997,9 @@ p {
     scroll-snap-align: center;
   }
 
-  .deck-phone-frame {
+  .deck-phone-tilt {
     width: clamp(7.4rem, 38vw, 9rem);
+    max-width: none;
   }
 
   .deck-browser-url {
