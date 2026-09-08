@@ -54,14 +54,6 @@ const APP_ITEMS = [
     view: 'remainingweeks-detail' as const,
     activeRing: 'ring-orange-300/50',
   },
-  {
-    id: 'rolya',
-    label: 'Rolya',
-    icon: '/rolya-icon.webp',
-    alt: 'Rolya app icon',
-    anchor: 'project-rolya' as const,
-    activeRing: 'ring-emerald-300/50',
-  },
 ] as const;
 const VIEWPORT_MARKER = 0.5;
 const SCROLL_TARGET_ATTEMPTS = 120;
