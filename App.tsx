@@ -15,6 +15,9 @@ const RemainingWeeksDetailView = React.lazy(() =>
 const TriplookDetailView = React.lazy(() =>
   import('./views/TriplookDetailView').then((m) => ({ default: m.TriplookDetailView }))
 );
+const WalletMeDetailView = React.lazy(() =>
+  import('./views/WalletMeDetailView').then((m) => ({ default: m.WalletMeDetailView }))
+);
 const RaroDetailView = React.lazy(() =>
   import('./views/RaroDetailView').then((m) => ({ default: m.RaroDetailView }))
 );
@@ -27,7 +30,13 @@ const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
     path: '/',
     title: 'Alan Gloria — iOS Engineer',
     description:
-      'iOS Engineer building clinical SDKs, retail apps at scale, and App Store products — Raro (collectible cards from real places), Triplook (AI travel outfits), WoRD and RemainingWeeks. Saltillo, Mexico.',
+      'iOS Engineer. Founder of WalletMe + POSMe, a point of sale and Wallet loyalty platform live with businesses in Mexico, plus five iOS apps on the App Store: Raro, Triplook, WoRD, RemainingWeeks and POSMe for iPhone.',
+  },
+  'walletme-detail': {
+    path: '/apps/walletme',
+    title: 'WalletMe + POSMe case study: point of sale and Wallet loyalty | Alan Gloria',
+    description:
+      'How I built WalletMe + POSMe solo: Apple Wallet and Google Wallet loyalty passes, signed NFC taps, an offline-first point of sale on Windows, Android and iPad, CFDI 4.0 invoicing, and a SwiftUI owner app.',
   },
   'raro-detail': {
     path: '/apps/raro',
@@ -115,11 +124,14 @@ function App() {
               onNavigateToRemainingWeeks={() => navigate('remainingweeks-detail')}
               onNavigateToTriplook={() => navigate('triplook-detail')}
               onNavigateToRaro={() => navigate('raro-detail')}
+              onNavigateToWalletMe={() => navigate('walletme-detail')}
             />
           ) : currentView === 'app-detail' ? (
             <AppDetailView onBack={() => navigate('portfolio')} />
           ) : currentView === 'triplook-detail' ? (
             <TriplookDetailView onBack={() => navigate('portfolio')} />
+          ) : currentView === 'walletme-detail' ? (
+            <WalletMeDetailView onBack={() => navigate('portfolio')} />
           ) : currentView === 'raro-detail' ? (
             <RaroDetailView onBack={() => navigate('portfolio')} />
           ) : (

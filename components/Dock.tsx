@@ -10,18 +10,23 @@ interface DockProps {
 
 const NAV_ITEMS = [
   { id: 'top', label: 'Home', icon: Home },
-  { id: 'about', label: 'About', icon: User },
-  { id: 'experience', label: 'Work', icon: Briefcase },
   { id: 'projects', label: 'Projects', icon: Folder },
+  { id: 'experience', label: 'Work', icon: Briefcase },
+  { id: 'about', label: 'About', icon: User },
 ] as const;
 
 type SectionId = (typeof NAV_ITEMS)[number]['id'];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
-const WORD_ID = 'word';
-const RWEEKS_ID = 'remainingweeks';
-
 const APP_ITEMS = [
+  {
+    id: 'walletme',
+    label: 'POSMe',
+    icon: '/posme-icon.webp',
+    alt: 'POSMe app icon',
+    view: 'walletme-detail' as const,
+    activeRing: 'ring-violet-400/50',
+  },
   {
     id: 'raro',
     label: 'Raro',
@@ -39,7 +44,7 @@ const APP_ITEMS = [
     activeRing: 'ring-[#C19C6E]/50',
   },
   {
-    id: WORD_ID,
+    id: 'word',
     label: 'WoRD',
     icon: '/word-icon.webp',
     alt: 'WoRD app icon',
@@ -47,7 +52,7 @@ const APP_ITEMS = [
     activeRing: 'ring-rose-300/50',
   },
   {
-    id: RWEEKS_ID,
+    id: 'remainingweeks',
     label: 'Weeks',
     icon: '/remainingweeks-icon.webp',
     alt: 'RemainingWeeks app icon',
@@ -153,8 +158,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
       active ? 'text-sky-400' : 'text-zinc-500 group-hover:text-zinc-200'
     }`;
 
-  const activeItemId =
-    currentView === 'app-detail' ? WORD_ID : currentView === 'remainingweeks-detail' ? RWEEKS_ID : activeSection;
+  const activeItemId = APP_ITEMS.find((app) => app.view === currentView)?.id ?? activeSection;
   const showIndicator = (active: boolean) =>
     active && !reduceMotion ? (
       <motion.span
@@ -171,7 +175,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
       className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-max max-w-[94vw]"
       aria-label="Section navigation"
     >
-      <div className="liquid-glass dock-pulse relative flex items-center gap-0.5 px-1.5 py-1.5 rounded-full shadow-xl shadow-black/40 border border-white/[0.08]">
+      <div className="liquid-glass dock-pulse dock-scroll relative flex items-center gap-0.5 px-1.5 py-1.5 rounded-full overflow-x-auto shadow-xl shadow-black/40 border border-white/[0.08]">
         {NAV_ITEMS.map(({ id, label, icon: Icon }) => {
           const isActive = activeItemId === id;
           return (
@@ -179,7 +183,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
               key={id}
               type="button"
               aria-label={label}
-              className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
+              className={`group relative flex shrink-0 items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}
               onClick={() => goSection(id)}
@@ -201,19 +205,14 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
               key={app.id}
               type="button"
               aria-label={app.label}
-              className={`group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
+              className={`group relative flex shrink-0 items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}
               onClick={() => {
-                if ('view' in app) {
-                  setView(app.view);
-                  window.requestAnimationFrame(() => {
-                    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-                  });
-                } else {
-                  setView('portfolio');
-                  window.requestAnimationFrame(() => scrollToSection(app.anchor));
-                }
+                setView(app.view);
+                window.requestAnimationFrame(() => {
+                  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+                });
               }}
               aria-current={isActive ? 'page' : undefined}
             >
