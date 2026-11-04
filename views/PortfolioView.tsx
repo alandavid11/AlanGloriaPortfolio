@@ -13,7 +13,7 @@ const LINKEDIN = 'https://www.linkedin.com/in/alan-gloria/';
 const GITHUB = 'https://github.com/alandavid11';
 
 const HERO_METRICS = [
-  { value: '5', label: 'iOS apps of mine live on the App Store' },
+  { value: '6', label: 'iOS apps of mine live on the App Store' },
   { value: '3.1M', label: 'active users on the retail app I shipped at IBM' },
   { value: '99.97%', label: 'crash-free sessions at that scale' },
   { value: '~24%', label: 'faster regression runs on a clinical iOS SDK' },
@@ -29,12 +29,12 @@ const OTHER_WORK = [
     image: '/cacho-posiciones.webp',
   },
   {
-    title: 'POSMe for iPad',
-    status: 'In App Store review',
+    title: 'POSMe Caja',
+    status: 'App Store · iPad',
     body: 'The POSMe register on iPad, sharing the same offline-first core and the WalletMe NFC loyalty flow as the Windows and Android registers.',
-    href: 'https://walletme.mx/posme',
-    cta: 'walletme.mx/posme',
-    image: '/posme-02-cliente.webp',
+    href: 'https://apps.apple.com/mx/app/posme-caja/id6826106180',
+    cta: 'Get it on the App Store',
+    image: '/posme-ipad.webp',
   },
 ];
 
@@ -111,7 +111,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               iOS engineer. I build products people use, and pay for.
             </p>
             <p className="mt-6 text-base md:text-lg text-zinc-400 leading-relaxed max-w-[58ch]">
-              Native iOS for a clinical-grade medical device and a 3.1M-user retail app. On my own, five apps on the
+              Native iOS for a clinical-grade medical device and a 3.1M-user retail app. On my own, six apps on the
               App Store and{' '}
               <a href="#project-walletme" className="text-zinc-100 link-underline">
                 WalletMe + POSMe

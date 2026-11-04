@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, Smartphone } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Smartphone, Tablet } from 'lucide-react';
 import { Reveal } from './Section';
 import { ClientLogos } from './ClientLogos';
 import {
@@ -8,6 +8,7 @@ import {
   EcosystemTile,
   LIVE_STATS,
   POSME_APP_STORE_URL,
+  POSME_CAJA_APP_STORE_URL,
   WALLETME_URL,
 } from '../../data/walletme';
 
@@ -70,6 +71,9 @@ export const Flagship: React.FC<{ onOpenCaseStudy: () => void }> = ({ onOpenCase
           <div className="flex flex-wrap gap-2">
             <a className="btn-ghost text-sm py-2 px-4" href={POSME_APP_STORE_URL} target="_blank" rel="noreferrer">
               <Smartphone className="w-3.5 h-3.5" /> POSMe for iPhone
+            </a>
+            <a className="btn-ghost text-sm py-2 px-4" href={POSME_CAJA_APP_STORE_URL} target="_blank" rel="noreferrer">
+              <Tablet className="w-3.5 h-3.5" /> POSMe Caja
             </a>
             <a className="btn-ghost text-sm py-2 px-4" href={WALLETME_URL} target="_blank" rel="noreferrer">
               walletme.mx <ArrowUpRight className="w-3.5 h-3.5" />

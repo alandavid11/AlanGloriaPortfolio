@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ArrowUpRight, Smartphone } from 'lucide-react';
+import { ChevronLeft, ArrowUpRight, Smartphone, Tablet } from 'lucide-react';
 import { ScreenshotGallery } from '../components/ScreenshotGallery';
 import { ClientLogos } from '../components/home/ClientLogos';
 import {
   LIVE_STATS,
   POSME_APP_STORE_URL,
+  POSME_CAJA_APP_STORE_URL,
   POSME_IPHONE_SCREENSHOTS,
   POS_SCREENSHOTS,
   WALLETME_URL,
@@ -29,7 +30,7 @@ const PIECES: [string, string, string][] = [
   ['WalletMe pass', 'Apple Wallet · Google Wallet', 'Stamp card, rewards, Bronze, Silver and Gold tiers, promos on the lock screen, birthdays, gift cards and points or cashback on one pass.'],
   ['NFC tags', 'NTAG 424 DNA with SUN', 'Give a new customer their card or add a stamp with one tap. Every tap is signed and can’t be copied.'],
   ['POSMe register', 'Windows · Android tablets', 'The point of sale with WalletMe built in. Works offline, prints tickets and kitchen orders, opens the cash drawer.'],
-  ['POSMe for iPad', 'In App Store review', 'The same register core on iPad.'],
+  ['POSMe Caja', 'iPad · App Store', 'The same register core on iPad, published on the App Store.'],
   ['POSMe Lavado', 'iPad Air 1 · iPadOS 12', 'A car wash register on hardware the App Store no longer supports, installed ad hoc.'],
   ['POSMe for iPhone', 'SwiftUI · App Store', 'The owner app: sales against last week, every ticket and cash count, menu edits, corrections, invoicing and alerts.'],
   ['POSMe Admin', 'Internal iOS app', 'My operations app, with push alerts for new businesses and NFC tag orders ready to ship.'],
@@ -252,6 +253,15 @@ export const WalletMeDetailView: React.FC<{ onBack: () => void }> = ({ onBack })
                   style={{ color: VIOLET, border: '1px solid rgba(167,139,250,0.35)' }}
                 >
                   <Smartphone className="w-4 h-4" strokeWidth={1.5} /> POSMe for iPhone
+                </a>
+                <a
+                  href={POSME_CAJA_APP_STORE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full mt-3 inline-flex items-center justify-center gap-2 rounded-full py-3 px-4 text-sm font-medium transition-opacity hover:opacity-80"
+                  style={{ color: VIOLET, border: '1px solid rgba(167,139,250,0.35)' }}
+                >
+                  <Tablet className="w-4 h-4" strokeWidth={1.5} /> POSMe Caja for iPad
                 </a>
               </DarkCard>
               <DarkCard>

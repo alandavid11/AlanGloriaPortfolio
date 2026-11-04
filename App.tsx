@@ -30,7 +30,7 @@ const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
     path: '/',
     title: 'Alan Gloria — iOS Engineer',
     description:
-      'iOS Engineer. Founder of WalletMe + POSMe, a point of sale and Wallet loyalty platform live with businesses in Mexico, plus five iOS apps on the App Store: Raro, Triplook, WoRD, RemainingWeeks and POSMe for iPhone.',
+      'iOS Engineer. Founder of WalletMe + POSMe, a point of sale and Wallet loyalty platform live with businesses in Mexico, plus six iOS apps on the App Store: Raro, Triplook, WoRD, RemainingWeeks, POSMe and POSMe Caja.',
   },
   'walletme-detail': {
     path: '/apps/walletme',

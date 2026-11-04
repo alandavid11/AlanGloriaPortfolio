@@ -2,6 +2,7 @@ import { ScreenshotItem } from '../components/ScreenshotGallery';
 
 export const WALLETME_URL = 'https://walletme.mx';
 export const POSME_APP_STORE_URL = 'https://apps.apple.com/mx/app/posme/id6824278802';
+export const POSME_CAJA_APP_STORE_URL = 'https://apps.apple.com/mx/app/posme-caja/id6826106180';
 
 /**
  * Real adoption numbers, filled in by Alan. Every surface that reads this hides itself
@@ -38,7 +39,7 @@ export const ECOSYSTEM_TILES: EcosystemTile[] = [
     src: '/posme-01-caja.webp',
     alt: 'POSMe register running at a café counter',
     title: 'POSMe register',
-    detail: 'Windows, Android tablets and iPad. One TypeScript core on Tauri 2 and Rust that keeps selling without internet.',
+    detail: 'Windows, Android tablets and iPad, with POSMe Caja on the App Store. One TypeScript core on Tauri 2 and Rust that keeps selling without internet.',
   },
   {
     kind: 'image',
