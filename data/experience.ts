@@ -4,30 +4,32 @@ export const experienceData: ExperienceItem[] = [
   {
     company: 'ITJuana',
     role: 'iOS Engineer',
-    period: 'Jul 2024 — Present',
-    context: 'Remote · Consulting · Clinical SDK (Healthcare)',
+    period: 'Jul 2024 – Present',
+    context: 'Remote · Consulting · Clinical iOS SDK (Healthcare) · V&V',
     summary:
-      'Own delivery on a clinical-grade iOS SDK: feature work, architecture, real-time device streams, and the team’s AI-assisted development standard.',
+      'Verification and validation across an entire clinical-grade iOS SDK: native UI suites, Appium automation, the CI that runs them, and the team’s AI-assisted development standard.',
     highlights: [
+      'Took the native iOS CI from a 30% to a 99% daily pass rate across 550+ tests by adding variable parallelization across the available machines, cutting execution time by at least half.',
+      'Found a day-zero bug where Appium could not read SpringBoard while pairing with the transmitter. For about two years it was the #1 cause of iOS transmitter test failures, 8 to 10 minutes lost per failed run; failures from it dropped to zero.',
+      'Fixed two release-wide CI breakages that the device lab, tools and native teams could not: devices stuck in “preparing device” stalling the whole iOS Appium run, and an app-uninstall failure breaking every native UI test.',
+      'Built a tool to run and publish native iOS test results on demand, where before only CI could.',
       'Analyzed the app architecture to remove bottlenecks hit by 347 tagged regression tests: critical-path run 5h46m → ~4h23m (~24%), freeing ~7.3 machine-hours per full run across 7 parallel CI machines.',
-      'Tracked down and fixed a day-zero SpringBoard read leak that made the heaviest test feature chronically flaky: flakiness on it dropped to zero.',
-      'Led GitHub Copilot & Gemini CLI adoption — parallel SDK release tracks for the first time without adding headcount.',
-      'Authored 250+ of 350+ Appium/Kotlin tests integrated into TestRail; expanded coverage ~40pts with zero false positives over 9 releases.',
-      'Architected GitHub Actions + Fastlane CI/CD (~40% faster builds) enabling weekly releases with zero rollbacks in 9 months.',
+      'Architected GitHub Actions + Fastlane CI/CD (~40% faster builds), enabling weekly releases with zero rollbacks in 9 months.',
+      'Led GitHub Copilot and Gemini CLI adoption, freeing the capacity to run two SDK release tracks in parallel for the first time without adding headcount.',
     ],
     metrics: [
+      { value: '30→99%', label: 'daily pass rate, 550+ tests' },
+      { value: '≥50%', label: 'less CI run time' },
+      { value: '0', label: 'SpringBoard timeouts' },
       { value: '-24%', label: 'regression runtime' },
-      { value: '350+', label: 'automated tests' },
-      { value: '~40%', label: 'faster builds' },
-      { value: 'Weekly', label: 'release cadence' },
     ],
     logo: '/itjuana-logo.webp',
-    tags: ['Swift', 'Appium', 'Fastlane', 'GitHub Actions', 'Gemini CLI'],
+    tags: ['Swift', 'XCTest', 'Appium', 'Fastlane', 'GitHub Actions'],
   },
   {
     company: 'IBM',
     role: 'iOS Engineer',
-    period: 'May 2023 — May 2024',
+    period: 'May 2023 – May 2024',
     context: 'Remote · US Home-Improvement Retail · 3.1M active users',
     summary:
       'End-to-end feature ownership on a top US retail iOS app — SwiftUI/UIKit hybrid surfaces, analytics integrity, crash stability, and push re-engagement.',
@@ -48,7 +50,7 @@ export const experienceData: ExperienceItem[] = [
   {
     company: 'Freelance',
     role: 'iOS Developer',
-    period: 'Jan 2022 — May 2023',
+    period: 'Jan 2022 – May 2023',
     context: 'Saltillo, MX · B2C · Restaurant Discovery',
     summary:
       'Solo-built a native restaurant discovery app from zero through App Store release — architecture, UI/UX, Firebase backend, and post-launch updates.',
@@ -68,7 +70,7 @@ export const experienceData: ExperienceItem[] = [
   {
     company: 'BorgWarner',
     role: 'Software & CI Engineer',
-    period: 'Feb 2021 — May 2023',
+    period: 'Feb 2021 – May 2023',
     context: 'Saltillo, MX · Automotive Manufacturing',
     summary:
       'Built shop-floor tools in Swift & C# across 3 production lines — SQL systems, Power BI dashboards, and digital suggestion platform for 1,800+ employees.',

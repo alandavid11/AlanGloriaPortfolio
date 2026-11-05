@@ -16,7 +16,7 @@ const HERO_METRICS = [
   { value: '6', label: 'iOS apps of mine live on the App Store' },
   { value: '3.1M', label: 'active users on the retail app I shipped at IBM' },
   { value: '99.97%', label: 'crash-free sessions at that scale' },
-  { value: '~24%', label: 'faster regression runs on a clinical iOS SDK' },
+  { value: '99%', label: 'daily pass rate on 550+ native iOS tests, up from 30%' },
 ];
 
 const OTHER_WORK = [
