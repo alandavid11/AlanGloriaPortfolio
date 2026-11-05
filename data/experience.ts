@@ -11,7 +11,7 @@ export const experienceData: ExperienceItem[] = [
     highlights: [
       'Took the native iOS CI from a 30% to a 99% daily pass rate across 550+ tests by adding variable parallelization across the available machines, cutting execution time by at least half.',
       'Found a day-zero bug where Appium could not read SpringBoard while pairing with the transmitter. For about two years it was the #1 cause of iOS transmitter test failures, 8 to 10 minutes lost per failed run; failures from it dropped to zero.',
-      'Fixed two release-wide CI breakages that the device lab, tools and native teams could not: devices stuck in “preparing device” stalling the whole iOS Appium run, and an app-uninstall failure breaking every native UI test.',
+      'Wrote a device-health repair script that fixed two release-wide CI breakages the device lab, tools and native teams could not: devices stuck in “preparing device” stalling the whole iOS Appium run, and an app-uninstall failure breaking every native UI test.',
       'Built a tool to run and publish native iOS test results on demand, where before only CI could.',
       'Analyzed the app architecture to remove bottlenecks hit by 347 tagged regression tests: critical-path run 5h46m → ~4h23m (~24%), freeing ~7.3 machine-hours per full run across 7 parallel CI machines.',
       'Architected GitHub Actions + Fastlane CI/CD (~40% faster builds), enabling weekly releases with zero rollbacks in 9 months.',
