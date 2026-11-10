@@ -114,8 +114,8 @@ export const POS_SCREENSHOTS: ScreenshotItem[] = [
 export const POSME_IPHONE_SCREENSHOTS: ScreenshotItem[] = [
   { src: '/posme-iphone-inicio.webp', alt: 'POSMe for iPhone home with today versus last week', label: 'Today' },
   { src: '/posme-iphone-ventas.webp', alt: 'POSMe for iPhone sales list per ticket', label: 'Sales' },
-  { src: '/posme-iphone-corte.webp', alt: 'POSMe for iPhone cash counts per branch and register, expected versus counted', label: 'Cash counts' },
-  { src: '/posme-iphone-inventario.webp', alt: 'POSMe for iPhone inventory with low-stock items per branch', label: 'Inventory' },
+  { src: '/posme-iphone-corte.webp', alt: 'POSMe for iPhone cash counts per register, with the ones that came out over or short', label: 'Cash counts' },
+  { src: '/posme-iphone-inventario.webp', alt: 'POSMe for iPhone inventory with low-stock items and how long each one lasts', label: 'Inventory' },
   { src: '/posme-iphone-compras.webp', alt: 'POSMe for iPhone shopping list grouped by supplier', label: 'Purchasing' },
   { src: '/posme-iphone-analisis.webp', alt: 'POSMe for iPhone AI monthly analysis report', label: 'Monthly report' },
   { src: '/posme-autofactura.webp', alt: 'Customer self-invoicing page opened from the ticket QR', label: 'Self-invoice' },

@@ -169,8 +169,8 @@ export const HeroPhone: React.FC = () => {
                 </div>
                 <div className="hp-small hp-small-posme">
                   <p className="hp-small-app">POSMe · today</p>
-                  <p className="hp-small-number">$9,191</p>
-                  <p className="hp-small-label">+19% vs last week</p>
+                  <p className="hp-small-number">$8,051</p>
+                  <p className="hp-small-label">+20% vs last week</p>
                 </div>
               </div>
             </div>
