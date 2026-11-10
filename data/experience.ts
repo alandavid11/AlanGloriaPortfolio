@@ -9,13 +9,11 @@ export const experienceData: ExperienceItem[] = [
     summary:
       'Verification and validation across an entire clinical-grade iOS SDK: native UI suites, Appium automation, the CI that runs them, and the team’s AI-assisted development standard.',
     highlights: [
-      'Took the native iOS CI from a 30% to a 99% daily pass rate across 550+ tests by adding variable parallelization across the available machines, cutting execution time by at least half.',
-      'Found a day-zero bug where Appium could not read SpringBoard while pairing with the transmitter. For about two years it was the #1 cause of iOS transmitter test failures, 8 to 10 minutes lost per failed run; failures from it dropped to zero.',
-      'Wrote a device-health repair script that fixed two release-wide CI breakages the device lab, tools and native teams could not: devices stuck in “preparing device” stalling the whole iOS Appium run, and an app-uninstall failure breaking every native UI test.',
-      'Built a tool to run and publish native iOS test results on demand, where before only CI could.',
-      'Analyzed the app architecture to remove bottlenecks hit by 347 tagged regression tests: critical-path run 5h46m → ~4h23m (~24%), freeing ~7.3 machine-hours per full run across 7 parallel CI machines.',
-      'Architected GitHub Actions + Fastlane CI/CD (~40% faster builds), enabling weekly releases with zero rollbacks in 9 months.',
-      'Led GitHub Copilot and Gemini CLI adoption, freeing the capacity to run two SDK release tracks in parallel for the first time without adding headcount.',
+      'Raised the native iOS CI daily pass rate from 30% to 99% across 550+ automated tests by introducing variable parallelization across the available build machines, cutting execution time by at least 50%.',
+      'Diagnosed and fixed a day-zero defect where Appium could not read SpringBoard during transmitter pairing. It had been the #1 cause of iOS transmitter test failures for about two years (8 to 10 minutes lost per failed run); failures from it dropped to zero.',
+      'Wrote a device-health repair script that resolved two release-wide CI outages the device lab, tools and native teams could not fix: devices stuck in “preparing device” stalling the full iOS Appium run, and an app-uninstall failure breaking every native UI test.',
+      'Architected the GitHub Actions and Fastlane CI/CD pipeline, cutting build times by ~40% and enabling weekly releases with zero rollbacks over nine months; removed architectural bottlenecks hit by 347 regression tests, reducing the critical-path run from 5h46m to ~4h23m (~24%).',
+      'Led GitHub Copilot and Gemini CLI adoption, freeing the capacity to run two SDK release tracks in parallel for the first time without adding headcount; built a tool to run and publish native iOS test results on demand, previously possible only through CI.',
     ],
     metrics: [
       { value: '30→99%', label: 'daily pass rate, 550+ tests' },
@@ -32,12 +30,12 @@ export const experienceData: ExperienceItem[] = [
     period: 'May 2023 – May 2024',
     context: 'Remote · US Home-Improvement Retail · 3.1M active users',
     summary:
-      'End-to-end feature ownership on a top US retail iOS app — SwiftUI/UIKit hybrid surfaces, analytics integrity, crash stability, and push re-engagement.',
+      'End-to-end feature ownership on a top US retail iOS app: SwiftUI/UIKit hybrid surfaces, analytics integrity, crash stability, and push re-engagement.',
     highlights: [
-      'Pioneered GitHub Copilot on the iOS squad; team handled significantly more concurrent work within unchanged sprint capacity.',
-      'Integrated Embrace SDK — crash-free sessions 99.71% → 99.97% on a 3.1M-user app.',
-      'Rebuilt analytics layer (+20% funnel accuracy); Airship push flows contributed to +15% 30-day retention.',
-      'Resolved critical deep-link failures; documentation became the team reference for URL schemes & Universal Links.',
+      'Owned the Embrace SDK integration for crash reporting; the visibility it added underpinned a stability push that raised crash-free sessions from 99.71% to 99.97% on an app with 3.1M active users.',
+      'Rebuilt the analytics layer, improving funnel accuracy by 20%, and shipped Airship push flows that contributed to a 15% lift in 30-day retention.',
+      'Owned features end to end across hybrid SwiftUI and UIKit surfaces and resolved critical deep-link failures; my write-up became the team reference for URL schemes and Universal Links.',
+      'Introduced GitHub Copilot to the iOS squad as its first adopter.',
     ],
     metrics: [
       { value: '3.1M', label: 'active users' },
@@ -53,7 +51,7 @@ export const experienceData: ExperienceItem[] = [
     period: 'Jan 2022 – May 2023',
     context: 'Saltillo, MX · B2C · Restaurant Discovery',
     summary:
-      'Solo-built a native restaurant discovery app from zero through App Store release — architecture, UI/UX, Firebase backend, and post-launch updates.',
+      'Solo-built a native restaurant discovery app from zero through App Store release: architecture, UI/UX, Firebase backend, and post-launch updates.',
     highlights: [
       'Shipped with Swift, SwiftUI, MVVM, Firebase Auth/Firestore, and Core Location maps & routing.',
       'Refactored to Clean Architecture with SPM modules; HIG-native UI designed from scratch.',
@@ -69,15 +67,15 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     company: 'BorgWarner',
-    role: 'Software & CI Engineer',
+    role: 'Software Engineer, Manufacturing Systems',
     period: 'Feb 2021 – May 2023',
     context: 'Saltillo, MX · Automotive Manufacturing',
     summary:
-      'Built shop-floor tools in Swift & C# across 3 production lines — SQL systems, Power BI dashboards, and digital suggestion platform for 1,800+ employees.',
+      'Built shop-floor tools in Swift & C# across 3 production lines: SQL systems, Power BI dashboards, and digital suggestion platform for 1,800+ employees.',
     highlights: [
-      'Scrap recovery tooling saved $172K USD annually by eliminating permanent write-offs.',
-      'Scan cycle time 20s → 8s; quality rework 4h → 1.5h via automated reconciliation workflows.',
-      'Mentored 3 trainees through first production-grade apps; applied SMED/5S reducing changeover 3h → 1.3h.',
+      'Built scrap-recovery tooling that saved $172K USD annually by eliminating permanent write-offs.',
+      'Automated reconciliation workflows that cut scan cycle time from 20s to 8s and quality rework from 4h to 1.5h.',
+      'Developed shop-floor software in Swift and C# across 3 production lines, plus SQL systems, Power BI dashboards and a digital suggestion platform used by 1,800+ employees; mentored 3 trainees through their first production apps.',
     ],
     metrics: [
       { value: '$172K', label: 'annual savings' },

@@ -4,9 +4,9 @@ import type { RouteSeo } from '../utils/seo';
 export const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
   portfolio: {
     path: '/',
-    title: 'Alan Gloria — iOS Engineer',
+    title: 'Alan Gloria | Senior iOS Engineer',
     description:
-      'iOS Engineer. Founder of WalletMe + POSMe, a point of sale and Wallet loyalty platform live with businesses in Mexico, plus six iOS apps on the App Store: Raro, Triplook, WoRD, RemainingWeeks, POSMe and POSMe Caja.',
+      'Senior iOS Engineer. Founder of WalletMe + POSMe, a point of sale and Wallet loyalty platform live with businesses in Mexico, plus six iOS apps on the App Store: Raro, Triplook, WoRD, RemainingWeeks, POSMe and POSMe Caja.',
   },
   'walletme-detail': {
     path: '/apps/walletme',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight, FileText, Mail, MapPin } from 'lucide-react';
 import { ExperienceCard } from '../components/ExperienceCard';
 import { HeroPhone } from '../components/home/HeroPhone';
 import { Flagship } from '../components/home/Flagship';
@@ -11,6 +11,7 @@ import { experienceData } from '../data/experience';
 const EMAIL = 'alangloriasilva@hotmail.com';
 const LINKEDIN = 'https://www.linkedin.com/in/alan-gloria/';
 const GITHUB = 'https://github.com/alandavid11';
+const RESUME = '/Alan-Gloria-CV.pdf';
 
 const HERO_METRICS = [
   { value: '6', label: 'iOS apps of mine live on the App Store' },
@@ -46,12 +47,15 @@ const FREE_TOOLS = [
 ];
 
 const STACK = [
+  { label: 'Languages', items: 'Swift, Objective-C, TypeScript, JavaScript, SQL, C#' },
   {
     label: 'iOS',
-    items: 'Swift 6, SwiftUI, UIKit, Swift Concurrency, Combine, SwiftData, WidgetKit, watchOS, Metal, Vision, AVFoundation, App Attest, PassKit, StoreKit',
+    items: 'SwiftUI, UIKit, Swift Concurrency, Combine, SwiftData, WidgetKit, watchOS, PassKit, StoreKit, CloudKit, App Attest, Metal, Vision, AVFoundation, APNs',
   },
-  { label: 'Quality', items: 'XCTest, Swift Testing, Appium, TestRail, Fastlane, GitHub Actions' },
-  { label: 'Product web', items: 'TypeScript, React 19, Next.js, Supabase, PostgreSQL with RLS, Stripe, Tauri 2 + Rust' },
+  { label: 'Testing, CI/CD', items: 'XCTest, XCUITest, Swift Testing, Appium, GitHub Actions, Fastlane, TestRail, TestFlight' },
+  { label: 'Web, backend', items: 'React, Next.js, Supabase (PostgreSQL, RLS, Edge Functions), SQLite, Tauri (Rust), Cloudflare Workers, Stripe' },
+  { label: 'AI', items: 'Claude API (structured outputs, Batch API, prompt caching), Claude Code, GitHub Copilot, Gemini CLI' },
+  { label: 'Practices', items: 'Verification and validation (V&V), offline-first architecture, Clean Architecture, MVVM' },
 ];
 
 const AI_WORKFLOW = [
@@ -108,7 +112,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               Alan Gloria
             </h1>
             <p className="mt-6 text-2xl sm:text-3xl tracking-[-0.03em] leading-tight text-zinc-400 max-w-[24ch]">
-              iOS engineer. I build products people use, and pay for.
+              Senior iOS Engineer. I build products people use, and pay for.
             </p>
             <p className="mt-6 text-base md:text-lg text-zinc-400 leading-relaxed max-w-[58ch]">
               Native iOS for a clinical-grade medical device and a 3.1M-user retail app. On my own, six apps on the
@@ -127,6 +131,9 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               </a>
               <a className="btn-ghost text-sm py-2.5 px-5" href={GITHUB} target="_blank" rel="noreferrer">
                 GitHub <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a className="btn-ghost text-sm py-2.5 px-5" href={RESUME} target="_blank" rel="noreferrer">
+                <FileText className="w-3.5 h-3.5" strokeWidth={1.75} /> Résumé
               </a>
             </div>
             <p className="mt-5 inline-flex items-center gap-1.5 text-sm text-zinc-500">
@@ -269,6 +276,9 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               </a>
               <a className="btn-ghost text-sm py-2.5 px-5" href={LINKEDIN} target="_blank" rel="noreferrer">
                 LinkedIn <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a className="btn-ghost text-sm py-2.5 px-5" href={RESUME} target="_blank" rel="noreferrer">
+                <FileText className="w-3.5 h-3.5" strokeWidth={1.75} /> Résumé
               </a>
             </div>
           </div>

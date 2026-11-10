@@ -48,6 +48,12 @@ const ARCHITECTURE = [
   'Releases that never break a sale. Signed automatic updates for Windows and Android ship over my own channel, download in the background and only install between sales. Publishing runs the 91 test suites first and stops on any failure, and verification scripts use mutations to prove each check catches the bug it guards.',
 ];
 
+const AI_IN_PRODUCTION = [
+  'The model never computes the numbers. My code calculates every KPI, chart and inventory suggestion, and Claude only explains them under a hard rule: no new sums, averages or percentages. No customer data leaves; the payload carries counts only.',
+  'Menu import from a photo. A new business sends a photo, a PDF or a spreadsheet of its menu, and Claude returns categories, products, sizes and modifiers through a strict JSON schema. The owner reviews everything before it is saved, and the prompt treats the menu as data, never as instructions.',
+  'A monthly analysis on the owner’s iPhone. Every business goes into one Batch API request at half the price, with an identical system prompt cached for an hour. Whatever the batch could not finish is retried live with a model fallback, and months with fewer than 30 sales skip the AI call.',
+  'Safe to run twice. The monthly job is idempotent: two runs, even at the same time, end in the same state and send one push per owner. A test script runs the whole pipeline against an in-memory database and fake API clients, so it cannot touch production or spend on the API.',
+];
 const FEATURES = [
   'Menu with sizes, extras and step-by-step combos, editable straight from the selling screen, or imported from a photo of a paper menu with AI.',
   'Open tabs shared by every register in a branch, split evenly or by item when it is time to pay.',
@@ -66,6 +72,7 @@ const STACK = [
   'SQLite with sync',
   'SwiftUI · UIKit',
   'PassKit · Google Wallet API',
+  'Claude API (Batch · structured outputs)',
   'Facturapi (CFDI 4.0)',
   'Stripe · Resend · Vercel',
 ];
@@ -89,6 +96,23 @@ const DarkCard: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="rounded-2xl p-5" style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}>
     {children}
   </div>
+);
+
+/** Bullets whose first sentence is set in bold as the lead. */
+const LeadList: React.FC<{ items: string[] }> = ({ items }) => (
+  <ul className="space-y-4">
+    {items.map((line) => {
+      const [lead, ...rest] = line.split('. ');
+      return (
+        <li key={line} className="flex gap-3 text-sm leading-relaxed" style={{ color: MUTED }}>
+          <span className="w-1.5 h-1.5 rounded-[2px] mt-2 shrink-0" style={{ backgroundColor: VIOLET }} />
+          <span>
+            <strong className="text-zinc-50 font-semibold">{lead}.</strong> {rest.join('. ')}
+          </span>
+        </li>
+      );
+    })}
+  </ul>
 );
 
 export const WalletMeDetailView: React.FC<{ onBack: () => void }> = ({ onBack }) => {
@@ -196,19 +220,13 @@ export const WalletMeDetailView: React.FC<{ onBack: () => void }> = ({ onBack })
             <section>
               <Kicker>Engineering</Kicker>
               <h2 className="text-2xl font-semibold mb-5">Architecture and hard problems</h2>
-              <ul className="space-y-4">
-                {ARCHITECTURE.map((line) => {
-                  const [lead, ...rest] = line.split('. ');
-                  return (
-                    <li key={line} className="flex gap-3 text-sm leading-relaxed" style={{ color: MUTED }}>
-                      <span className="w-1.5 h-1.5 rounded-[2px] mt-2 shrink-0" style={{ backgroundColor: VIOLET }} />
-                      <span>
-                        <strong className="text-zinc-50 font-semibold">{lead}.</strong> {rest.join('. ')}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
+              <LeadList items={ARCHITECTURE} />
+            </section>
+
+            <section>
+              <Kicker>AI</Kicker>
+              <h2 className="text-2xl font-semibold mb-5">Claude in production</h2>
+              <LeadList items={AI_IN_PRODUCTION} />
             </section>
 
             <section>
