@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Home, User, Briefcase, Folder } from 'lucide-react';
 import { ViewState } from '../types';
+import { RouteLink } from './RouteLink';
 
 interface DockProps {
   currentView: ViewState;
@@ -202,14 +203,14 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
         {APP_ITEMS.map((app) => {
           const isActive = activeItemId === app.id;
           return (
-            <button
+            <RouteLink
               key={app.id}
-              type="button"
+              view={app.view}
               aria-label={app.label}
               className={`group relative flex shrink-0 items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
                 isActive ? 'text-zinc-100' : 'text-zinc-500 hover:text-zinc-100'
               }`}
-              onClick={() => {
+              onNavigate={() => {
                 setView(app.view);
                 window.requestAnimationFrame(() => {
                   window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -226,7 +227,7 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
                 }`}
               />
               <span className="relative hidden sm:inline">{app.label}</span>
-            </button>
+            </RouteLink>
           );
         })}
       </div>

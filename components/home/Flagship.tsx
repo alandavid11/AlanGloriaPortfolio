@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, ArrowUpRight, Smartphone, Tablet } from 'lucide-react';
 import { Reveal } from './Section';
+import { RouteLink } from '../RouteLink';
 import { ClientLogos } from './ClientLogos';
 import {
   ECOSYSTEM_TILES,
@@ -65,9 +66,9 @@ export const Flagship: React.FC<{ onOpenCaseStudy: () => void }> = ({ onOpenCase
           </p>
         </div>
         <div className="flex flex-col gap-3 lg:items-end">
-          <button type="button" className="btn-flagship" onClick={onOpenCaseStudy}>
+          <RouteLink view="walletme-detail" onNavigate={onOpenCaseStudy} className="btn-flagship">
             Read the case study <ArrowRight className="w-4 h-4" strokeWidth={2} />
-          </button>
+          </RouteLink>
           <div className="flex flex-wrap gap-2">
             <a className="btn-ghost text-sm py-2 px-4" href={POSME_APP_STORE_URL} target="_blank" rel="noreferrer">
               <Smartphone className="w-3.5 h-3.5" /> POSMe for iPhone

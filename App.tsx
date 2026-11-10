@@ -40,10 +40,21 @@ function App() {
     setCurrentView(view);
     const route = VIEW_ROUTES[view];
     if (window.location.pathname.replace(/\/+$/, '') !== route.path.replace(/\/+$/, '')) {
-      window.history.pushState(null, '', route.path);
+      window.history.pushState({ from: viewFromPath(window.location.pathname) }, '', route.path);
     }
     applySeo(route);
   }, []);
+
+  // "Back to portfolio": if this case study was opened from the portfolio, pop that
+  // entry instead of stacking a second one, so the browser's Back button stays sane.
+  const goBack = useCallback(() => {
+    const state = window.history.state as { from?: ViewState } | null;
+    if (state?.from === 'portfolio') {
+      window.history.back();
+    } else {
+      navigate('portfolio');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     applySeo(VIEW_ROUTES[viewFromPath(window.location.pathname)]);
@@ -75,15 +86,15 @@ function App() {
               onNavigateToWalletMe={() => navigate('walletme-detail')}
             />
           ) : currentView === 'app-detail' ? (
-            <AppDetailView onBack={() => navigate('portfolio')} />
+            <AppDetailView onBack={goBack} />
           ) : currentView === 'triplook-detail' ? (
-            <TriplookDetailView onBack={() => navigate('portfolio')} />
+            <TriplookDetailView onBack={goBack} />
           ) : currentView === 'walletme-detail' ? (
-            <WalletMeDetailView onBack={() => navigate('portfolio')} />
+            <WalletMeDetailView onBack={goBack} />
           ) : currentView === 'raro-detail' ? (
-            <RaroDetailView onBack={() => navigate('portfolio')} />
+            <RaroDetailView onBack={goBack} />
           ) : (
-            <RemainingWeeksDetailView onBack={() => navigate('portfolio')} />
+            <RemainingWeeksDetailView onBack={goBack} />
           )}
         </Suspense>
       </main>
