@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p .",
+    "check": "npm run typecheck && npm run build"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

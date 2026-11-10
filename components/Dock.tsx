@@ -96,8 +96,9 @@ export const Dock: React.FC<DockProps> = ({ currentView, setView }) => {
         return section.getBoundingClientRect().top <= marker ? section : active;
       }, sections[0]);
 
-      if (isSectionId(current.id)) {
-        setActiveSection((previous) => (previous === current.id ? previous : current.id));
+      const currentId = current.id;
+      if (isSectionId(currentId)) {
+        setActiveSection((previous) => (previous === currentId ? previous : currentId));
       }
     };
 
