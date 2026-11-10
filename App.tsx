@@ -21,9 +21,6 @@ const WalletMeDetailView = React.lazy(() =>
 const RaroDetailView = React.lazy(() =>
   import('./views/RaroDetailView').then((m) => ({ default: m.RaroDetailView }))
 );
-const ParticleBackground3D = React.lazy(
-  () => import('./components/three/ParticleBackground3D').then((m) => ({ default: m.ParticleBackground3D }))
-);
 
 const VIEW_ROUTES: Record<ViewState, RouteSeo> = {
   portfolio: {
@@ -110,9 +107,6 @@ function App() {
   return (
     <div className="min-h-[100dvh] bg-[#09090b] text-zinc-50 antialiased">
       <div className="mesh-bg" aria-hidden />
-      <Suspense fallback={null}>
-        <ParticleBackground3D />
-      </Suspense>
       <div className="noise-bg" aria-hidden />
       <div className="grid-lines" aria-hidden />
 

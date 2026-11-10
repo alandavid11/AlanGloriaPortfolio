@@ -9,7 +9,6 @@ Personal portfolio for Alan Gloria, an iOS Engineer focused on native Apple plat
 - Vite
 - Framer Motion
 - Tailwind CSS
-- Three.js / React Three Fiber for lightweight visual effects
 - Vercel deployment
 
 ## Local Development
