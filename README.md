@@ -1,6 +1,6 @@
 # Alan Gloria Portfolio
 
-Personal portfolio for Alan Gloria, an iOS Engineer focused on native Apple platforms, production delivery, automated quality, and AI-assisted engineering workflows.
+Personal portfolio for Alan Gloria, a Forward Deployed Engineer and Senior iOS Engineer focused on native Apple platforms, production delivery, automated quality, and AI-assisted engineering workflows.
 
 ## Tech Stack
 

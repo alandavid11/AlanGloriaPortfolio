@@ -112,7 +112,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               Alan Gloria
             </h1>
             <p className="mt-6 text-2xl sm:text-3xl tracking-[-0.03em] leading-tight text-zinc-400 max-w-[24ch]">
-              Senior iOS Engineer. I build products people use, and pay for.
+              Forward Deployed Engineer &amp; Senior iOS Engineer. I build products people use, and pay for.
             </p>
             <p className="mt-6 text-base md:text-lg text-zinc-400 leading-relaxed max-w-[58ch]">
               Native iOS for a clinical-grade medical device and a 3.1M-user retail app. On my own, six apps on the
