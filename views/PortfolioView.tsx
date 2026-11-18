@@ -106,7 +106,7 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] mb-7">
               <span className="status-dot" aria-hidden />
-              <span className="text-xs text-zinc-400">Open to iOS roles</span>
+              <span className="text-xs text-zinc-400">Open to forward deployed and iOS roles</span>
             </div>
             <h1 className="text-6xl sm:text-7xl font-semibold tracking-[-0.055em] leading-[0.9] text-zinc-50">
               Alan Gloria
@@ -115,12 +115,13 @@ export const PortfolioView: React.FC<PortfolioViewProps> = ({
               Forward Deployed Engineer &amp; Senior iOS Engineer. I build products people use, and pay for.
             </p>
             <p className="mt-6 text-base md:text-lg text-zinc-400 leading-relaxed max-w-[58ch]">
-              Native iOS for a clinical-grade medical device and a 3.1M-user retail app. On my own, six apps on the
-              App Store and{' '}
+              I founded{' '}
               <a href="#project-walletme" className="text-zinc-100 link-underline">
                 WalletMe + POSMe
               </a>
-              , a point of sale running in real stores.
+              , a point of sale running in real stores, and I deploy it with each owner myself. Before and alongside
+              it: native iOS for a clinical-grade medical device and a 3.1M-user retail app, plus six apps on the App
+              Store.
             </p>
             <div className="flex flex-wrap items-center gap-2 mt-8">
               <a className="btn-primary text-sm py-2.5 px-5" href={`mailto:${EMAIL}`}>
